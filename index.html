@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adega Pro - Sistema de Gestão</title>
+    <title>Carbura Bar</title>
     <style>
         :root {
             --bg: #09090b;
@@ -271,7 +271,7 @@
             border-top: 1px solid var(--border);
             background: rgba(0,0,0,0.2);
             display: flex;
-           0 flex-direction: column;
+            flex-direction: column;
             gap: 12px;
         }
 
@@ -793,7 +793,7 @@
     <!-- SCRIPT DE FUNCIONAMENTO -->
     <script>
         const SENHA_GERENTE = "9104"; 
-        const URL_API = "https://script.google.com/macros/s/AKfycbx4tAxjqMVO8pywC2MIuvZDD5GgESDeYaHYS5QpgO5HqopPeofCX4rWcrXrjDKa5D8g/exec";
+        const URL_API = "https://script.google.com/macros/s/AKfycbxCU5_sL0r0R-UIVJSU_s2f_O6kJS3odpkfyU5REAY55N0VMhiVO56GpkB8qvVlxO8/exec";
         
         let produtos = [];
         let carrinho = [];
@@ -1068,7 +1068,9 @@
                 card.className = 'card-produto';
                 card.onclick = () => selecionarProdutoVenda(p);
                 
-                let precoExibicao = p.categoria === 'Tabaco' ? `Maço: R$ ${parseFloat(p.precoMaco || 0).toFixed(2)}` : `R$ ${parseFloat(p.preco || 0).toFixed(2)}`;
+                let precoExibicao = String(p.categoria || '').toLowerCase() === 'tabaco'
+                    ? `Maço: R$ ${parseFloat(p.precoMaco || 0).toFixed(2)}`
+                    : `R$ ${parseFloat(p.preco || 0).toFixed(2)}`;
                 
                 let qtdEstoque = parseInt(p.estoque) || 0;
                 let badgeHtml = "";
@@ -1148,14 +1150,22 @@
 
         function filtrarVendasUnificado() {
             let termo = document.getElementById('busca-unificada').value.toLowerCase();
-            let filtrados = produtos.filter(p => p.nome.toLowerCase().includes(termo) || (p.barcode && p.barcode.toString().includes(termo)));
+            let filtrados = produtos.filter(p => {
+                const nome = String(p.nome || "").toLowerCase();
+                const codigo = String(p.codigo || p.codigoBarras || p.barcode || "").toLowerCase();
+                return nome.includes(termo) || codigo.includes(termo);
+            });
             renderizarGridVendas(filtrados);
         }
 
         function verificarBipeUnificado(e) {
             if(e.key === 'Enter') {
                 let termo = document.getElementById('busca-unificada').value.trim();
-                let encontrado = produtos.find(p => p.barcode === termo || p.nome.toLowerCase() === termo.toLowerCase());
+                let encontrado = produtos.find(p => {
+                    const codigo = String(p.codigo || p.codigoBarras || p.barcode || "").trim();
+                    const nome = String(p.nome || "").trim().toLowerCase();
+                    return codigo === termo || nome === termo.toLowerCase();
+                });
                 if(encontrado) {
                     selecionarProdutoVenda(encontrado);
                     document.getElementById('busca-unificada').value = "";
@@ -1169,7 +1179,7 @@
             document.getElementById('modal-titulo').innerText = produto.nome;
             
             let blocoCigarro = document.getElementById('bloco-tipo-venda-modal');
-            if(produto.categoria === 'Tabaco') {
+            if(String(produto.categoria || '').toLowerCase() === 'tabaco') {
                 blocoCigarro.style.display = 'block';
             } else {
                 blocoCigarro.style.display = 'none';
@@ -1191,7 +1201,7 @@
             let precoUnitario = parseFloat(produtoSelecionadoAtual.preco || 0);
             let nomeItem = produtoSelecionadoAtual.nome;
 
-            if(produtoSelecionadoAtual.categoria === 'Tabaco') {
+            if(String(produtoSelecionadoAtual.categoria || '').toLowerCase() === 'tabaco') {
                 if(tipoVenda === 'maco') {
                     precoUnitario = parseFloat(produtoSelecionadoAtual.precoMaco || 0);
                     nomeItem += " (Maço)";
@@ -1207,6 +1217,12 @@
             } else {
                 carrinho.push({
                     id: produtoSelecionadoAtual.id,
+                    codigo: String(
+                        produtoSelecionadoAtual.codigo ||
+                        produtoSelecionadoAtual.codigoBarras ||
+                        produtoSelecionadoAtual.barcode ||
+                        ""
+                    ),
                     nome: nomeItem,
                     preco: precoUnitario,
                     qtd: qtd,
@@ -1290,6 +1306,7 @@
                 total: totalVenda,
                 itens: carrinho.map(item => ({
                     id: item.id,
+                    codigo: item.codigo || "",
                     nome: item.nome,
                     preco: item.preco,
                     qtd: item.qtd,
@@ -1377,7 +1394,7 @@
         function salvarProdutoExec() {
             const nome = document.getElementById('cad-nome').value.trim();
             const categoria = document.getElementById('cad-categoria').value;
-            const barcode = document.getElementById('cad-barcode').value.trim();
+            const codigo = document.getElementById('cad-barcode').value.trim();
             const estoque = parseInt(document.getElementById('cad-estoque').value) || 0;
             const ml = parseFloat(document.getElementById('cad-ml').value) || 0;
 
@@ -1390,7 +1407,7 @@
                 acao: "cadastrarProduto",
                 nome,
                 categoria,
-                barcode,
+                codigo,
                 estoque,
                 ml
             };
@@ -1492,16 +1509,18 @@
             mostrarLoading(true);
             fetch(URL_API, {
                 method: 'POST',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
                 body: JSON.stringify({ acao: "deletarProduto", id: id })
             })
-            .then(res => res.json())
-            .then(() => {
+            .then(lerRespostaAPI)
+            .then(resposta => {
                 mostrarLoading(false);
-                carregarDadosIniciais();
+                alert(resposta.mensagem || "Produto excluído com sucesso!");
+                carregarDadosSemAbrirTurno();
             })
-            .catch(() => {
+            .catch(err => {
                 mostrarLoading(false);
-                alert("Erro ao excluir produto.");
+                alert("Erro ao excluir produto:\n" + err.message);
             });
         }
 
@@ -1515,17 +1534,19 @@
             mostrarLoading(true);
             fetch(URL_API, {
                 method: 'POST',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
                 body: JSON.stringify({ acao: "cadastrarFuncionario", nome: nomeFunc })
             })
-            .then(res => res.json())
-            .then(() => {
+            .then(lerRespostaAPI)
+            .then(resposta => {
                 mostrarLoading(false);
                 document.getElementById('func-nome').value = "";
-                carregarDadosIniciais();
+                alert(resposta.mensagem || "Funcionário cadastrado com sucesso!");
+                carregarDadosSemAbrirTurno();
             })
-            .catch(() => {
+            .catch(err => {
                 mostrarLoading(false);
-                alert("Erro ao salvar funcionário.");
+                alert("Erro ao salvar funcionário:\n" + err.message);
             });
         }
 
@@ -1533,16 +1554,18 @@
             mostrarLoading(true);
             fetch(URL_API, {
                 method: 'POST',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
                 body: JSON.stringify({ acao: "deletarFuncionario", nome: nome })
             })
-            .then(res => res.json())
-            .then(() => {
+            .then(lerRespostaAPI)
+            .then(resposta => {
                 mostrarLoading(false);
-                carregarDadosIniciais();
+                alert(resposta.mensagem || "Funcionário removido com sucesso!");
+                carregarDadosSemAbrirTurno();
             })
-            .catch(() => {
+            .catch(err => {
                 mostrarLoading(false);
-                alert("Erro ao remover funcionário.");
+                alert("Erro ao remover funcionário:\n" + err.message);
             });
         }
     </script>
