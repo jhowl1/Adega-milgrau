@@ -540,7 +540,7 @@
             <h2>🔒 Área Restrita (Gerência)</h2>
             <p style="color: var(--text-muted); font-size: 0.9rem;">Digite a senha do gerente para prosseguir:</p>
             <div class="form-group" style="margin-bottom: 0;">
-                <input type="password" id="input-senha-gerente" placeholder="Senha (ex: 9104)" onkeypress="verificarSenhaEnter(event)">
+                <input type="password" id="input-senha-gerente" placeholder="Senha (ex: 1234)" onkeypress="verificarSenhaEnter(event)">
             </div>
             <div class="modal-botoes">
                 <button class="btn-modal btn-modal-cancelar" onclick="fecharModalSenha()">Cancelar</button>
@@ -585,7 +585,7 @@
         </div>
     </div>
 
-    <!-- MODAL ADICIONAR AO CARRINHO (QTD / CIGARRO / CONFIGURAR COMBO NA HORA) -->
+    <!-- MODAL ADICIONAR AO CARRINHO (QTD / CIGARRO / CONFIGURAR COMBO OU DOSE NA HORA) -->
     <div id="modal-adicional" class="modal-overlay">
         <div class="modal-box">
             <h2 id="modal-titulo">Produto</h2>
@@ -598,9 +598,9 @@
                 </select>
             </div>
 
-            <!-- CONFIGURADOR DE COMBO NA HORA DA VENDA (4 OPÇÕES DE ENERGÉTICO E 4 DE GELO) -->
+            <!-- CONFIGURADOR DE COMBO / DOSE NA HORA DA VENDA (4 OPÇÕES DE ENERGÉTICO E 4 DE GELO) -->
             <div id="bloco-venda-combo" style="display: none; background: rgba(0,0,0,0.25); border: 1px solid var(--border); padding: 16px; border-radius: 10px; margin-bottom: 14px;">
-                <h3 style="font-size: 1rem; color: var(--primary); margin-bottom: 12px;">🍹 Escolher até 4 Energéticos/Red Bull e até 4 Tipos de Gelo (0 a 4)</h3>
+                <h3 style="font-size: 1rem; color: var(--primary); margin-bottom: 12px;">🍹 Adicionais (Energéticos/Red Bull e Gelo - 0 a 4)</h3>
                 
                 <!-- Energético 1 -->
                 <div class="form-group">
@@ -721,7 +721,7 @@
     <!-- HEADER -->
     <header>
         <div class="logo-area">
-            <h1>🍷 Adega Pro</h1>
+            <h1>🍷 Carbura Bar</h1>
             <span style="font-size: 0.85rem; background: var(--border); padding: 4px 10px; border-radius: 20px; color: var(--text-muted);">
                 Operador: <strong id="nome-operador-topo" style="color: var(--primary);">Jhou</strong>
             </span>
@@ -897,28 +897,20 @@
 
                 <div id="bloco-combo-detalhes" style="display: none; background: rgba(0,0,0,0.25); border: 1px solid var(--border); padding: 20px; border-radius: 10px; margin-bottom: 22px;">
                     <h3 style="font-size: 1.1rem; color: var(--text); margin-bottom: 12px;">🍹 Combos</h3>
-                    <p style="color: var(--text-muted); font-size: 0.85rem;">Até 4 opções de energéticos e 4 opções de gelo (com quantidades de 0 a 4) são selecionadas diretamente na hora da venda do combo, e não aqui no cadastro.</p>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Até 4 opções de energéticos e 4 opções de gelo são selecionadas diretamente na hora da venda do combo.</p>
                 </div>
 
                 <div id="bloco-dose-detalhes" style="display: none; background: rgba(0,0,0,0.25); border: 1px solid var(--border); padding: 24px; border-radius: 10px; margin-bottom: 22px;">
-                    <h3 style="font-size: 1.2rem; color: var(--text); margin-bottom: 20px;">🥃 Montar Dose Personalizada</h3>
+                    <h3 style="font-size: 1.2rem; color: var(--text); margin-bottom: 20px;">🥃 Cadastrar Dose Personalizada</h3>
                     <div class="form-group">
-                        <label>Bebida base cadastrada</label>
+                        <label>Bebida Base Cadastrada (ex: Whisky, Gin, Vodka)</label>
                         <select id="cad-dose-base"><option value="">Selecione a bebida</option></select>
                     </div>
-                    <div class="form-group">
-                        <label>ML de whisky/bebida usados</label>
-                        <input type="number" id="cad-dose-ml" min="1" placeholder="Ex: 100">
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label>ML da bebida usados na dose</label>
+                        <input type="number" id="cad-dose-ml" min="1" placeholder="Ex: 50">
                     </div>
-                    <div class="form-group">
-                        <label>Energético / Red Bull cadastrado (opcional)</label>
-                        <select id="cad-dose-energetico"><option value="">Sem energético</option></select>
-                    </div>
-                    <div class="form-group">
-                        <label>ML de energético usados</label>
-                        <input type="number" id="cad-dose-ml-energetico" min="0" value="0" placeholder="Ex: 300">
-                    </div>
-                    <p style="color: var(--text-muted); font-size: .85rem;">O cadastro da dose não desconta estoque. O desconto ocorre somente na venda.</p>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 10px;">Energético e gelo poderão ser adicionados opcionalmente na hora da venda, assim como nos combos.</p>
                 </div>
 
                 <div id="bloco-preco-cigarro" style="display: none; background: rgba(0,0,0,0.25); border: 1px solid var(--border); padding: 20px; border-radius: 10px; margin-bottom: 22px;">
@@ -954,7 +946,7 @@
     <!-- SCRIPT DE FUNCIONAMENTO -->
     <script>
         const SENHA_GERENTE = "9104"; 
-        const URL_API = "https://script.google.com/macros/s/AKfycbyOU3qyW16NG0MMSFn1fvKFeVmrtjxNLIc4cT04iEim5PaIxpklIF2e_tE3ew6m1Vss/exec";
+        const URL_API = "https://script.google.com/macros/s/AKfycbxr3wEmRx9ROZ5x99Pb-hqIW1ZodxeFu6fHch0d8TTsi1q2Z9rsWJQT00sBKSDilbrS/exec";
         
         let produtos = [];
         let carrinho = [];
@@ -1200,31 +1192,21 @@
 
         function atualizarSelectsDose() {
             const base = document.getElementById('cad-dose-base');
-            const energetico = document.getElementById('cad-dose-energetico');
-            if(!base || !energetico) return;
+            if(!base) return;
 
             const baseAtual = base.value;
-            const energeticoAtual = energetico.value;
             base.innerHTML = '<option value="">Selecione a bebida</option>';
-            energetico.innerHTML = '<option value="">Sem energético</option>';
 
             produtos.forEach(p => {
                 const categoria = String(p.categoria || '').toLowerCase();
-                if(['whisky','destilados'].includes(categoria)) {
+                if(['whisky','destilados','doses'].includes(categoria)) {
                     const opt = document.createElement('option');
                     opt.value = p.id;
                     opt.textContent = `${p.nome}${p.ml ? ' - ' + p.ml + 'ml' : ''}`;
                     base.appendChild(opt);
                 }
-                if(categoria.includes('energ') || String(p.nome || '').toLowerCase().includes('red bull')) {
-                    const opt = document.createElement('option');
-                    opt.value = p.id;
-                    opt.textContent = `${p.nome}${p.ml ? ' - ' + p.ml + 'ml' : ''}`;
-                    energetico.appendChild(opt);
-                }
             });
             base.value = baseAtual;
-            energetico.value = energeticoAtual;
         }
 
         function atualizarSelectsVendaCombo() {
@@ -1395,22 +1377,19 @@
             
             let blocoCigarro = document.getElementById('bloco-tipo-venda-modal');
             let blocoVendaCombo = document.getElementById('bloco-venda-combo');
+            let categoriaProd = String(produto.categoria || '').toLowerCase();
             
-            if(String(produto.categoria || '').toLowerCase() === 'tabaco') {
+            if(categoriaProd === 'tabaco') {
                 blocoCigarro.style.display = 'block';
                 blocoVendaCombo.style.display = 'none';
-            } else if(String(produto.categoria || '').toLowerCase() === 'combos') {
+            } else if(categoriaProd === 'combos' || categoriaProd === 'doses') {
                 blocoCigarro.style.display = 'none';
                 blocoVendaCombo.style.display = 'block';
                 atualizarSelectsVendaCombo();
-                document.getElementById('venda-combo-ene1-qtd').value = 0;
-                document.getElementById('venda-combo-ene2-qtd').value = 0;
-                document.getElementById('venda-combo-ene3-qtd').value = 0;
-                document.getElementById('venda-combo-ene4-qtd').value = 0;
-                document.getElementById('venda-combo-gelo1-qtd').value = 0;
-                document.getElementById('venda-combo-gelo2-qtd').value = 0;
-                document.getElementById('venda-combo-gelo3-qtd').value = 0;
-                document.getElementById('venda-combo-gelo4-qtd').value = 0;
+                ['ene1', 'ene2', 'ene3', 'ene4', 'gelo1', 'gelo2', 'gelo3', 'gelo4'].forEach(tipo => {
+                    let inputQtd = document.getElementById(`venda-combo-${tipo}-qtd`);
+                    if(inputQtd) inputQtd.value = 0;
+                });
             } else {
                 blocoCigarro.style.display = 'none';
                 blocoVendaCombo.style.display = 'none';
@@ -1481,7 +1460,9 @@
             let nomeItem = produtoSelecionadoAtual.nome;
             let itensAdicionaisDescontoEstoque = [];
 
-            if(String(produtoSelecionadoAtual.categoria || '').toLowerCase() === 'tabaco') {
+            let categoriaProd = String(produtoSelecionadoAtual.categoria || '').toLowerCase();
+
+            if(categoriaProd === 'tabaco') {
                 if(tipoVenda === 'maco') {
                     precoUnitario = parseFloat(produtoSelecionadoAtual.precoMaco || 0);
                     nomeItem += " (Maço)";
@@ -1489,7 +1470,7 @@
                     precoUnitario = parseFloat(produtoSelecionadoAtual.precoSolto || 0);
                     nomeItem += " (Solto)";
                 }
-            } else if(String(produtoSelecionadoAtual.categoria || '').toLowerCase() === 'combos') {
+            } else if(categoriaProd === 'combos' || categoriaProd === 'doses') {
                 let descExtras = [];
                 
                 ['ene1', 'ene2', 'ene3', 'ene4', 'gelo1', 'gelo2', 'gelo3', 'gelo4'].forEach(tipo => {
@@ -1617,7 +1598,7 @@
                         itensParaEnviar.push({
                             id: extra.id,
                             codigo: "",
-                            nome: "[Incluso no Combo] " + extra.id,
+                            nome: "[Incluso] " + extra.id,
                             preco: 0,
                             qtd: extra.qtd,
                             tipoVenda: ""
@@ -1693,7 +1674,7 @@
             let cartao = document.getElementById('rel-cartao').innerText;
             let total = document.getElementById('rel-total').innerText;
 
-            let mensagem = `📊 *Fechamento de Caixa - Adega Pro*\n\n` +
+            let mensagem = `📊 *Fechamento de Caixa - Carbura Bar*\n\n` +
                            `👤 Operador: ${funcionarioAtualTurno}\n\n` +
                            `📱 PIX: ${pix}\n` +
                            `💵 Dinheiro: ${dinheiro}\n` +
@@ -1734,23 +1715,17 @@
             if(categoria === 'Doses') {
                 const baseId = document.getElementById('cad-dose-base').value;
                 const mlBase = parseFloat(document.getElementById('cad-dose-ml').value) || 0;
-                const energeticoId = document.getElementById('cad-dose-energetico').value;
-                const mlEnergetico = parseFloat(document.getElementById('cad-dose-ml-energetico').value) || 0;
                 const baseProduto = produtos.find(p => String(p.id) === String(baseId));
-                const energeticoProduto = produtos.find(p => String(p.id) === String(energeticoId));
 
                 if(!baseProduto || mlBase <= 0) {
                     alert('Selecione a bebida base e informe os ML usados.');
                     return;
                 }
-                if(energeticoId && mlEnergetico <= 0) {
-                    alert('Informe os ML do energético.');
-                    return;
-                }
 
-                dadosNovo.nome = `${nome} | Base: ${baseProduto.nome} ${mlBase}ml` +
-                    (energeticoProduto ? ` | Energético/Red Bull: ${energeticoProduto.nome} ${mlEnergetico}ml` : '');
+                dadosNovo.nome = `${nome} (${baseProduto.nome} - ${mlBase}ml)`;
                 dadosNovo.ml = mlBase;
+                dadosNovo.baseId = baseId;
+                dadosNovo.mlBase = mlBase;
             }
 
             if(categoria === 'Tabaco') {
@@ -1778,7 +1753,6 @@
                 document.getElementById('cad-barcode').value = "";
                 document.getElementById('cad-ml').value = "";
                 document.getElementById('cad-dose-ml').value = "";
-                document.getElementById('cad-dose-ml-energetico').value = "0";
                 mudarAba('vendas', document.querySelector('nav button'));
                 carregarDadosSemAbrirTurno();
             })
