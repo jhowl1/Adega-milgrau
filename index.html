@@ -585,7 +585,7 @@
         </div>
     </div>
 
-    <!-- MODAL ADICIONAR AO CARRINHO (QTD / CIGARRO / CONFIGURAR COMBO OU DOSE NA HORA) -->
+    <!-- MODAL ADICIONAR AO CARRINHO -->
     <div id="modal-adicional" class="modal-overlay">
         <div class="modal-box">
             <h2 id="modal-titulo">Produto</h2>
@@ -598,11 +598,9 @@
                 </select>
             </div>
 
-            <!-- CONFIGURADOR DE COMBO / DOSE NA HORA DA VENDA (4 OPÇÕES DE ENERGÉTICO E 4 DE GELO) -->
             <div id="bloco-venda-combo" style="display: none; background: rgba(0,0,0,0.25); border: 1px solid var(--border); padding: 16px; border-radius: 10px; margin-bottom: 14px;">
                 <h3 style="font-size: 1rem; color: var(--primary); margin-bottom: 12px;">🍹 Adicionais (Energéticos/Red Bull e Gelo - 0 a 4)</h3>
                 
-                <!-- Energético 1 -->
                 <div class="form-group">
                     <label>⚡ 1ª Opção de Energético / Red Bull:</label>
                     <div class="combo-item-linha">
@@ -615,7 +613,6 @@
                     </div>
                 </div>
 
-                <!-- Energético 2 -->
                 <div class="form-group">
                     <label>⚡ 2ª Opção de Energético / Red Bull:</label>
                     <div class="combo-item-linha">
@@ -628,7 +625,6 @@
                     </div>
                 </div>
 
-                <!-- Energético 3 -->
                 <div class="form-group">
                     <label>⚡ 3ª Opção de Energético / Red Bull:</label>
                     <div class="combo-item-linha">
@@ -641,7 +637,6 @@
                     </div>
                 </div>
 
-                <!-- Energético 4 -->
                 <div class="form-group">
                     <label>⚡ 4ª Opção de Energético / Red Bull:</label>
                     <div class="combo-item-linha">
@@ -654,7 +649,6 @@
                     </div>
                 </div>
 
-                <!-- Gelo 1 -->
                 <div class="form-group">
                     <label>🧊 1º Tipo de Gelo:</label>
                     <div class="combo-item-linha">
@@ -667,7 +661,6 @@
                     </div>
                 </div>
 
-                <!-- Gelo 2 -->
                 <div class="form-group">
                     <label>🧊 2º Tipo de Gelo:</label>
                     <div class="combo-item-linha">
@@ -680,7 +673,6 @@
                     </div>
                 </div>
 
-                <!-- Gelo 3 -->
                 <div class="form-group">
                     <label>🧊 3º Tipo de Gelo:</label>
                     <div class="combo-item-linha">
@@ -693,7 +685,6 @@
                     </div>
                 </div>
 
-                <!-- Gelo 4 -->
                 <div class="form-group" style="margin-bottom: 0;">
                     <label>🧊 4º Tipo de Gelo:</label>
                     <div class="combo-item-linha">
@@ -751,7 +742,7 @@
             <div class="layout-vendas">
                 <div class="produtos-area">
                     <div class="busca-container">
-                        <input type="text" id="busca-unificada" placeholder="🔍 Buscar produto por nome ou bipar código de barras..." oninput="filtrarVendasUnificado()" onkeypress="verificarBipeUnificado(event)">
+                        <input type="text" id="busca-unificada" placeholder="🔍 Buscar produto ou bipar código de barras..." oninput="filtrarVendasUnificado()" onkeypress="verificarBipeUnificado(event)">
                     </div>
                     <div class="grid-produtos" id="grid-vendas">
                         <!-- Produtos carregados dinamicamente -->
@@ -897,20 +888,12 @@
 
                 <div id="bloco-combo-detalhes" style="display: none; background: rgba(0,0,0,0.25); border: 1px solid var(--border); padding: 20px; border-radius: 10px; margin-bottom: 22px;">
                     <h3 style="font-size: 1.1rem; color: var(--text); margin-bottom: 12px;">🍹 Combos</h3>
-                    <p style="color: var(--text-muted); font-size: 0.85rem;">Até 4 opções de energéticos e 4 opções de gelo são selecionadas diretamente na hora da venda do combo.</p>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Selecione os adicionais do combo. Eles darão baixa em unidades inteiras no estoque.</p>
                 </div>
 
                 <div id="bloco-dose-detalhes" style="display: none; background: rgba(0,0,0,0.25); border: 1px solid var(--border); padding: 24px; border-radius: 10px; margin-bottom: 22px;">
-                    <h3 style="font-size: 1.2rem; color: var(--text); margin-bottom: 20px;">🥃 Cadastrar Dose Personalizada</h3>
-                    <div class="form-group">
-                        <label>Bebida Base Cadastrada (ex: Whisky, Gin, Vodka)</label>
-                        <select id="cad-dose-base"><option value="">Selecione a bebida</option></select>
-                    </div>
-                    <div class="form-group" style="margin-bottom: 0;">
-                        <label>ML da bebida usados na dose</label>
-                        <input type="number" id="cad-dose-ml" min="1" placeholder="Ex: 50">
-                    </div>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 10px;">Energético e gelo poderão ser adicionados opcionalmente na hora da venda, assim como nos combos.</p>
+                    <h3 style="font-size: 1.2rem; color: var(--text); margin-bottom: 20px;">🥃 Cadastrar Dose</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">As doses funcionam de forma direta (venda inteira/direta de dose).</p>
                 </div>
 
                 <div id="bloco-preco-cigarro" style="display: none; background: rgba(0,0,0,0.25); border: 1px solid var(--border); padding: 20px; border-radius: 10px; margin-bottom: 22px;">
@@ -925,7 +908,7 @@
                     </div>
                 </div>
 
-                <div class="form-group" id="bloco-ml-produto">
+                <div class="form-group" id="bloco-ml-produto" style="display:none;">
                     <label>Volume da embalagem em ML</label>
                     <input type="number" id="cad-ml" min="0" placeholder="Ex: 1000 para 1 litro">
                 </div>
@@ -1185,28 +1168,8 @@
             renderizarGridEstoque();
             renderizarGridEquipe();
             atualizarSelectRepositório();
-            atualizarSelectsDose();
             atualizarSelectsVendaCombo();
             atualizarRelatorioCaixa();
-        }
-
-        function atualizarSelectsDose() {
-            const base = document.getElementById('cad-dose-base');
-            if(!base) return;
-
-            const baseAtual = base.value;
-            base.innerHTML = '<option value="">Selecione a bebida</option>';
-
-            produtos.forEach(p => {
-                const categoria = String(p.categoria || '').toLowerCase();
-                if(['whisky','destilados','doses'].includes(categoria)) {
-                    const opt = document.createElement('option');
-                    opt.value = p.id;
-                    opt.textContent = `${p.nome}${p.ml ? ' - ' + p.ml + 'ml' : ''}`;
-                    base.appendChild(opt);
-                }
-            });
-            base.value = baseAtual;
         }
 
         function atualizarSelectsVendaCombo() {
@@ -1219,14 +1182,10 @@
                 let atual = el.value;
                 el.innerHTML = '<option value="">Nenhum</option>';
                 produtos.forEach(p => {
-                    const cat = String(p.categoria || '').toLowerCase();
-                    const nome = String(p.nome || '').toLowerCase();
-                    if(cat.includes('energ') || nome.includes('red bull') || nome.includes('energético')) {
-                        let opt = document.createElement('option');
-                        opt.value = p.id;
-                        opt.textContent = p.nome;
-                        el.appendChild(opt);
-                    }
+                    let opt = document.createElement('option');
+                    opt.value = p.id;
+                    opt.textContent = p.nome;
+                    el.appendChild(opt);
                 });
                 el.value = atual;
             });
@@ -1237,14 +1196,10 @@
                 let atual = el.value;
                 el.innerHTML = '<option value="">Nenhum</option>';
                 produtos.forEach(p => {
-                    const cat = String(p.categoria || '').toLowerCase();
-                    const nome = String(p.nome || '').toLowerCase();
-                    if(cat.includes('gelo') || nome.includes('gelo')) {
-                        let opt = document.createElement('option');
-                        opt.value = p.id;
-                        opt.textContent = p.nome;
-                        el.appendChild(opt);
-                    }
+                    let opt = document.createElement('option');
+                    opt.value = p.id;
+                    opt.textContent = p.nome;
+                    el.appendChild(opt);
                 });
                 el.value = atual;
             });
@@ -1363,10 +1318,13 @@
                     const nome = String(p.nome || "").trim().toLowerCase();
                     return codigo === termo || nome === termo.toLowerCase();
                 });
+
                 if(encontrado) {
                     selecionarProdutoVenda(encontrado);
                     document.getElementById('busca-unificada').value = "";
                     filtrarVendasUnificado();
+                } else {
+                    alert("Produto não encontrado!");
                 }
             }
         }
@@ -1493,29 +1451,31 @@
                 }
             }
 
-            let itemExistente = carrinho.find(i => i.id === produtoSelecionadoAtual.id && i.tipoVenda === tipoVenda && i.nome === nomeItem);
-            if(itemExistente) {
-                itemExistente.qtd += qtd;
-                itemExistente.itensAdicionaisDescontoEstoque = itensAdicionaisDescontoEstoque;
-            } else {
-                carrinho.push({
-                    id: produtoSelecionadoAtual.id,
-                    codigo: String(
-                        produtoSelecionadoAtual.codigo ||
-                        produtoSelecionadoAtual.codigoBarras ||
-                        produtoSelecionadoAtual.barcode ||
-                        ""
-                    ),
-                    nome: nomeItem,
-                    preco: precoUnitario,
-                    qtd: qtd,
-                    tipoVenda: tipoVenda,
-                    itensAdicionaisDescontoEstoque: itensAdicionaisDescontoEstoque
-                });
-            }
+            carrinho.push({
+                id: produtoSelecionadoAtual.id,
+                codigo: String(
+                    produtoSelecionadoAtual.codigo ||
+                    produtoSelecionadoAtual.codigoBarras ||
+                    produtoSelecionadoAtual.barcode ||
+                    ""
+                ),
+                nome: nomeItem,
+                preco: precoUnitario,
+                qtd: qtd,
+                tipoVenda: tipoVenda,
+                itensAdicionaisDescontoEstoque: itensAdicionaisDescontoEstoque
+            });
 
             fecharModais();
             atualizarCarrinho();
+        }
+
+        function zerarValorItemCarrinho(index) {
+            if(confirm("Deseja zerar o valor deste item para R$ 0,00 (Garrafa Seca/Vazia)? O estoque continuará dando baixa normalmente.")) {
+                carrinho[index].preco = 0.00;
+                carrinho[index].nome = "[Garrafa Vazia] " + carrinho[index].nome;
+                atualizarCarrinho();
+            }
         }
 
         function atualizarCarrinho() {
@@ -1539,8 +1499,9 @@
                             <strong>${item.nome}</strong><br>
                             <small style="color: var(--text-muted);">${item.qtd}x R$ ${item.preco.toFixed(2)}</small>
                         </div>
-                        <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
                             <span style="color: #4ade80; font-weight: bold;">R$ ${sub.toFixed(2)}</span>
+                            <button onclick="zerarValorItemCarrinho(${index})" title="Zerar valor (Garrafa Vazia)" style="background: var(--primary); border: none; color: black; font-weight: bold; padding: 4px 8px; border-radius: 6px; cursor: pointer; font-size: 0.75rem;">♻️ Zerar</button>
                             <button onclick="removerItemCarrinho(${index})" style="background: none; border: none; color: var(--danger); cursor: pointer; font-size: 1.1rem;">✕</button>
                         </div>
                     `;
@@ -1634,8 +1595,13 @@
 
                 carrinho = [];
                 atualizarCarrinho();
-                document.getElementById('valor-recebido').value = "";
-                document.getElementById('bloco-dinheiro').style.display = "none";
+                
+                // Mantém a forma de pagamento selecionada, apenas limpa o valor recebido se for dinheiro
+                if(document.getElementById('pagamento').value === 'Dinheiro') {
+                    document.getElementById('valor-recebido').value = "";
+                    calcularTroco();
+                }
+
                 atualizarRelatorioCaixa();
 
                 mostrarLoading(false);
@@ -1696,7 +1662,7 @@
             const categoria = document.getElementById('cad-categoria').value;
             const codigo = document.getElementById('cad-barcode').value.trim();
             const estoque = parseInt(document.getElementById('cad-estoque').value) || 0;
-            const ml = parseFloat(document.getElementById('cad-ml').value) || 0;
+            const ml = 0;
 
             if(!nome) {
                 alert("Preencha o nome do produto!");
@@ -1711,22 +1677,6 @@
                 estoque,
                 ml
             };
-
-            if(categoria === 'Doses') {
-                const baseId = document.getElementById('cad-dose-base').value;
-                const mlBase = parseFloat(document.getElementById('cad-dose-ml').value) || 0;
-                const baseProduto = produtos.find(p => String(p.id) === String(baseId));
-
-                if(!baseProduto || mlBase <= 0) {
-                    alert('Selecione a bebida base e informe os ML usados.');
-                    return;
-                }
-
-                dadosNovo.nome = `${nome} (${baseProduto.nome} - ${mlBase}ml)`;
-                dadosNovo.ml = mlBase;
-                dadosNovo.baseId = baseId;
-                dadosNovo.mlBase = mlBase;
-            }
 
             if(categoria === 'Tabaco') {
                 dadosNovo.precoMaco = parseFloat(document.getElementById('cad-preco-maco').value) || 0;
@@ -1751,8 +1701,6 @@
                 document.getElementById('cad-preco-maco').value = "";
                 document.getElementById('cad-preco-solto').value = "";
                 document.getElementById('cad-barcode').value = "";
-                document.getElementById('cad-ml').value = "";
-                document.getElementById('cad-dose-ml').value = "";
                 mudarAba('vendas', document.querySelector('nav button'));
                 carregarDadosSemAbrirTurno();
             })
