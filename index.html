@@ -1084,6 +1084,7 @@
             if(acaoPendente === 'salvarFuncionario') salvarFuncionarioExec();
             if(acaoPendente === 'deletarFuncionario') deletarFuncionarioExec(parametroAcaoPendente);
             if(acaoPendente === 'zerarCaixa') zerarCaixaExec();
+            if(acaoPendente === 'zerarGarrafaItem') zerarValorItemCarrinhoExec(parametroAcaoPendente);
         }
 
         function alternarCarrinhoMobile() {
@@ -1471,11 +1472,13 @@
         }
 
         function zerarValorItemCarrinho(index) {
-            if(confirm("Deseja zerar o valor deste item para R$ 0,00 (Garrafa Seca/Vazia)? O estoque continuará dando baixa normalmente.")) {
-                carrinho[index].preco = 0.00;
-                carrinho[index].nome = "[Garrafa Vazia] " + carrinho[index].nome;
-                atualizarCarrinho();
-            }
+            pedirSenhaParaAcao('zerarGarrafaItem', index);
+        }
+
+        function zerarValorItemCarrinhoExec(index) {
+            carrinho[index].preco = 0.00;
+            carrinho[index].nome = "[Garrafa Vazia] " + carrinho[index].nome;
+            atualizarCarrinho();
         }
 
         function atualizarCarrinho() {
@@ -1596,7 +1599,6 @@
                 carrinho = [];
                 atualizarCarrinho();
                 
-                // Mantém a forma de pagamento selecionada, apenas limpa o valor recebido se for dinheiro
                 if(document.getElementById('pagamento').value === 'Dinheiro') {
                     document.getElementById('valor-recebido').value = "";
                     calcularTroco();
