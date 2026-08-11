@@ -936,6 +936,43 @@
             .rep-opcoes-final { grid-template-columns: 1fr; }
         }
 
+        /* ===== TROCA POR DINHEIRO ===== */
+        .btn-troca-dinheiro {
+            width: 100%;
+            border: 1px solid var(--primary);
+            background: rgba(245,158,11,.08);
+            color: var(--primary);
+            border-radius: 8px;
+            padding: 12px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+        .troca-resumo {
+            border: 1px solid var(--border);
+            background: var(--bg);
+            border-radius: 12px;
+            padding: 14px;
+            display: grid;
+            gap: 8px;
+        }
+        .troca-resumo-linha {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+        .troca-resumo-linha.total {
+            border-top: 1px solid var(--border);
+            padding-top: 10px;
+            font-size: 1.08rem;
+        }
+        .fechamento-trocas {
+            margin: 18px 0 20px;
+            padding: 16px;
+            border: 1px solid rgba(245,158,11,.28);
+            background: rgba(245,158,11,.06);
+            border-radius: 12px;
+        }
+
     </style>
 </head>
 <body>
@@ -1204,6 +1241,47 @@
         </div>
     </div>
 
+
+    <!-- MODAL TROCA POR DINHEIRO -->
+    <div id="modal-troca-dinheiro" class="modal-overlay">
+        <div class="modal-box">
+            <h2>💱 Trocar por Dinheiro</h2>
+            <p style="color:var(--text-muted);font-size:.86rem;">
+                O cliente paga por Pix, Débito ou Crédito e recebe o valor combinado em dinheiro.
+            </p>
+
+            <div class="form-group">
+                <label>Cliente vai pagar por</label>
+                <select id="troca-forma" onchange="calcularTrocaDinheiro()">
+                    <option value="Pix">Pix</option>
+                    <option value="Débito">Débito</option>
+                    <option value="Crédito">Crédito</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Quanto entregar em dinheiro (R$)</label>
+                <input type="number" id="troca-valor" min="0.01" step="0.01" inputmode="decimal" placeholder="Ex: 100,00" oninput="calcularTrocaDinheiro()">
+            </div>
+
+            <div class="form-group">
+                <label>Taxa cobrada (R$)</label>
+                <input type="number" id="troca-taxa" min="0" step="0.01" inputmode="decimal" placeholder="Ex: 10,00" oninput="calcularTrocaDinheiro()">
+            </div>
+
+            <div class="troca-resumo">
+                <div class="troca-resumo-linha"><span>Entregar em dinheiro</span><strong id="troca-resumo-entregar">R$ 0,00</strong></div>
+                <div class="troca-resumo-linha"><span>Taxa</span><strong id="troca-resumo-taxa">R$ 0,00</strong></div>
+                <div class="troca-resumo-linha total"><span>Cliente precisa pagar</span><strong id="troca-resumo-total" style="color:var(--success);">R$ 0,00</strong></div>
+            </div>
+
+            <div class="modal-botoes">
+                <button class="btn-modal btn-modal-cancelar" onclick="fecharModalTrocaDinheiro()">Cancelar</button>
+                <button class="btn-modal btn-modal-confirmar" onclick="confirmarTrocaDinheiro()">Confirmar Troca</button>
+            </div>
+        </div>
+    </div>
+
     <!-- HEADER -->
     <header>
         <div class="logo-area">
@@ -1250,6 +1328,8 @@
                     <div class="dashboard-card"><small>PIX</small><strong id="dash-pix">R$ 0,00</strong></div>
                     <div class="dashboard-card"><small>DINHEIRO</small><strong id="dash-dinheiro">R$ 0,00</strong></div>
                     <div class="dashboard-card"><small>CARTÕES / DIVERSOS</small><strong id="dash-cartoes">R$ 0,00</strong></div>
+                    <div class="dashboard-card"><small>TAXAS DE TROCA</small><strong id="dash-troca-taxas">R$ 0,00</strong></div>
+                    <div class="dashboard-card"><small>DINHEIRO ENTREGUE EM TROCAS</small><strong id="dash-troca-dinheiro">R$ 0,00</strong></div>
                 </div>
                 <div class="dashboard-duplo">
                     <div class="dashboard-lista">
@@ -1306,6 +1386,7 @@
                             <span style="color: var(--success);">R$ <span id="total-txt">0.00</span></span>
                         </div>
                         <button class="btn-finalizar" onclick="finalizarVenda()">Finalizar Venda</button>
+                        <button class="btn-troca-dinheiro" onclick="abrirModalTrocaDinheiro()">💱 Trocar por Dinheiro</button>
                     </div>
                 </div>
             </div>
@@ -1362,6 +1443,19 @@
                     <div class="dashboard-card"><small>DIVERSOS</small><strong id="rel-diversos">R$ 0,00</strong></div>
                     <div class="dashboard-card" style="border-color:var(--primary);"><small>TOTAL</small><strong id="rel-total" style="color:var(--primary);">R$ 0,00</strong></div>
                 </div>
+                <div class="fechamento-trocas">
+                    <h3 style="margin-bottom:5px;">💱 Trocas por Dinheiro</h3>
+                    <p style="color:var(--text-muted);font-size:.8rem;margin-bottom:12px;">Separado das vendas de produtos.</p>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+                        <div class="dashboard-card"><small>PIX RECEBIDO</small><strong id="rel-troca-pix">R$ 0,00</strong></div>
+                        <div class="dashboard-card"><small>DÉBITO RECEBIDO</small><strong id="rel-troca-debito">R$ 0,00</strong></div>
+                        <div class="dashboard-card"><small>CRÉDITO RECEBIDO</small><strong id="rel-troca-credito">R$ 0,00</strong></div>
+                        <div class="dashboard-card"><small>DINHEIRO ENTREGUE</small><strong id="rel-troca-dinheiro">R$ 0,00</strong></div>
+                        <div class="dashboard-card"><small>TAXAS GANHAS</small><strong id="rel-troca-taxas">R$ 0,00</strong></div>
+                        <div class="dashboard-card" style="border-color:var(--primary);"><small>TOTAL RECEBIDO NAS TROCAS</small><strong id="rel-troca-total">R$ 0,00</strong></div>
+                    </div>
+                </div>
+
                 <div style="display:flex;gap:10px;flex-wrap:wrap;">
                     <button class="btn-grande" style="background:#25D366;color:white;flex:1;" onclick="enviarRelatorioWhatsApp()">📲 Enviar WhatsApp</button>
                     <button class="btn-grande" style="background:var(--danger);color:white;flex:1;" onclick="encerrarTurno()">🚪 Encerrar Turno</button>
@@ -1515,7 +1609,7 @@
 
     <!-- SCRIPT DE FUNCIONAMENTO - VERSÃO NOVA SOBRE O ORIGINAL RECUPERADO -->
     <script>
-        const URL_API = "https://script.google.com/macros/s/AKfycbxFWbwMVO_flKxyAqYqPdP2ROvV9zbm92BQ_XDWY_UtnS7bXVOs9kVAz7PkiQfMrMHW/exec";
+        const URL_API = "https://script.google.com/macros/s/AKfycbwwwGgSg9iVo7Ts_afPaADDPoEBbmx2j9aSjoPD0emMPC1vbiH6bD-ThNw8W1MCVLF1/exec";
 
         let produtos = [];
         let carrinho = [];
@@ -1960,26 +2054,50 @@
             ));
         }
 
+        function normalizarCodigoBarras(v) {
+            return String(v || '').trim().replace(/\s+/g, '');
+        }
+
         function verificarBipeUnificado(e) {
             if(e.key !== 'Enter') return;
-            const codigo = e.target.value.trim();
+            const codigo = normalizarCodigoBarras(e.target.value);
             if(!codigo) return;
 
-            const p = produtos.find(x =>
+            /*
+              IMPORTANTE: código da embalagem (coluna N) tem prioridade.
+              Isso evita que um código antigo que ainda esteja na coluna G de
+              outro cadastro seja tratado como unidade por engano.
+            */
+            const pEmbalagem = produtos.find(x =>
                 normalizarTexto(x.status) !== 'inativo' &&
-                (String(x.codigo || '') === codigo || String(x.codigoEmbalagem || '') === codigo)
+                normalizarCodigoBarras(x.codigoEmbalagem) === codigo
             );
 
+            const pUnidade = produtos.find(x =>
+                normalizarTexto(x.status) !== 'inativo' &&
+                normalizarCodigoBarras(x.codigo) === codigo
+            );
+
+            const p = pEmbalagem || pUnidade;
             if(!p) return alert('Código não encontrado.');
 
             e.target.value = '';
             renderizarGridVendas(produtos);
 
-            const bipouEmbalagem = !!p.codigoEmbalagem && String(p.codigoEmbalagem) === codigo;
-            adicionarProdutoDiretoPorBipe(p, bipouEmbalagem ? (p.tipoEmbalagem || 'Embalagem') : 'Unidade', codigo);
+            if(pEmbalagem) {
+                const fator = Math.floor(Number(p.unidadesPorEmbalagem || 1));
+                const tipo = String(p.tipoEmbalagem || '').trim();
+                if(!tipo || fator < 2) {
+                    return alert('Este código está cadastrado como embalagem, mas faltam o Tipo de Embalagem ou as Unidades por Embalagem no produto. Abra Editar Produto e complete esses dados.');
+                }
+                adicionarProdutoDiretoPorBipe(p, tipo, codigo, true);
+                return;
+            }
+
+            adicionarProdutoDiretoPorBipe(p, 'Unidade', codigo, false);
         }
 
-        function adicionarProdutoDiretoPorBipe(p, tipoVenda, codigoBipado) {
+        function adicionarProdutoDiretoPorBipe(p, tipoVenda, codigoBipado, bipouEmbalagem=false) {
             if(Number(p.estoque || 0) <= 0) return alert('Produto esgotado.');
 
             const cat = normalizarTexto(p.categoria);
@@ -1988,17 +2106,25 @@
                 return;
             }
 
-            const ehEmbalagem = tipoVenda !== 'Unidade';
-            const fator = ehEmbalagem ? Math.max(1, Number(p.unidadesPorEmbalagem || 1)) : 1;
+            const ehEmbalagem = bipouEmbalagem || tipoVenda !== 'Unidade';
+            const fator = ehEmbalagem ? Math.max(1, Math.floor(Number(p.unidadesPorEmbalagem || 1))) : 1;
+
+            if(ehEmbalagem && fator < 2) {
+                return alert('A embalagem deste produto precisa ter pelo menos 2 unidades cadastradas.');
+            }
+
             if(Number(p.estoque || 0) < fator) return alert('Estoque insuficiente para esta venda.');
+
+            const precoCorreto = ehEmbalagem ? precoVendaEmbalagem(p) : precoVendaUnidade(p);
 
             carrinho.push({
                 id:p.id,
                 codigo:codigoBipado || p.codigo || '',
                 nome:p.nome + (ehEmbalagem ? ' (' + tipoVenda + ')' : ''),
-                preco:ehEmbalagem ? precoVendaEmbalagem(p) : precoVendaUnidade(p),
+                preco:precoCorreto,
                 qtd:1,
-                tipoVenda:tipoVenda,
+                tipoVenda:ehEmbalagem ? tipoVenda : 'Unidade',
+                bipouEmbalagem:!!ehEmbalagem,
                 categoria:p.categoria,
                 extras:[]
             });
@@ -2384,6 +2510,7 @@
                     preco:Number(item.preco || 0),
                     qtd:Number(item.qtd || 0),
                     tipoVenda:item.tipoVenda || "Unidade",
+                    bipouEmbalagem:!!item.bipouEmbalagem,
                     permitirPrecoZero:!!item.permitirPrecoZero
                 });
 
@@ -2425,6 +2552,80 @@
             }
         }
 
+
+        /* TROCA POR DINHEIRO */
+        function abrirModalTrocaDinheiro() {
+            if(!usuarioAtual) return alert("Faça login novamente.");
+            if(!turnoAtual) {
+                abrirModalAberturaTurno();
+                return alert("Inicie um turno antes de registrar a troca.");
+            }
+
+            document.getElementById('troca-forma').value = 'Pix';
+            document.getElementById('troca-valor').value = '';
+            document.getElementById('troca-taxa').value = '';
+            calcularTrocaDinheiro();
+            document.getElementById('modal-troca-dinheiro').style.display = 'flex';
+            setTimeout(() => document.getElementById('troca-valor').focus(), 50);
+        }
+
+        function fecharModalTrocaDinheiro() {
+            document.getElementById('modal-troca-dinheiro').style.display = 'none';
+        }
+
+        function calcularTrocaDinheiro() {
+            const valor = Math.max(0, Number(document.getElementById('troca-valor').value || 0));
+            const taxa = Math.max(0, Number(document.getElementById('troca-taxa').value || 0));
+            const total = valor + taxa;
+
+            document.getElementById('troca-resumo-entregar').innerText = formatarMoeda(valor);
+            document.getElementById('troca-resumo-taxa').innerText = formatarMoeda(taxa);
+            document.getElementById('troca-resumo-total').innerText = formatarMoeda(total);
+        }
+
+        async function confirmarTrocaDinheiro() {
+            if(!usuarioAtual || !turnoAtual) return alert("Inicie um turno antes de registrar a troca.");
+
+            const forma = document.getElementById('troca-forma').value;
+            const valorEntregue = Math.max(0, Number(document.getElementById('troca-valor').value || 0));
+            const taxa = Math.max(0, Number(document.getElementById('troca-taxa').value || 0));
+            const totalRecebido = valorEntregue + taxa;
+
+            if(valorEntregue <= 0) return alert("Informe quanto será entregue em dinheiro.");
+
+            const ok = confirm(
+                "Confirmar troca?\n\n" +
+                "Receber por: " + forma + "\n" +
+                "Cliente paga: " + formatarMoeda(totalRecebido) + "\n" +
+                "Entregar em dinheiro: " + formatarMoeda(valorEntregue) + "\n" +
+                "Taxa: " + formatarMoeda(taxa)
+            );
+
+            if(!ok) return;
+
+            mostrarLoading(true);
+            try {
+                const r = await apiPost({
+                    acao:'registrarTroca',
+                    operador:usuarioAtual.nome,
+                    turno:turnoAtual,
+                    formaPagamento:forma,
+                    valorEntregue:valorEntregue,
+                    taxa:taxa
+                });
+
+                fecharModalTrocaDinheiro();
+                alert(r.mensagem || "Troca registrada com sucesso!");
+                atualizarRelatorioCaixa();
+                if(ehAdmin()) carregarDashboard();
+                focarBusca();
+            } catch(err) {
+                alert("Não foi possível registrar a troca:\n" + err.message);
+            } finally {
+                mostrarLoading(false);
+            }
+        }
+
         /* DASHBOARD / FECHAMENTO */
         async function carregarDashboard() {
             if(!ehAdmin()) return;
@@ -2435,6 +2636,9 @@
                 document.getElementById('dash-pix').innerText = formatarMoeda(v.pix);
                 document.getElementById('dash-dinheiro').innerText = formatarMoeda(v.dinheiro);
                 document.getElementById('dash-cartoes').innerText = formatarMoeda(Number(v.cartao || 0) + Number(v.diversos || 0));
+                const t = d.trocasHoje || {};
+                document.getElementById('dash-troca-taxas').innerText = formatarMoeda(t.taxas || 0);
+                document.getElementById('dash-troca-dinheiro').innerText = formatarMoeda(t.dinheiroEntregue || 0);
                 renderListaDashboard('dash-baixo', d.estoqueBaixo || [], false);
                 renderListaDashboard('dash-esgotado', d.esgotados || [], true);
             } catch(err) {
@@ -2470,6 +2674,14 @@
                 document.getElementById('rel-credito').innerText = formatarMoeda(r.credito);
                 document.getElementById('rel-diversos').innerText = formatarMoeda(r.diversos);
                 document.getElementById('rel-total').innerText = formatarMoeda(r.total);
+
+                const t = d.trocas || {};
+                document.getElementById('rel-troca-pix').innerText = formatarMoeda(t.pix || 0);
+                document.getElementById('rel-troca-debito').innerText = formatarMoeda(t.debito || 0);
+                document.getElementById('rel-troca-credito').innerText = formatarMoeda(t.credito || 0);
+                document.getElementById('rel-troca-dinheiro').innerText = formatarMoeda(t.dinheiroEntregue || 0);
+                document.getElementById('rel-troca-taxas').innerText = formatarMoeda(t.taxas || 0);
+                document.getElementById('rel-troca-total').innerText = formatarMoeda(t.totalRecebido || 0);
                 atualizarTurnoTopo();
             } catch(err) {
                 console.error(err);
@@ -2485,7 +2697,14 @@
                 `💳 Débito: ${document.getElementById('rel-debito').innerText}\n` +
                 `💳 Crédito: ${document.getElementById('rel-credito').innerText}\n` +
                 `➕ Diversos: ${document.getElementById('rel-diversos').innerText}\n\n` +
-                `💰 *Total: ${document.getElementById('rel-total').innerText}*`;
+                `💰 *Total vendas: ${document.getElementById('rel-total').innerText}*\n\n` +
+                `💱 *Trocas por Dinheiro*\n` +
+                `📱 Pix recebido: ${document.getElementById('rel-troca-pix').innerText}\n` +
+                `💳 Débito recebido: ${document.getElementById('rel-troca-debito').innerText}\n` +
+                `💳 Crédito recebido: ${document.getElementById('rel-troca-credito').innerText}\n` +
+                `💵 Dinheiro entregue: ${document.getElementById('rel-troca-dinheiro').innerText}\n` +
+                `➕ Taxas: ${document.getElementById('rel-troca-taxas').innerText}\n` +
+                `💰 Total recebido nas trocas: ${document.getElementById('rel-troca-total').innerText}`;
 
             window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(mensagem), '_blank');
         }
@@ -2518,8 +2737,13 @@
 
         function verificarBipeReposicao(e) {
             if(e.key !== 'Enter') return;
-            const cod = e.target.value.trim();
-            const p = produtos.find(x => String(x.codigo || '') === cod || String(x.codigoEmbalagem || '') === cod);
+            const cod = normalizarCodigoBarras(e.target.value);
+            if(!cod) return;
+
+            // Embalagem (N) tem prioridade sobre unidade (G), igual no PDV.
+            const pEmbalagem = produtos.find(x => normalizarCodigoBarras(x.codigoEmbalagem) === cod);
+            const pUnidade = produtos.find(x => normalizarCodigoBarras(x.codigo) === cod);
+            const p = pEmbalagem || pUnidade;
             if(!p) return alert('Código não encontrado.');
 
             const sel = document.getElementById('rep-produto');
@@ -2527,8 +2751,16 @@
             sel.value = p.id;
             selecionarProdutoReposicao();
 
-            const bipouEmbalagem = !!p.codigoEmbalagem && String(p.codigoEmbalagem) === cod;
-            selecionarTipoReposicao(bipouEmbalagem && p.tipoEmbalagem ? p.tipoEmbalagem : 'Unidade');
+            if(pEmbalagem) {
+                const fator = Math.floor(Number(p.unidadesPorEmbalagem || 1));
+                if(!p.tipoEmbalagem || fator < 2) {
+                    e.target.value = '';
+                    return alert('Código de embalagem encontrado, mas faltam Tipo de Embalagem ou Unidades por Embalagem no cadastro.');
+                }
+                selecionarTipoReposicao(p.tipoEmbalagem);
+            } else {
+                selecionarTipoReposicao('Unidade');
+            }
             e.target.value = '';
         }
 
