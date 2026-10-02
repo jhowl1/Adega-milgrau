@@ -1158,7 +1158,7 @@
     </div>
 
     <!-- MODAL ABERTURA DE TURNO - usu&#xE1;rio j&#xE1; vem do login -->
-    <div id="modal-abertura-turno" class="modal-overlay">
+    <div id="modal-abertura-turno" class="modal-overlay" style="display:none !important;">
         <div class="modal-box">
             <h2>&#x1F552; Iniciar Turno</h2>
             <p style="color: var(--text-muted); font-size: 0.9rem;">O operador j&#xE1; foi identificado pelo login. Selecione apenas o turno.</p>
@@ -1210,6 +1210,10 @@
                 <div class="combo-coluna-novo">
                     <div class="combo-titulo-novo"><strong>&#x26A1; Energ&#xE9;ticos</strong><span id="combo-cont-ene" class="badge-baixo-novo">0/4</span></div>
                     <div id="combo-lista-ene"></div>
+                </div>
+                <div class="combo-coluna-novo">
+                    <div class="combo-titulo-novo"><strong>&#x1F37A; Cervejas</strong><span id="combo-cont-cerveja" class="badge-baixo-novo">0/8</span></div>
+                    <div id="combo-lista-cerveja"></div>
                 </div>
                 <div class="combo-coluna-novo">
                     <div class="combo-titulo-novo"><strong>&#x1F9CA; Gelos</strong><span id="combo-cont-gelo" class="badge-baixo-novo">0/4</span></div>
@@ -1302,10 +1306,9 @@
             <span style="font-size: 0.85rem; background: var(--border); padding: 4px 10px; border-radius: 20px; color: var(--text-muted);">
                 Usu&#xE1;rio: <strong id="nome-operador-topo" style="color: var(--primary);">&#x2014;</strong>
             </span>
-            <span id="turno-topo" class="turno-topo">Sem turno</span>
+            <span id="turno-topo" class="turno-topo">Sem operador</span>
         </div>
         <div class="topo-acoes">
-            <button class="btn-topo" onclick="abrirModalTrocaOperador()">&#x1F552; Trocar Turno</button>
             <button class="btn-topo" onclick="alternarTema()">
                 <span id="icone-tema">&#x2600;&#xFE0F;</span> <span id="texto-tema">Claro</span>
             </button>
@@ -1319,7 +1322,7 @@
         <button class="active" onclick="mudarAba('vendas', this)">&#x1F6D2; Vendas / PDV</button>
         <button class="admin-only-nav" onclick="mudarAba('reposicao', this)">&#x1F4E6; Reposi&#xE7;&#xE3;o / Estoque</button>
         <button class="admin-only-nav" onclick="mudarAba('produtos', this)">&#x1F9FE; Produtos</button>
-        <button onclick="mudarAba('fechamento', this)">&#x1F4CA; Meu Turno</button>
+        <button onclick="mudarAba('fechamento', this)">&#x1F4CA; Meu Caixa</button>
         <button class="admin-only-nav" onclick="mudarAba('equipe', this)">&#x1F465; Equipe</button>
         <button class="admin-only-nav" onclick="mudarAba('cadastros', this)">&#x2795; Novo Item</button>
     </nav>
@@ -1345,6 +1348,18 @@
                     <div class="dashboard-card"><small>TAXAS DE TROCA</small><strong id="dash-troca-taxas">R$ 0,00</strong></div>
                     <div class="dashboard-card"><small>DINHEIRO ENTREGUE EM TROCAS</small><strong id="dash-troca-dinheiro">R$ 0,00</strong></div>
                 </div>
+                <div class="dashboard-lista" style="margin-top:16px;">
+                    <h3 style="margin-bottom:10px;">&#x1F50E; Auditoria de Vendas por Funcionário</h3>
+                    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px;">
+                        <div class="form-group" style="margin:0;flex:1;min-width:160px;"><label>Data inicial</label><input type="date" id="auditoria-data-inicial"></div>
+                        <div class="form-group" style="margin:0;flex:1;min-width:160px;"><label>Data final</label><input type="date" id="auditoria-data-final"></div>
+                        <div class="form-group" style="margin:0;flex:1;min-width:180px;"><label>Funcionário</label><select id="auditoria-operador"><option value="">Todos</option></select></div>
+                        <button class="btn-topo" onclick="carregarAuditoriaVendas()" style="align-self:end;">&#x1F50D; Consultar</button>
+                    </div>
+                    <div id="auditoria-resumo" style="margin-bottom:10px;color:var(--text-muted);font-size:.84rem;"></div>
+                    <div id="auditoria-lista" style="max-height:360px;overflow:auto;"></div>
+                </div>
+
                 <div class="dashboard-duplo">
                     <div class="dashboard-lista">
                         <h3 style="margin-bottom:10px;">&#x1F7E0; Estoque baixo (1&#x2013;10)</h3>
@@ -1477,8 +1492,8 @@
         <!-- ABA 3: FECHAMENTO -->
         <div id="aba-fechamento" class="content">
             <div style="max-width:700px;margin:0 auto;background:var(--card-bg);border:1px solid var(--border);padding:24px;border-radius:12px;">
-                <h2 style="font-size:1.3rem;margin-bottom:6px;">&#x1F4CA; Meu Turno</h2>
-                <p id="fechamento-turno-legenda" style="color:var(--text-muted);font-size:.85rem;margin-bottom:20px;">Sem turno aberto.</p>
+                <h2 style="font-size:1.3rem;margin-bottom:6px;">&#x1F4CA; Meu Caixa</h2>
+                <p id="fechamento-turno-legenda" style="color:var(--text-muted);font-size:.85rem;margin-bottom:20px;">Sem operador aberto.</p>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;">
                     <div class="dashboard-card"><small>PIX</small><strong id="rel-pix">R$ 0,00</strong></div>
                     <div class="dashboard-card"><small>DINHEIRO</small><strong id="rel-dinheiro">R$ 0,00</strong></div>
@@ -1502,7 +1517,6 @@
 
                 <div style="display:flex;gap:10px;flex-wrap:wrap;">
                     <button class="btn-grande" style="background:#25D366;color:white;flex:1;" onclick="enviarRelatorioWhatsApp()">&#x1F4F2; Enviar WhatsApp</button>
-                    <button class="btn-grande" style="background:var(--danger);color:white;flex:1;" onclick="encerrarTurno()">&#x1F6AA; Encerrar Turno</button>
                 </div>
             </div>
         </div>
@@ -1660,13 +1674,12 @@
         let equipe = [];
         let produtoSelecionadoAtual = null;
         let usuarioAtual = null;
-        let funcionarioAtualTurno = "";
-        let turnoAtual = "";
         let temaClaro = false;
 
         let comboProdutoAtual = null;
         let comboSelecaoEne = {};
         let comboSelecaoGelo = {};
+        let comboSelecaoCerveja = {};
 
         window.onload = async function() {
             aplicarTemaSalvo();
@@ -1777,12 +1790,9 @@
             try {
                 const r = await apiPost({acao:'autenticarUsuario', nome:nome, pin:pin});
                 usuarioAtual = r.usuario;
-                funcionarioAtualTurno = usuarioAtual.nome;
-                turnoAtual = "";
                 salvarSessao();
                 document.getElementById('login-pin').value = "";
                 entrarNoSistema();
-                abrirModalAberturaTurno();
             } catch(err) {
                 alert(err.message);
             } finally {
@@ -1796,47 +1806,31 @@
 
         function entrarNoSistema() {
             if(!usuarioAtual) return mostrarLogin();
-            funcionarioAtualTurno = usuarioAtual.nome;
             document.getElementById('login-novo').style.display = 'none';
             document.getElementById('nome-operador-topo').innerText = usuarioAtual.nome;
             aplicarPermissoes();
-            atualizarTurnoTopo();
             atualizarInterfaceCompleta();
-
-            if(!turnoAtual) abrirModalAberturaTurno();
-            else {
-                const btn = ehAdmin()
-                    ? document.querySelector('nav button.admin-only-nav')
-                    : document.querySelector('nav button[onclick*="vendas"]');
-                mudarAba(ehAdmin() ? 'inicio' : 'vendas', btn);
-            }
+            const btn = ehAdmin() ? document.querySelector('nav button.admin-only-nav') : document.querySelector('nav button[onclick*="vendas"]');
+            mudarAba(ehAdmin() ? 'inicio' : 'vendas', btn);
         }
 
         function sairSistema() {
             if(!confirm("Sair do sistema neste computador?")) return;
             usuarioAtual = null;
-            funcionarioAtualTurno = "";
-            turnoAtual = "";
             localStorage.removeItem('carbura_sessao');
-            document.getElementById('modal-abertura-turno').style.display = 'none';
+            const modal = document.getElementById('modal-abertura-turno');
+            if(modal) modal.style.display = 'none';
             mostrarLogin();
         }
 
         function salvarSessao() {
-            localStorage.setItem('carbura_sessao', JSON.stringify({
-                usuario: usuarioAtual,
-                turno: turnoAtual
-            }));
+            localStorage.setItem('carbura_sessao', JSON.stringify({usuario: usuarioAtual}));
         }
 
         function recuperarSessao() {
             try {
                 const s = JSON.parse(localStorage.getItem('carbura_sessao') || 'null');
-                if(s && s.usuario) {
-                    usuarioAtual = s.usuario;
-                    funcionarioAtualTurno = s.usuario.nome;
-                    turnoAtual = s.turno || "";
-                }
+                if(s && s.usuario) usuarioAtual = s.usuario;
             } catch(e) {}
         }
 
@@ -1852,46 +1846,12 @@
             });
         }
 
-        /* TURNO */
-        function abrirModalAberturaTurno() {
-            if(!usuarioAtual) return;
-            document.getElementById('modal-abertura-turno').style.display = 'flex';
-            if(turnoAtual) document.getElementById('select-turno-atual').value = turnoAtual;
-        }
-
-        function confirmarAberturaTurno() {
-            turnoAtual = document.getElementById('select-turno-atual').value;
-            funcionarioAtualTurno = usuarioAtual.nome;
-            salvarSessao();
-            atualizarTurnoTopo();
-            document.getElementById('modal-abertura-turno').style.display = 'none';
-
-            const btn = ehAdmin()
-                ? document.querySelector('nav button.admin-only-nav')
-                : document.querySelector('nav button[onclick*="vendas"]');
-            mudarAba(ehAdmin() ? 'inicio' : 'vendas', btn);
-            focarBusca();
-        }
-
-        function abrirModalTrocaOperador() {
-            abrirModalAberturaTurno();
-        }
-
-        function encerrarTurno() {
-            if(!turnoAtual) return alert("Nenhum turno aberto.");
-            if(!confirm("Encerrar o turno " + turnoAtual + "?")) return;
-            turnoAtual = "";
-            salvarSessao();
-            atualizarTurnoTopo();
-            abrirModalAberturaTurno();
-        }
-
+        /* SEM TURNOS: vendas e trocas são vinculadas ao operador e à data/hora. */
         function atualizarTurnoTopo() {
-            document.getElementById('turno-topo').innerText = turnoAtual ? "Turno: " + turnoAtual : "Sem turno";
+            const el = document.getElementById('turno-topo');
+            if(el) el.innerText = usuarioAtual ? 'Operador: ' + usuarioAtual.nome : 'Sem operador';
             const legenda = document.getElementById('fechamento-turno-legenda');
-            if(legenda) legenda.innerText = turnoAtual
-                ? usuarioAtual.nome + " \u2022 " + turnoAtual
-                : "Sem turno aberto.";
+            if(legenda) legenda.innerText = usuarioAtual ? 'Vendas e trocas do operador ' + usuarioAtual.nome + ' — sem turno.' : 'Sem operador.';
         }
 
         /* NAVEGA\u00C7\u00C3O */
@@ -2368,10 +2328,21 @@
             });
         }
 
+        function produtosCervejas() {
+            return produtos.filter(p => {
+                const cat = normalizarTexto(p.categoria);
+                const nome = normalizarTexto(p.nome);
+                return normalizarTexto(p.status) !== 'inativo' && Number(p.estoque || 0) > 0 &&
+                       (cat.includes('cerveja') || cat.includes('chopp') || cat.includes('beer') || nome.includes('cerveja'));
+            });
+        }
+
         function abrirModalComboNovo(p) {
             comboProdutoAtual = p;
             comboSelecaoEne = {};
             comboSelecaoGelo = {};
+            comboSelecaoCerveja = {};
+            comboSelecaoCerveja = {};
             document.getElementById('combo-novo-titulo').innerText = "\uD83C\uDF79 " + p.nome;
             renderComboNovo();
             document.getElementById('modal-combo-novo').style.display = 'flex';
@@ -2380,15 +2351,23 @@
         function renderComboNovo() {
             renderGrupoCombo('combo-lista-ene', produtosEnergeticos(), comboSelecaoEne, 'ene');
             renderGrupoCombo('combo-lista-gelo', produtosGelos(), comboSelecaoGelo, 'gelo');
+            renderGrupoCombo('combo-lista-cerveja', produtosCervejas(), comboSelecaoCerveja, 'cerveja');
 
             const totalE = totalSelecionado(comboSelecaoEne);
             const totalG = totalSelecionado(comboSelecaoGelo);
+            const totalC = totalSelecionado(comboSelecaoCerveja);
             document.getElementById('combo-cont-ene').innerText = totalE + "/4";
             document.getElementById('combo-cont-gelo').innerText = totalG + "/4";
+            document.getElementById('combo-cont-cerveja').innerText = totalC + "/8";
 
             const resumo = [];
             Object.keys(comboSelecaoEne).forEach(id => {
                 const q = comboSelecaoEne[id] || 0;
+                const p = produtos.find(x => String(x.id) === String(id));
+                if(q > 0 && p) resumo.push(q + "x " + p.nome);
+            });
+            Object.keys(comboSelecaoCerveja).forEach(id => {
+                const q = comboSelecaoCerveja[id] || 0;
                 const p = produtos.find(x => String(x.id) === String(id));
                 if(q > 0 && p) resumo.push(q + "x " + p.nome);
             });
@@ -2431,7 +2410,7 @@
         }
 
         function alterarComboNovo(tipo, id, delta) {
-            const obj = tipo === 'ene' ? comboSelecaoEne : comboSelecaoGelo;
+            const obj = tipo === 'ene' ? comboSelecaoEne : (tipo === 'cerveja' ? comboSelecaoCerveja : comboSelecaoGelo);
             const atual = Number(obj[id] || 0);
             const total = totalSelecionado(obj);
 
@@ -2449,6 +2428,7 @@
         function limparComboNovo() {
             comboSelecaoEne = {};
             comboSelecaoGelo = {};
+            comboSelecaoCerveja = {};
             renderComboNovo();
         }
 
@@ -2462,6 +2442,10 @@
 
             Object.keys(comboSelecaoEne).forEach(id => {
                 const q = comboSelecaoEne[id] || 0;
+                if(q > 0) extras.push({id:id,qtd:q,tipoVenda:'Unidade'});
+            });
+            Object.keys(comboSelecaoCerveja).forEach(id => {
+                const q = comboSelecaoCerveja[id] || 0;
                 if(q > 0) extras.push({id:id,qtd:q,tipoVenda:'Unidade'});
             });
             Object.keys(comboSelecaoGelo).forEach(id => {
@@ -2625,12 +2609,7 @@
         async function finalizarVenda() {
             if(carrinho.length === 0) return alert("O carrinho est\u00E1 vazio!");
             if(!usuarioAtual) return alert("Fa\u00E7a login novamente.");
-            if(!turnoAtual) {
-                abrirModalAberturaTurno();
-                return alert("Inicie um turno antes de finalizar.");
-            }
-
-            const formaPagamento = document.getElementById('pagamento').value;
+const formaPagamento = document.getElementById('pagamento').value;
             const totalVenda = carrinho.reduce((acc,item) => acc + Number(item.preco || 0) * Number(item.qtd || 0),0);
 
             if(formaPagamento === 'Dinheiro') {
@@ -2670,7 +2649,6 @@
                 const resposta = await apiPost({
                     acao:'registrarVenda',
                     operador:usuarioAtual.nome,
-                    turno:turnoAtual,
                     pagamento:formaPagamento,
                     itens:itensParaEnviar
                 });
@@ -2693,12 +2671,7 @@
         /* TROCA POR DINHEIRO */
         function abrirModalTrocaDinheiro() {
             if(!usuarioAtual) return alert("Fa\u00E7a login novamente.");
-            if(!turnoAtual) {
-                abrirModalAberturaTurno();
-                return alert("Inicie um turno antes de registrar a troca.");
-            }
-
-            document.getElementById('troca-forma').value = 'Pix';
+document.getElementById('troca-forma').value = 'Pix';
             document.getElementById('troca-valor').value = '';
             document.getElementById('troca-taxa').value = '';
             calcularTrocaDinheiro();
@@ -2721,7 +2694,7 @@
         }
 
         async function confirmarTrocaDinheiro() {
-            if(!usuarioAtual || !turnoAtual) return alert("Inicie um turno antes de registrar a troca.");
+            if(!usuarioAtual) return alert("Faça login novamente.");
 
             const forma = document.getElementById('troca-forma').value;
             const valorEntregue = Math.max(0, Number(document.getElementById('troca-valor').value || 0));
@@ -2745,7 +2718,6 @@
                 const r = await apiPost({
                     acao:'registrarTroca',
                     operador:usuarioAtual.nome,
-                    turno:turnoAtual,
                     formaPagamento:forma,
                     valorEntregue:valorEntregue,
                     taxa:taxa
@@ -2778,8 +2750,40 @@
                 document.getElementById('dash-troca-dinheiro').innerText = formatarMoeda(t.dinheiroEntregue || 0);
                 renderListaDashboard('dash-baixo', d.estoqueBaixo || [], false);
                 renderListaDashboard('dash-esgotado', d.esgotados || [], true);
+                preencherFiltroAuditoria();
+                carregarAuditoriaVendas();
             } catch(err) {
                 console.error(err);
+            }
+        }
+
+        function preencherFiltroAuditoria() {
+            const sel = document.getElementById('auditoria-operador');
+            if(!sel) return;
+            const atual = sel.value;
+            sel.innerHTML = '<option value="">Todos</option>' + (equipe || []).map(f => '<option value="' + escaparAtributo(f.nome || f) + '">' + escaparHTML(f.nome || f) + '</option>').join('');
+            sel.value = atual;
+        }
+
+        async function carregarAuditoriaVendas() {
+            if(!ehAdmin()) return;
+            const hoje = new Date().toISOString().slice(0,10);
+            const di = document.getElementById('auditoria-data-inicial');
+            const df = document.getElementById('auditoria-data-final');
+            if(di && !di.value) di.value = hoje;
+            if(df && !df.value) df.value = hoje;
+            try {
+                const d = await apiGet('auditoriaVendas', {dataInicial: di ? di.value : hoje, dataFinal: df ? df.value : hoje, operador: (document.getElementById('auditoria-operador') || {}).value || ''});
+                const lista = d.vendas || [];
+                const resumo = document.getElementById('auditoria-resumo');
+                const box = document.getElementById('auditoria-lista');
+                if(resumo) resumo.innerText = lista.length + ' lançamento(s) — Total: ' + formatarMoeda(d.total || 0);
+                if(!box) return;
+                if(!lista.length) { box.innerHTML = '<p style="color:var(--text-muted);padding:10px 0;">Nenhuma venda encontrada.</p>'; return; }
+                box.innerHTML = lista.map(v => `<div style="padding:10px;border:1px solid var(--border);border-radius:8px;margin-bottom:8px;background:var(--bg);"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;"><strong>${escaparHTML(v.produto)}</strong><strong style="color:var(--success);">${formatarMoeda(v.valor)}</strong></div><div style="color:var(--text-muted);font-size:.78rem;margin-top:4px;">${escaparHTML(v.dataHora)} • Funcionário: <strong>${escaparHTML(v.operador)}</strong> • Qtd: ${v.quantidade} • ${escaparHTML(v.pagamento)} • ${escaparHTML(v.tipoVenda)}</div><div style="color:var(--text-muted);font-size:.72rem;margin-top:3px;">ID venda: ${escaparHTML(v.idVenda)}</div></div>`).join('');
+            } catch(err) {
+                const box = document.getElementById('auditoria-lista');
+                if(box) box.innerHTML = '<p style="color:var(--danger);">Erro na auditoria: ' + escaparHTML(err.message) + '</p>';
             }
         }
 
@@ -2798,11 +2802,10 @@
         }
 
         async function atualizarRelatorioCaixa() {
-            if(!usuarioAtual || !turnoAtual) return;
+            if(!usuarioAtual) return;
             try {
                 const d = await apiGet('resumoTurno', {
                     operador:usuarioAtual.nome,
-                    turno:turnoAtual
                 });
                 const r = d.resumo || {};
                 document.getElementById('rel-pix').innerText = formatarMoeda(r.pix);
@@ -2828,7 +2831,6 @@
         function enviarRelatorioWhatsApp() {
             const mensagem = `\uD83D\uDCCA *Fechamento de Caixa - Carbura Bar*\n\n` +
                 `\uD83D\uDC64 Operador: ${usuarioAtual ? usuarioAtual.nome : ''}\n` +
-                `\uD83D\uDD52 Turno: ${turnoAtual}\n\n` +
                 `\uD83D\uDCF1 PIX: ${document.getElementById('rel-pix').innerText}\n` +
                 `\uD83D\uDCB5 Dinheiro: ${document.getElementById('rel-dinheiro').innerText}\n` +
                 `\uD83D\uDCB3 D\u00E9bito: ${document.getElementById('rel-debito').innerText}\n` +
