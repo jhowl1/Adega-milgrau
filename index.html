@@ -524,495 +524,9 @@
                 overflow: hidden;
             }
         }
-
-        /* ===== CARBURA BAR NOVO - melhorias sobre o sistema original ===== */
-        .hidden-role { display: none !important; }
-
-        .login-overlay-novo {
-            position: fixed;
-            inset: 0;
-            z-index: 5000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-            background:
-                radial-gradient(circle at 25% 20%, rgba(245,158,11,.15), transparent 30%),
-                radial-gradient(circle at 80% 80%, rgba(245,158,11,.08), transparent 25%),
-                var(--bg);
-        }
-
-        .login-card-novo {
-            width: min(470px, 100%);
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 26px 70px rgba(0,0,0,.35);
-        }
-
-        .login-marca-novo {
-            text-align: center;
-            margin-bottom: 24px;
-        }
-
-        .login-marca-novo .icone {
-            font-size: 3rem;
-            margin-bottom: 8px;
-        }
-
-        .login-marca-novo h1 {
-            color: var(--primary);
-            margin-bottom: 5px;
-            font-size: 2rem;
-        }
-
-        .login-marca-novo p {
-            color: var(--text-muted);
-            font-size: .9rem;
-        }
-
-        .login-acoes-novo {
-            display: flex;
-            gap: 10px;
-            margin-top: 18px;
-        }
-
-        .turno-topo {
-            font-size: .78rem;
-            background: rgba(245,158,11,.12);
-            color: var(--primary);
-            border: 1px solid rgba(245,158,11,.25);
-            padding: 4px 9px;
-            border-radius: 999px;
-            font-weight: 700;
-        }
-
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0,1fr));
-            gap: 14px;
-            margin-bottom: 18px;
-        }
-
-        .dashboard-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 18px;
-        }
-
-        .dashboard-card small {
-            color: var(--text-muted);
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .dashboard-card strong {
-            display: block;
-            font-size: 1.55rem;
-        }
-
-        .dashboard-duplo {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        .dashboard-lista {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 16px;
-        }
-
-        .dashboard-item {
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-            padding: 10px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .dashboard-item:last-child { border-bottom: none; }
-
-        .badge-baixo-novo {
-            background: rgba(245,158,11,.15);
-            color: #f59e0b;
-            border: 1px solid rgba(245,158,11,.28);
-            padding: 3px 8px;
-            border-radius: 999px;
-            font-size: .72rem;
-            font-weight: 800;
-        }
-
-        .badge-esgotado-novo {
-            background: rgba(239,68,68,.15);
-            color: #ef4444;
-            border: 1px solid rgba(239,68,68,.28);
-            padding: 3px 8px;
-            border-radius: 999px;
-            font-size: .72rem;
-            font-weight: 800;
-        }
-
-        .estoque-baixo-card {
-            border-color: rgba(245,158,11,.55) !important;
-        }
-
-        .estoque-esgotado-card {
-            border-color: rgba(239,68,68,.55) !important;
-            opacity: .7;
-            cursor: not-allowed !important;
-        }
-
-        .modal-box.modal-largo {
-            width: min(820px, calc(100vw - 32px));
-            max-height: 92vh;
-            overflow-y: auto;
-        }
-
-        .form-grid-novo {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .form-grid-novo .full {
-            grid-column: 1 / -1;
-        }
-
-        .resumo-edicao-novo {
-            background: rgba(245,158,11,.08);
-            border: 1px solid rgba(245,158,11,.22);
-            border-radius: 9px;
-            padding: 12px;
-            color: var(--text-muted);
-            font-size: .84rem;
-            margin-top: 12px;
-        }
-
-        .combo-builder-novo {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
-        }
-
-        .combo-coluna-novo {
-            background: rgba(0,0,0,.12);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 12px;
-        }
-
-        .combo-titulo-novo {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-            gap: 10px;
-        }
-
-        .combo-produto-novo {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-            padding: 9px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .combo-produto-novo:last-child { border-bottom: none; }
-
-        .combo-stepper-novo {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            flex-shrink: 0;
-        }
-
-        .combo-stepper-novo button {
-            width: 30px;
-            height: 30px;
-            border: 1px solid var(--border);
-            background: var(--bg);
-            color: var(--text);
-            border-radius: 7px;
-            font-weight: 900;
-        }
-
-        .combo-stepper-novo span {
-            min-width: 22px;
-            text-align: center;
-            font-weight: 800;
-        }
-
-        .combo-resumo-novo {
-            margin-top: 14px;
-            background: rgba(245,158,11,.08);
-            border: 1px solid rgba(245,158,11,.25);
-            padding: 12px;
-            border-radius: 10px;
-        }
-
-        .reposicao-novo-grid {
-            display: grid;
-            grid-template-columns: minmax(340px,.85fr) minmax(380px,1.15fr);
-            gap: 16px;
-        }
-
-        .reposicao-card-novo {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 20px;
-            border-radius: 12px;
-        }
-
-        .reposicao-preview-novo {
-            background: rgba(245,158,11,.07);
-            border: 1px solid rgba(245,158,11,.2);
-            border-radius: 10px;
-            padding: 14px;
-            margin-top: 12px;
-        }
-
-        .acoes-produto-novo {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-
-        .btn-mini-novo {
-            border: 1px solid var(--border);
-            background: var(--bg);
-            color: var(--text);
-            padding: 6px 9px;
-            border-radius: 7px;
-            cursor: pointer;
-            font-size: .78rem;
-        }
-
-        .btn-mini-novo.danger {
-            color: var(--danger);
-            border-color: rgba(239,68,68,.35);
-        }
-
-        @media (max-width: 950px) {
-            .dashboard-grid { grid-template-columns: repeat(2,1fr); }
-            .dashboard-duplo, .reposicao-novo-grid, .combo-builder-novo { grid-template-columns: 1fr; }
-        }
-
-
-        @media (max-width: 800px) {
-            #grid-produtos-admin > .reposicao-card-novo {
-                grid-template-columns: 1fr !important;
-            }
-            #grid-produtos-admin .acoes-produto-novo {
-                justify-content: flex-start !important;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .dashboard-grid, .form-grid-novo { grid-template-columns: 1fr; }
-            .form-grid-novo .full { grid-column: auto; }
-            .login-card-novo { padding: 22px; }
-        }
-
-
-
-        /* ===== AJUSTE FINAL: cadastro/edi\E7 \E3 o/reposi\E7 \E3 o simples ===== */
-        .subtitulo-bloco-final {
-            color: var(--text-muted);
-            font-size: .82rem;
-            margin-top: -8px;
-            margin-bottom: 14px;
-        }
-        .separador-bloco-final {
-            border-top: 1px solid var(--border);
-            margin: 6px 0 18px;
-            padding-top: 18px;
-        }
-        .modo-venda-final {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-        .modo-venda-final button,
-        .rep-opcoes-final button {
-            border: 1px solid var(--border);
-            background: var(--bg);
-            color: var(--text);
-            border-radius: 10px;
-            padding: 13px;
-            font-weight: 800;
-            cursor: pointer;
-        }
-        .modo-venda-final button.ativo,
-        .rep-opcoes-final button.ativo {
-            border-color: var(--primary);
-            background: rgba(245,158,11,.12);
-            color: var(--primary);
-        }
-        .estoque-humano-final {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-        .resumo-humano-final {
-            background: rgba(245,158,11,.08);
-            border: 1px solid rgba(245,158,11,.22);
-            border-radius: 10px;
-            padding: 13px;
-            color: var(--text-muted);
-            font-size: .85rem;
-            line-height: 1.5;
-        }
-        .resumo-humano-final strong { color: var(--text); }
-        .rep-simples-final {
-            max-width: 760px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 22px;
-        }
-        .rep-produto-final {
-            border: 1px solid var(--border);
-            background: var(--bg);
-            border-radius: 10px;
-            padding: 14px;
-            margin: 10px 0 18px;
-        }
-        .rep-produto-final strong { font-size: 1.05rem; }
-        .rep-opcoes-final {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 10px;
-            margin: 10px 0 16px;
-        }
-        .rep-qtd-final {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin: 8px 0 16px;
-        }
-        .rep-qtd-final button {
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-            background: var(--bg);
-            color: var(--text);
-            font-size: 1.25rem;
-            font-weight: 900;
-            cursor: pointer;
-        }
-        .rep-qtd-final input {
-            width: 120px;
-            height: 44px;
-            text-align: center;
-            background: var(--bg);
-            color: var(--text);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            font-size: 1.05rem;
-            font-weight: 800;
-        }
-        .btn-zerar-admin-final {
-            background: var(--primary);
-            color: #111;
-            border: none;
-            font-weight: 900;
-            padding: 5px 9px;
-            border-radius: 7px;
-            cursor: pointer;
-            font-size: .72rem;
-        }
-        .info-especial-final {
-            background: rgba(56,189,248,.08);
-            border: 1px solid rgba(56,189,248,.22);
-            border-radius: 10px;
-            padding: 12px;
-            color: var(--text-muted);
-            font-size: .83rem;
-            line-height: 1.45;
-            margin-bottom: 16px;
-        }
-        @media (max-width: 700px) {
-            .modo-venda-final,
-            .estoque-humano-final,
-            .rep-opcoes-final { grid-template-columns: 1fr; }
-        }
-
-        /* ===== TROCA POR DINHEIRO ===== */
-        .btn-troca-dinheiro {
-            width: 100%;
-            border: 1px solid var(--primary);
-            background: rgba(245,158,11,.08);
-            color: var(--primary);
-            border-radius: 8px;
-            padding: 12px;
-            font-weight: 800;
-            cursor: pointer;
-        }
-        .troca-resumo {
-            border: 1px solid var(--border);
-            background: var(--bg);
-            border-radius: 12px;
-            padding: 14px;
-            display: grid;
-            gap: 8px;
-        }
-        .troca-resumo-linha {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-        }
-        .troca-resumo-linha.total {
-            border-top: 1px solid var(--border);
-            padding-top: 10px;
-            font-size: 1.08rem;
-        }
-        .fechamento-trocas {
-            margin: 18px 0 20px;
-            padding: 16px;
-            border: 1px solid rgba(245,158,11,.28);
-            background: rgba(245,158,11,.06);
-            border-radius: 12px;
-        }
-
     </style>
 </head>
 <body>
-
-    <!-- LOGIN NOVO: perfil vem da aba Equipe; o usu&#xE1;rio n&#xE3;o escolhe o cargo -->
-    <div id="login-novo" class="login-overlay-novo">
-        <div class="login-card-novo">
-            <div class="login-marca-novo">
-                <div class="icone">&#x1F377;</div>
-                <h1>Carbura Bar</h1>
-                <p>Entre com seu usu&#xE1;rio e PIN.</p>
-            </div>
-            <div class="form-group">
-                <label>Usu&#xE1;rio</label>
-                <select id="login-usuario">
-                    <option value="">Carregando equipe...</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>PIN</label>
-                <input type="password" id="login-pin" inputmode="numeric" placeholder="Digite seu PIN" onkeypress="loginEnter(event)">
-            </div>
-            <div class="login-acoes-novo">
-                <button class="btn-grande" onclick="fazerLogin()">Entrar</button>
-                <button class="btn-topo" style="justify-content:center;" onclick="alternarTema()">&#x25D0; Tema</button>
-            </div>
-            <p id="login-status" style="color:var(--text-muted);font-size:.78rem;margin-top:12px;text-align:center;"></p>
-        </div>
-    </div>
-
 
     <!-- LOADING SPINNER -->
     <div id="loading">
@@ -1021,9 +535,9 @@
     </div>
 
     <!-- MODAL DE SENHA -->
-    <div id="modal-senha" class="modal-overlay" style="display:none !important;">
+    <div id="modal-senha" class="modal-overlay">
         <div class="modal-box">
-            <h2>&#x1F512; &#xC1;rea Restrita (Ger&#xEA;ncia)</h2>
+            <h2>🔒 Área Restrita (Gerência)</h2>
             <p style="color: var(--text-muted); font-size: 0.9rem;">Digite a senha do gerente para prosseguir:</p>
             <div class="form-group" style="margin-bottom: 0;">
                 <input type="password" id="input-senha-gerente" placeholder="Senha (ex: 1234)" onkeypress="verificarSenhaEnter(event)">
@@ -1035,163 +549,143 @@
         </div>
     </div>
 
-    <!-- MODAL DE EDI&#xC7;&#xC3;O DE PRODUTO - SIMPLES E COMPLETO / SOMENTE DONA-ADMIN -->
+    <!-- MODAL DE EDIÇÃO DE PRODUTO -->
     <div id="modal-editar-produto" class="modal-overlay">
-        <div class="modal-box modal-largo">
-            <h2>&#x270F;&#xFE0F; Editar Produto</h2>
-            <p id="edit-prod-nome-titulo" style="color:var(--primary);font-weight:bold;margin-bottom:4px;"></p>
-            <p class="subtitulo-bloco-final">Mesma l&#xF3;gica do cadastro: produto, forma de venda e estoque.</p>
-            <input type="hidden" id="edit-prod-id">
-
-            <div class="form-grid-novo">
-                <div class="form-group full">
-                    <label>Nome do Produto</label>
-                    <input type="text" id="edit-prod-nome">
-                </div>
-                <div class="form-group">
-                    <label>Categoria</label>
-                    <select id="edit-prod-categoria" onchange="verificarCategoriaEdicao()">
-                        <option value="Geral">Geral</option>
-                        <option value="Cervejas">Cervejas</option>
-                        <option value="Destilados">Destilados</option>
-                        <option value="Whisky">Whisky</option>
-                        <option value="Energ&#xE9;tico">Energ&#xE9;tico</option>
-                        <option value="Gelo">Gelo</option>
-                        <option value="Combos">Combos</option>
-                        <option value="Doses">Doses</option>
-                        <option value="Tabaco">Tabaco</option>
-                        <option value="Sem &#xC1;lcool">Sem &#xC1;lcool</option>
-                        <option value="Gelo e Carv&#xE3;o">Gelo e Carv&#xE3;o</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Status</label>
-                    <select id="edit-prod-status"><option value="Ativo">Ativo</option><option value="Inativo">Inativo</option></select>
-                </div>
-                <div class="form-group">
-                    <label>C&#xF3;digo da Unidade / Solto</label>
-                    <input type="text" id="edit-prod-codigo" placeholder="C&#xF3;digo que j&#xE1; fica na coluna G">
-                </div>
-                <div class="form-group">
-                    <label>ML / Volume</label>
-                    <input type="number" id="edit-prod-ml" min="0" placeholder="Ex: 330">
-                </div>
-            </div>
-
-            <div class="separador-bloco-final">
-                <strong>Como este produto &#xE9; vendido?</strong>
-                <p class="subtitulo-bloco-final" style="margin-top:4px;">Escolha apenas uma op&#xE7;&#xE3;o.</p>
-                <input type="hidden" id="edit-modo-venda" value="unidade">
-                <div class="modo-venda-final" id="edit-modo-botoes">
-                    <button type="button" id="edit-btn-unidade" class="ativo" onclick="selecionarModoVendaEdicao('unidade')">&#x1F9C3; S&#xF3; unidade</button>
-                    <button type="button" id="edit-btn-embalagem" onclick="selecionarModoVendaEdicao('embalagem')">&#x1F4E6; Unidade + embalagem</button>
-                </div>
-            </div>
-
-            <div id="edit-info-especial" class="info-especial-final" style="display:none;"></div>
-
-            <div id="edit-bloco-unidade">
-                <div class="form-group">
-                    <label>Pre&#xE7;o de Venda (R$)</label>
-                    <input type="number" step="0.01" id="edit-preco-unidade" min="0">
-                </div>
-            </div>
-
-            <div id="edit-bloco-embalagem" style="display:none;">
-                <div class="form-grid-novo">
-                    <div class="form-group">
-                        <label>Embalagem</label>
-                        <select id="edit-prod-tipo-embalagem" onchange="atualizarEdicaoHumana()">
-                            <option value="Caixa">Caixa</option>
-                            <option value="Ma&#xE7;o">Ma&#xE7;o</option>
-                            <option value="Pacote">Pacote</option>
-                            <option value="Fardo">Fardo</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Quantas unidades v&#xEA;m dentro?</label>
-                        <input type="number" id="edit-prod-unidades-embalagem" min="1" value="1" oninput="atualizarEdicaoHumana()">
-                    </div>
-                    <div class="form-group">
-                        <label id="edit-label-preco-solto">Pre&#xE7;o Unit&#xE1;rio / Solto (R$)</label>
-                        <input type="number" step="0.01" id="edit-prod-preco-solto" min="0">
-                    </div>
-                    <div class="form-group">
-                        <label id="edit-label-preco-embalagem">Pre&#xE7;o da Embalagem (R$)</label>
-                        <input type="number" step="0.01" id="edit-prod-preco-maco" min="0">
-                    </div>
-                    <div class="form-group full">
-                        <label id="edit-label-codigo-embalagem">C&#xF3;digo da Embalagem</label>
-                        <input type="text" id="edit-prod-codigo-embalagem" placeholder="C&#xF3;digo da caixa / fardo / ma&#xE7;o / pacote &#x2014; coluna N">
-                    </div>
-                </div>
-            </div>
-
-            <div class="separador-bloco-final">
-                <strong>Estoque atual</strong>
-                <p id="edit-estoque-atual-texto" class="subtitulo-bloco-final" style="margin-top:5px;"></p>
-                <div id="edit-estoque-unidade-box" class="form-group">
-                    <label>Quantidade de unidades</label>
-                    <input type="number" id="edit-estoque-unidades" min="0" value="0" oninput="atualizarEdicaoHumana()">
-                </div>
-                <div id="edit-estoque-embalagem-box" class="estoque-humano-final" style="display:none;">
-                    <div class="form-group">
-                        <label id="edit-label-qtd-embalagens">Caixas completas</label>
-                        <input type="number" id="edit-estoque-embalagens" min="0" value="0" oninput="atualizarEdicaoHumana()">
-                    </div>
-                    <div class="form-group">
-                        <label id="edit-label-qtd-soltas">Unidades soltas</label>
-                        <input type="number" id="edit-estoque-soltas" min="0" value="0" oninput="atualizarEdicaoHumana()">
-                    </div>
-                </div>
-                <div id="edit-resumo-estoque" class="resumo-humano-final"></div>
-            </div>
-
-            <div class="modal-botoes" style="justify-content:space-between;flex-wrap:wrap;">
-                <button class="btn-modal" style="background:var(--danger);color:white;" onclick="excluirProdutoDoModal()">&#x1F5D1;&#xFE0F; Excluir Produto</button>
-                <div style="display:flex;gap:10px;flex-wrap:wrap;">
-                    <button class="btn-modal btn-modal-cancelar" onclick="fecharModalEditarProduto()">Cancelar</button>
-                    <button class="btn-modal btn-modal-confirmar" onclick="salvarEdicaoProduto()">&#x1F4BE; Salvar Altera&#xE7;&#xF5;es</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL ABERTURA DE TURNO - usu&#xE1;rio j&#xE1; vem do login -->
-    <div id="modal-abertura-turno" class="modal-overlay" style="display:none !important;">
         <div class="modal-box">
-            <h2>&#x1F552; Iniciar Turno</h2>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">O operador j&#xE1; foi identificado pelo login. Selecione apenas o turno.</p>
-            <div class="form-group" style="margin-bottom: 0;">
-                <select id="select-turno-atual">
-                    <option value="Manh&#xE3;">Manh&#xE3;</option>
-                    <option value="Tarde">Tarde</option>
-                    <option value="Noite">Noite</option>
-                </select>
+            <h2>✏️ Editar Produto</h2>
+            <p id="edit-prod-nome-titulo" style="color: var(--primary); font-weight: bold;"></p>
+            <div class="form-group" id="edit-bloco-preco">
+                <label>Novo Preço de Venda (R$)</label>
+                <input type="number" step="0.01" id="edit-prod-preco" placeholder="0.00">
+            </div>
+            <div class="form-group">
+                <label>Nova Quantidade em Estoque</label>
+                <input type="number" id="edit-prod-estoque" min="0" placeholder="0">
             </div>
             <div class="modal-botoes">
-                <button class="btn-modal btn-modal-confirmar" style="width: 100%;" onclick="confirmarAberturaTurno()">Iniciar Caixa</button>
+                <button class="btn-modal btn-modal-cancelar" onclick="fecharModalEditarProduto()">Cancelar</button>
+                <button class="btn-modal btn-modal-confirmar" onclick="salvarEdicaoProduto()">Salvar Alterações</button>
             </div>
         </div>
     </div>
 
-    <!-- MODAL ADICIONAR PRODUTO NORMAL / CAIXA / MA&#xC7;O / PACOTE -->
+    <!-- MODAL ADICIONAR AO CARRINHO -->
     <div id="modal-adicional" class="modal-overlay">
         <div class="modal-box">
             <h2 id="modal-titulo">Produto</h2>
-
-            <div id="bloco-tipo-venda-modal" class="form-group">
+            
+            <div id="bloco-tipo-venda-modal" class="form-group" style="display: none;">
                 <label>Forma de Venda:</label>
-                <select id="modal-tipo-venda"></select>
+                <select id="modal-tipo-cigarro">
+                    <option value="maco">Maço Inteiro</option>
+                    <option value="solto">Cigarro Solto (Unidade)</option>
+                </select>
+            </div>
+
+            <div id="bloco-venda-combo" style="display: none; background: rgba(0,0,0,0.25); border: 1px solid var(--border); padding: 16px; border-radius: 10px; margin-bottom: 14px;">
+                <h3 style="font-size: 1rem; color: var(--primary); margin-bottom: 12px;">🍹 Adicionais (Energéticos/Red Bull e Gelo - 0 a 4)</h3>
+                
+                <div class="form-group">
+                    <label>⚡ 1ª Opção de Energético / Red Bull:</label>
+                    <div class="combo-item-linha">
+                        <select id="venda-combo-ene1-sel"><option value="">Nenhum</option></select>
+                        <div class="stepper-container">
+                            <button type="button" class="stepper-btn" onclick="alterarStepperVendaCombo('ene1', -1)">-</button>
+                            <input type="number" id="venda-combo-ene1-qtd" class="stepper-input" value="0" min="0" max="4" readonly>
+                            <button type="button" class="stepper-btn" onclick="alterarStepperVendaCombo('ene1', 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>⚡ 2ª Opção de Energético / Red Bull:</label>
+                    <div class="combo-item-linha">
+                        <select id="venda-combo-ene2-sel"><option value="">Nenhum</option></select>
+                        <div class="stepper-container">
+                            <button type="button" class="stepper-btn" onclick="alterarStepperVendaCombo('ene2', -1)">-</button>
+                            <input type="number" id="venda-combo-ene2-qtd" class="stepper-input" value="0" min="0" max="4" readonly>
+                            <button type="button" class="stepper-btn" onclick="alterarStepperVendaCombo('ene2', 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>⚡ 3ª Opção de Energético / Red Bull:</label>
+                    <div class="combo-item-linha">
+                        <select id="venda-combo-ene3-sel"><option value="">Nenhum</option></select>
+                        <div class="stepper-container">
+                            <button type="button" class="stepper-btn" onclick="alterarStepperVendaCombo('ene3', -1)">-</button>
+                            <input type="number" id="venda-combo-ene3-qtd" class="stepper-input" value="0" min="0" max="4" readonly>
+                            <button type="button" class="stepper-btn" onclick="alterarStepperVendaCombo('ene3', 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>⚡ 4ª Opção de Energético / Red Bull:</label>
+                    <div class="combo-item-linha">
+                        <select id="venda-combo-ene4-sel"><option value="">Nenhum</option></select>
+                        <div class="stepper-container">
+                            <button type="button" class="stepper-btn" onclick="alterarStepperVendaCombo('ene4', -1)">-</button>
+                            <input type="number" id="venda-combo-ene4-qtd" class="stepper-input" value="0" min="0" max="4" readonly>
+                            <button type="button" class="stepper-btn" onclick="alterarStepperVendaCombo('ene4', 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>🧊 1º Tipo de Gelo:</label>
+                    <div class="combo-item-linha">
+                        <select id="venda-combo-gelo1-sel"><option value="">Nenhum</option></select>
+                        <div class="stepper-container">
+                            <button type="button" class="stepper-btn" onclick="alterarStepperVendaCombo('gelo1', -1)">-</button>
+                            <input type="number" id="venda-combo-gelo1-qtd" class="stepper-input" value="0" min="0" max="4" readonly>
+                            <button type="button" class="stepper-btn" onclick="alterarStepperVendaCombo('gelo1', 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>🧊 2º Tipo de Gelo:</label>
+                    <div class="combo-item-linha">
+                        <select id="venda-combo-gelo2-sel"><option value="">Nenhum</option></select>
+                        <div class="stepper-container">
+                            <button type="button" class="stepper-btn" onclick="alterarStepperVendaCombo('gelo2', -1)">-</button>
+                            <input type="number" id="venda-combo-gelo2-qtd" class="stepper-input" value="0" min="0" max="4" readonly>
+                            <button type="button" class="stepper-btn" onclick="alterarStepperVendaCombo('gelo2', 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>🧊 3º Tipo de Gelo:</label>
+                    <div class="combo-item-linha">
+                        <select id="venda-combo-gelo3-sel"><option value="">Nenhum</option></select>
+                        <div class="stepper-container">
+                            <button type="button" class="stepper-btn" onclick="alterarStepperVendaCombo('gelo3', -1)">-</button>
+                            <input type="number" id="venda-combo-gelo3-qtd" class="stepper-input" value="0" min="0" max="4" readonly>
+                            <button type="button" class="stepper-btn" onclick="alterarStepperVendaCombo('gelo3', 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>🧊 4º Tipo de Gelo:</label>
+                    <div class="combo-item-linha">
+                        <select id="venda-combo-gelo4-sel"><option value="">Nenhum</option></select>
+                        <div class="stepper-container">
+                            <button type="button" class="stepper-btn" onclick="alterarStepperVendaCombo('gelo4', -1)">-</button>
+                            <input type="number" id="venda-combo-gelo4-qtd" class="stepper-input" value="0" min="0" max="4" readonly>
+                            <button type="button" class="stepper-btn" onclick="alterarStepperVendaCombo('gelo4', 1)">+</button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="form-group">
                 <label>Quantidade:</label>
                 <input type="number" id="modal-qtd" value="1" min="1">
             </div>
-
-            <div id="modal-info-estoque" style="color:var(--text-muted);font-size:.82rem;margin-bottom:10px;"></div>
-
             <div class="modal-botoes">
                 <button class="btn-modal btn-modal-cancelar" onclick="fecharModais()">Cancelar</button>
                 <button class="btn-modal btn-modal-confirmar" onclick="confirmarModalItem()">Adicionar</button>
@@ -1199,187 +693,40 @@
         </div>
     </div>
 
-    <!-- MODAL COMBO - at&#xE9; 4 energ&#xE9;ticos e 4 gelos, iguais ou diferentes -->
-    <div id="modal-combo-novo" class="modal-overlay">
-        <div class="modal-box modal-largo">
-            <h2 id="combo-novo-titulo">&#x1F379; Montar Combo</h2>
-            <p style="color:var(--text-muted);font-size:.86rem;margin-bottom:14px;">
-                Escolha at&#xE9; 4 energ&#xE9;ticos e at&#xE9; 4 gelos. Pode repetir ou misturar. Energ&#xE9;ticos s&#xE3;o carregados do cadastro, inclusive 2L.
-            </p>
-            <div class="combo-builder-novo">
-                <div class="combo-coluna-novo">
-                    <div class="combo-titulo-novo"><strong>&#x26A1; Energ&#xE9;ticos</strong><span id="combo-cont-ene" class="badge-baixo-novo">0/4</span></div>
-                    <div id="combo-lista-ene"></div>
-                </div>
-                <div class="combo-coluna-novo">
-                    <div class="combo-titulo-novo"><strong>&#x1F37A; Cervejas</strong><span id="combo-cont-cerveja" class="badge-baixo-novo">0/8</span></div>
-                    <div id="combo-lista-cerveja"></div>
-                </div>
-                <div class="combo-coluna-novo">
-                    <div class="combo-titulo-novo"><strong>&#x1F9CA; Gelos</strong><span id="combo-cont-gelo" class="badge-baixo-novo">0/4</span></div>
-                    <div id="combo-lista-gelo"></div>
-                </div>
-            </div>
-            <div class="combo-resumo-novo">
-                <strong>Resumo do combo</strong>
-                <div id="combo-resumo-itens" style="color:var(--text-muted);font-size:.84rem;margin-top:6px;">Sem adicionais.</div>
-            </div>
-            <div class="modal-botoes">
-                <button class="btn-modal btn-modal-cancelar" onclick="limparComboNovo()">Limpar</button>
-                <button class="btn-modal btn-modal-cancelar" onclick="fecharModalComboNovo()">Cancelar</button>
-                <button class="btn-modal btn-modal-confirmar" onclick="confirmarComboNovo()">Adicionar ao Carrinho</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL DOSE - adicionais opcionais, no m&#xE1;ximo 1 energ&#xE9;tico + 1 gelo -->
-    <div id="modal-dose-novo" class="modal-overlay">
-        <div class="modal-box">
-            <h2 id="dose-novo-titulo">&#x1F943; Dose</h2>
-            <p style="color:var(--text-muted);font-size:.86rem;margin-bottom:14px;">
-                A dose pode ser vendida sozinha. Energ&#xE9;tico e gelo s&#xE3;o opcionais.
-            </p>
-            <div class="form-group">
-                <label>Energ&#xE9;tico (opcional - m&#xE1;ximo 1)</label>
-                <select id="dose-ene-sel"><option value="">Nenhum</option></select>
-            </div>
-            <div class="form-group">
-                <label>Gelo (opcional - m&#xE1;ximo 1)</label>
-                <select id="dose-gelo-sel"><option value="">Nenhum</option></select>
-            </div>
-            <div class="form-group">
-                <label>Quantidade de Doses</label>
-                <input type="number" id="dose-qtd" value="1" min="1">
-            </div>
-            <div class="modal-botoes">
-                <button class="btn-modal btn-modal-cancelar" onclick="fecharModalDoseNovo()">Cancelar</button>
-                <button class="btn-modal btn-modal-confirmar" onclick="confirmarDoseNovo()">Adicionar</button>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- MODAL TROCA POR DINHEIRO -->
-    <div id="modal-troca-dinheiro" class="modal-overlay">
-        <div class="modal-box">
-            <h2>&#x1F4B1; Trocar por Dinheiro</h2>
-            <p style="color:var(--text-muted);font-size:.86rem;">
-                O cliente paga por Pix, D&#xE9;bito ou Cr&#xE9;dito e recebe o valor combinado em dinheiro.
-            </p>
-
-            <div class="form-group">
-                <label>Cliente vai pagar por</label>
-                <select id="troca-forma" onchange="calcularTrocaDinheiro()">
-                    <option value="Pix">Pix</option>
-                    <option value="D&#xE9;bito">D&#xE9;bito</option>
-                    <option value="Cr&#xE9;dito">Cr&#xE9;dito</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label>Quanto entregar em dinheiro (R$)</label>
-                <input type="number" id="troca-valor" min="0.01" step="0.01" inputmode="decimal" placeholder="Ex: 100,00" oninput="calcularTrocaDinheiro()">
-            </div>
-
-            <div class="form-group">
-                <label>Taxa cobrada (R$)</label>
-                <input type="number" id="troca-taxa" min="0" step="0.01" inputmode="decimal" placeholder="Ex: 10,00" oninput="calcularTrocaDinheiro()">
-            </div>
-
-            <div class="troca-resumo">
-                <div class="troca-resumo-linha"><span>Entregar em dinheiro</span><strong id="troca-resumo-entregar">R$ 0,00</strong></div>
-                <div class="troca-resumo-linha"><span>Taxa</span><strong id="troca-resumo-taxa">R$ 0,00</strong></div>
-                <div class="troca-resumo-linha total"><span>Cliente precisa pagar</span><strong id="troca-resumo-total" style="color:var(--success);">R$ 0,00</strong></div>
-            </div>
-
-            <div class="modal-botoes">
-                <button class="btn-modal btn-modal-cancelar" onclick="fecharModalTrocaDinheiro()">Cancelar</button>
-                <button class="btn-modal btn-modal-confirmar" onclick="confirmarTrocaDinheiro()">Confirmar Troca</button>
-            </div>
-        </div>
-    </div>
-
     <!-- HEADER -->
     <header>
         <div class="logo-area">
-            <h1>&#x1F377; Carbura Bar</h1>
+            <h1>🍷 Carbura Bar</h1>
             <span style="font-size: 0.85rem; background: var(--border); padding: 4px 10px; border-radius: 20px; color: var(--text-muted);">
-                Usu&#xE1;rio: <strong id="nome-operador-topo" style="color: var(--primary);">&#x2014;</strong>
+                Operador: <strong id="nome-operador-topo" style="color: var(--primary);">Jhou</strong>
             </span>
-            <span id="turno-topo" class="turno-topo">Sem operador</span>
         </div>
         <div class="topo-acoes">
+            <button class="btn-topo" onclick="abrirModalTrocaOperador()">🔄 Trocar Operador</button>
             <button class="btn-topo" onclick="alternarTema()">
-                <span id="icone-tema">&#x2600;&#xFE0F;</span> <span id="texto-tema">Claro</span>
+                <span id="icone-tema">☀️</span> <span id="texto-tema">Claro</span>
             </button>
-            <button class="btn-topo" onclick="sairSistema()">&#x1F6AA; Sair</button>
         </div>
     </header>
 
     <!-- NAV -->
     <nav>
-        <button class="admin-only-nav" onclick="mudarAba('inicio', this)">&#x1F3E0; In&#xED;cio</button>
-        <button class="active" onclick="mudarAba('vendas', this)">&#x1F6D2; Vendas / PDV</button>
-        <button class="admin-only-nav" onclick="mudarAba('reposicao', this)">&#x1F4E6; Reposi&#xE7;&#xE3;o / Estoque</button>
-        <button class="admin-only-nav" onclick="mudarAba('produtos', this)">&#x1F9FE; Produtos</button>
-        <button class="admin-only-nav" onclick="mudarAba('auditoria', this)">&#x1F50D; Auditoria de Vendas</button>
-        <button class="admin-only-nav" onclick="mudarAba('auditoria', this)">&#x1F4CA; Auditoria</button>
-        <button class="admin-only-nav" onclick="mudarAba('equipe', this)">&#x1F465; Equipe</button>
-        <button class="admin-only-nav" onclick="mudarAba('cadastros', this)">&#x2795; Novo Item</button>
+        <button class="active" onclick="mudarAba('vendas', this)">🛒 Vendas / PDV</button>
+        <button onclick="mudarAba('reposicao', this)">📦 Reposição / Estoque</button>
+        <button onclick="mudarAba('fechamento', this)">📊 Fechamento</button>
+        <button onclick="mudarAba('equipe', this)">👥 Equipe</button>
+        <button onclick="mudarAba('cadastros', this)">➕ Novo Item</button>
     </nav>
 
     <!-- CONTAINER DAS ABAS -->
     <div class="main-container">
-
-        <!-- ABA IN&#xCD;CIO / DASHBOARD - SOMENTE DONA/ADMIN -->
-        <div id="aba-inicio" class="content">
-            <div style="max-width:1200px;margin:0 auto;">
-                <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px;">
-                    <div>
-                        <h2 style="font-size:1.45rem;margin-bottom:4px;">&#x1F3E0; Dashboard</h2>
-                        <p style="color:var(--text-muted);font-size:.88rem;">Resumo do dia e alertas de estoque.</p>
-                    </div>
-                    <button class="btn-topo" onclick="carregarDashboard()">&#x21BB; Atualizar</button>
-                </div>
-                <div class="dashboard-grid">
-                    <div class="dashboard-card"><small>VENDAS HOJE</small><strong id="dash-total">R$ 0,00</strong></div>
-                    <div class="dashboard-card"><small>PIX</small><strong id="dash-pix">R$ 0,00</strong></div>
-                    <div class="dashboard-card"><small>DINHEIRO</small><strong id="dash-dinheiro">R$ 0,00</strong></div>
-                    <div class="dashboard-card"><small>CART&#xD5;ES / DIVERSOS</small><strong id="dash-cartoes">R$ 0,00</strong></div>
-                    <div class="dashboard-card"><small>TAXAS DE TROCA</small><strong id="dash-troca-taxas">R$ 0,00</strong></div>
-                    <div class="dashboard-card"><small>DINHEIRO ENTREGUE EM TROCAS</small><strong id="dash-troca-dinheiro">R$ 0,00</strong></div>
-                </div>
-                <div class="dashboard-lista" style="margin-top:16px;">
-                    <h3 style="margin-bottom:10px;">&#x1F50E; Auditoria de Vendas por Funcionário</h3>
-                    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px;">
-                        <div class="form-group" style="margin:0;flex:1;min-width:160px;"><label>Data inicial</label><input type="date" id="auditoria-data-inicial"></div>
-                        <div class="form-group" style="margin:0;flex:1;min-width:160px;"><label>Data final</label><input type="date" id="auditoria-data-final"></div>
-                        <div class="form-group" style="margin:0;flex:1;min-width:180px;"><label>Funcionário</label><select id="auditoria-operador"><option value="">Todos</option></select></div>
-                        <button class="btn-topo" onclick="carregarAuditoriaVendas()" style="align-self:end;">&#x1F50D; Consultar</button>
-                    </div>
-                    <div id="auditoria-resumo" style="margin-bottom:10px;color:var(--text-muted);font-size:.84rem;"></div>
-                    <div id="auditoria-lista" style="max-height:360px;overflow:auto;"></div>
-                </div>
-
-                <div class="dashboard-duplo">
-                    <div class="dashboard-lista">
-                        <h3 style="margin-bottom:10px;">&#x1F7E0; Estoque baixo (1&#x2013;10)</h3>
-                        <div id="dash-baixo"></div>
-                    </div>
-                    <div class="dashboard-lista">
-                        <h3 style="margin-bottom:10px;">&#x1F534; Esgotados</h3>
-                        <div id="dash-esgotado"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- ABA 1: VENDAS -->
         <div id="aba-vendas" class="content active">
             <div class="layout-vendas">
                 <div class="produtos-area">
                     <div class="busca-container">
-                        <input type="text" id="busca-unificada" placeholder="&#x1F50D; Buscar produto ou bipar c&#xF3;digo de barras..." oninput="filtrarVendasUnificado()" onkeypress="verificarBipeUnificado(event)">
+                        <input type="text" id="busca-unificada" placeholder="🔍 Buscar produto ou bipar código de barras..." oninput="filtrarVendasUnificado()" onkeypress="verificarBipeUnificado(event)">
                     </div>
                     <div class="grid-produtos" id="grid-vendas">
                         <!-- Produtos carregados dinamicamente -->
@@ -1389,8 +736,8 @@
                 <!-- PAINEL CARRINHO -->
                 <div class="carrinho-area" id="painel-carrinho">
                     <div class="carrinho-header" style="display: flex; justify-content: space-between; align-items: center;">
-                        <span>&#x1F6D2; Carrinho de Compras</span>
-                        <button onclick="fecharCarrinhoMobile()" aria-label="Fechar carrinho" style="background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; display: none;" class="btn-fechar-carrinho-mobile">&#x2715;</button>
+                        <span>🛒 Carrinho de Compras</span>
+                        <button onclick="fecharCarrinhoMobile()" aria-label="Fechar carrinho" style="background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; display: none;" class="btn-fechar-carrinho-mobile">✕</button>
                     </div>
                     <div class="carrinho-lista" id="carrinho-lista">
                         <p style="color: var(--text-muted); text-align: center;">Carrinho vazio</p>
@@ -1401,9 +748,7 @@
                             <select id="pagamento" onchange="verificarDinheiro()">
                                 <option value="Pix">Pix</option>
                                 <option value="Dinheiro">Dinheiro</option>
-                                <option value="D&#xE9;bito">D&#xE9;bito</option>
-                                <option value="Cr&#xE9;dito">Cr&#xE9;dito</option>
-                                <option value="Diversos">Diversos</option>
+                                <option value="Cartão">Cartão</option>
                             </select>
                         </div>
                         <div class="form-group" id="bloco-dinheiro" style="display: none; margin-bottom: 8px;">
@@ -1416,318 +761,172 @@
                             <span style="color: var(--success);">R$ <span id="total-txt">0.00</span></span>
                         </div>
                         <button class="btn-finalizar" onclick="finalizarVenda()">Finalizar Venda</button>
-                        <button class="btn-troca-dinheiro" onclick="abrirModalTrocaDinheiro()">&#x1F4B1; Trocar por Dinheiro</button>
                     </div>
                 </div>
             </div>
             <button class="btn-carrinho-mobile" onclick="alternarCarrinhoMobile()">
-                &#x1F6D2; Carrinho <span id="badge-qtd-flutuante" style="background: black; color: white; border-radius: 50%; padding: 2px 8px; font-size: 0.8rem;">0</span>
+                🛒 Carrinho <span id="badge-qtd-flutuante" style="background: black; color: white; border-radius: 50%; padding: 2px 8px; font-size: 0.8rem;">0</span>
             </button>
         </div>
 
-        <!-- ABA 2: REPOSI&#xC7;&#xC3;O / ESTOQUE - SIMPLES -->
+        <!-- ABA 2: REPOSIÇÃO / ESTOQUE -->
         <div id="aba-reposicao" class="content">
-            <div class="rep-simples-final">
-                <h2 style="font-size:1.35rem;margin-bottom:5px;">&#x1F4E6; Reposi&#xE7;&#xE3;o de Estoque</h2>
-                <p class="subtitulo-bloco-final">Busque o produto, diga o que chegou e confirme.</p>
-
+            <div style="max-width: 600px; margin: 0 auto; background: var(--card-bg); border: 1px solid var(--border); padding: 24px; border-radius: 12px;">
+                <h2 style="font-size: 1.3rem; margin-bottom: 20px;">📦 Reposição Rápida de Estoque</h2>
                 <div class="form-group">
-                    <label>&#x1F50D; Buscar ou bipar produto</label>
-                    <input type="text" id="rep-busca" placeholder="Digite o nome ou bipa o c&#xF3;digo..." oninput="filtrarReposicao()" onkeypress="verificarBipeReposicao(event)">
+                    <label>Selecionar Produto</label>
+                    <select id="rep-produto">
+                        <!-- Preenchido via script -->
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label>Produto</label>
-                    <select id="rep-produto" onchange="selecionarProdutoReposicao()"></select>
+                    <label>Quantidade a Adicionar</label>
+                    <input type="number" id="rep-qtd" value="1" min="1">
                 </div>
-
-                <div id="rep-preview" class="rep-produto-final">Selecione um produto.</div>
-
-                <div id="rep-area-entrada" style="display:none;">
-                    <strong>O que chegou?</strong>
-                    <input type="hidden" id="rep-tipo" value="Unidade">
-                    <div id="rep-opcoes" class="rep-opcoes-final"></div>
-
-                    <strong id="rep-pergunta-qtd" style="display:block;margin-top:8px;">Quantas unidades chegaram?</strong>
-                    <div class="rep-qtd-final">
-                        <button type="button" onclick="alterarQtdReposicao(-1)">&#x2212;</button>
-                        <input type="number" id="rep-qtd" value="1" min="1" oninput="atualizarPreviewReposicao()">
-                        <button type="button" onclick="alterarQtdReposicao(1)">+</button>
-                    </div>
-
-                    <div id="rep-calculo" class="resumo-humano-final"></div>
-                    <button class="btn-grande" style="margin-top:14px;" onclick="salvarReposicaoEstoqueExec()">CONFIRMAR REPOSI&#xC7;&#xC3;O</button>
+                <button class="btn-grande" onclick="pedirSenhaParaAcao('reposicao')">Confirmar Reposição</button>
+                
+                <h3 style="font-size: 1.1rem; margin: 30px 0 16px 0;">Lista Geral de Estoque (Edição e Exclusão)</h3>
+                <div id="grid-estoque" style="display: flex; flex-direction: column; gap: 10px;">
+                    <!-- Preenchido via script -->
                 </div>
-            </div>
-        </div>
-
-
-        <!-- ABA PRODUTOS / EDI&#xC7;&#xC3;O - SOMENTE DONA/ADMIN -->
-        <div id="aba-produtos" class="content">
-            <div style="max-width:1200px;margin:0 auto;">
-                <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap;">
-                    <div>
-                        <h2 style="font-size:1.35rem;margin-bottom:4px;">&#x1F9FE; Produtos</h2>
-                        <p style="color:var(--text-muted);font-size:.85rem;">
-                            Edite nome, pre&#xE7;os, c&#xF3;digos de barras, embalagem, estoque ou exclua um produto.
-                        </p>
-                    </div>
-                    <button class="btn-topo" onclick="abrirCadastroProdutos()" >&#x2795; Novo Produto</button>
-                </div>
-
-                <div class="reposicao-card-novo" style="margin-bottom:16px;">
-                    <div class="form-group" style="margin-bottom:0;">
-                        <label>&#x1F50D; Buscar produto</label>
-                        <input
-                            type="text"
-                            id="busca-produtos-admin"
-                            placeholder="Nome, c&#xF3;digo da unidade ou c&#xF3;digo da embalagem..."
-                            oninput="filtrarProdutosAdmin()"
-                        >
-                    </div>
-                </div>
-
-                <div id="grid-produtos-admin" style="display:flex;flex-direction:column;gap:10px;"></div>
             </div>
         </div>
 
         <!-- ABA 3: FECHAMENTO -->
         <div id="aba-fechamento" class="content">
-            <div style="max-width:700px;margin:0 auto;background:var(--card-bg);border:1px solid var(--border);padding:24px;border-radius:12px;">
-                <h2 style="font-size:1.3rem;margin-bottom:6px;">&#x1F4CA; Meu Caixa</h2>
-                <p id="fechamento-turno-legenda" style="color:var(--text-muted);font-size:.85rem;margin-bottom:20px;">Sem operador aberto.</p>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;">
-                    <div class="dashboard-card"><small>PIX</small><strong id="rel-pix">R$ 0,00</strong></div>
-                    <div class="dashboard-card"><small>DINHEIRO</small><strong id="rel-dinheiro">R$ 0,00</strong></div>
-                    <div class="dashboard-card"><small>D&#xC9;BITO</small><strong id="rel-debito">R$ 0,00</strong></div>
-                    <div class="dashboard-card"><small>CR&#xC9;DITO</small><strong id="rel-credito">R$ 0,00</strong></div>
-                    <div class="dashboard-card"><small>DIVERSOS</small><strong id="rel-diversos">R$ 0,00</strong></div>
-                    <div class="dashboard-card" style="border-color:var(--primary);"><small>TOTAL</small><strong id="rel-total" style="color:var(--primary);">R$ 0,00</strong></div>
-                </div>
-                <div class="fechamento-trocas">
-                    <h3 style="margin-bottom:5px;">&#x1F4B1; Trocas por Dinheiro</h3>
-                    <p style="color:var(--text-muted);font-size:.8rem;margin-bottom:12px;">Separado das vendas de produtos.</p>
-                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-                        <div class="dashboard-card"><small>PIX RECEBIDO</small><strong id="rel-troca-pix">R$ 0,00</strong></div>
-                        <div class="dashboard-card"><small>D&#xC9;BITO RECEBIDO</small><strong id="rel-troca-debito">R$ 0,00</strong></div>
-                        <div class="dashboard-card"><small>CR&#xC9;DITO RECEBIDO</small><strong id="rel-troca-credito">R$ 0,00</strong></div>
-                        <div class="dashboard-card"><small>DINHEIRO ENTREGUE</small><strong id="rel-troca-dinheiro">R$ 0,00</strong></div>
-                        <div class="dashboard-card"><small>TAXAS GANHAS</small><strong id="rel-troca-taxas">R$ 0,00</strong></div>
-                        <div class="dashboard-card" style="border-color:var(--primary);"><small>TOTAL RECEBIDO NAS TROCAS</small><strong id="rel-troca-total">R$ 0,00</strong></div>
+            <div style="max-width: 600px; margin: 0 auto; background: var(--card-bg); border: 1px solid var(--border); padding: 24px; border-radius: 12px;">
+                <h2 style="font-size: 1.3rem; margin-bottom: 20px;">📊 Relatório do Turno</h2>
+                <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+                    <div style="display: flex; justify-content: space-between; padding: 12px; background: rgba(255,255,255,0.03); border-radius: 8px; border: 1px solid var(--border);">
+                        <span>📱 Total PIX:</span>
+                        <strong id="rel-pix" style="color: var(--success);">R$ 0.00</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 12px; background: rgba(255,255,255,0.03); border-radius: 8px; border: 1px solid var(--border);">
+                        <span>💵 Total Dinheiro:</span>
+                        <strong id="rel-dinheiro" style="color: var(--success);">R$ 0.00</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 12px; background: rgba(255,255,255,0.03); border-radius: 8px; border: 1px solid var(--border);">
+                        <span>💳 Total Cartão:</span>
+                        <strong id="rel-cartao" style="color: var(--success);">R$ 0.00</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 16px; background: rgba(245,158,11,0.1); border-radius: 8px; border: 1px solid var(--primary); font-size: 1.2rem;">
+                        <span>💰 Total Geral:</span>
+                        <strong id="rel-total" style="color: var(--primary);">R$ 0.00</strong>
                     </div>
                 </div>
-
-                <div style="display:flex;gap:10px;flex-wrap:wrap;">
-                    <button class="btn-grande" style="background:#25D366;color:white;flex:1;" onclick="enviarRelatorioWhatsApp()">&#x1F4F2; Enviar WhatsApp</button>
-                </div>
-            </div>
-        </div>
-
-        
-        <!-- ABA AUDITORIA -->
-        <div id="aba-auditoria" class="content">
-            <div style="max-width:1100px;margin:0 auto;background:var(--card-bg);border:1px solid var(--border);padding:24px;border-radius:12px;">
-                <h2 style="font-size:1.3rem;margin-bottom:6px;">&#x1F50D; Auditoria de Vendas</h2>
-                <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:18px;">Consulta somente a aba <strong>Vendas</strong>. Não altera os dados da planilha.</p>
-                <div class="form-grid-novo">
-                    <div class="form-group"><label>Funcionário</label><select id="auditoria-funcionario"><option value="">Todos</option></select></div>
-                    <div class="form-group"><label>Produto</label><input id="auditoria-produto" type="text" placeholder="Todos os produtos"></div>
-                    <div class="form-group"><label>Data inicial</label><input id="auditoria-data-inicial" type="date"></div>
-                    <div class="form-group"><label>Data final</label><input id="auditoria-data-final" type="date"></div>
-                </div>
-                <div style="display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 18px;">
-                    <button class="btn-grande" onclick="carregarAuditoriaVendas()">&#x1F50D; Consultar vendas</button>
-                    <button class="btn-mini-novo" onclick="limparAuditoriaVendas()">Limpar filtros</button>
-                </div>
-                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px;">
-                    <div class="dashboard-card"><small>LANÇAMENTOS</small><strong id="auditoria-lancamentos">0</strong></div>
-                    <div class="dashboard-card"><small>QUANTIDADE</small><strong id="auditoria-quantidade">0</strong></div>
-                    <div class="dashboard-card"><small>VALOR TOTAL</small><strong id="auditoria-total">R$ 0,00</strong></div>
-                </div>
-                <div style="overflow:auto;border:1px solid var(--border);border-radius:10px;">
-                    <table style="width:100%;border-collapse:collapse;min-width:900px;">
-                        <thead><tr style="background:var(--bg);">
-                            <th style="padding:10px;text-align:left;">Data/Hora</th><th style="padding:10px;text-align:left;">Funcionário</th>
-                            <th style="padding:10px;text-align:left;">Produto</th><th style="padding:10px;text-align:right;">Qtd.</th>
-                            <th style="padding:10px;text-align:left;">ID Venda</th><th style="padding:10px;text-align:left;">Pagamento</th>
-                            <th style="padding:10px;text-align:right;">Valor</th>
-                        </tr></thead>
-                        <tbody id="auditoria-tabela"><tr><td colspan="7" style="padding:18px;text-align:center;color:var(--text-muted);">Clique em "Consultar vendas".</td></tr></tbody>
-                    </table>
+                <div style="display: flex; gap: 12px;">
+                    <button class="btn-grande" style="background: #25D366; color: white;" onclick="enviarRelatorioWhatsApp()">📲 Enviar WhatsApp</button>
+                    <button class="btn-grande" style="background: var(--danger); color: white;" onclick="pedirSenhaParaAcao('zerarCaixa')">🔄 Zerar Caixa</button>
                 </div>
             </div>
         </div>
 
         <!-- ABA 4: EQUIPE -->
         <div id="aba-equipe" class="content">
-            <div style="max-width:700px;margin:0 auto;background:var(--card-bg);border:1px solid var(--border);padding:24px;border-radius:12px;">
-                <h2 style="font-size:1.3rem;margin-bottom:20px;">&#x1F465; Gerenciar Equipe</h2>
-                <div class="form-grid-novo">
-                    <div class="form-group full">
-                        <label>Nome</label>
-                        <input type="text" id="func-nome" placeholder="Ex: Carlos Silva">
-                    </div>
-                    <div class="form-group">
-                        <label>Perfil</label>
-                        <select id="func-perfil">
-                            <option value="Funcion&#xE1;rio">Funcion&#xE1;rio</option>
-                            <option value="Dona">Dona</option>
-                            <option value="Admin">Admin</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>PIN</label>
-                        <input type="password" id="func-pin" inputmode="numeric" placeholder="Ex: 1234">
-                    </div>
+            <div style="max-width: 600px; margin: 0 auto; background: var(--card-bg); border: 1px solid var(--border); padding: 24px; border-radius: 12px;">
+                <h2 style="font-size: 1.3rem; margin-bottom: 20px;">👥 Gerenciar Equipe</h2>
+                <div class="form-group">
+                    <label>Nome do Funcionário</label>
+                    <input type="text" id="func-nome" placeholder="Ex: Carlos Silva">
                 </div>
-                <button class="btn-grande" onclick="salvarFuncionarioExec()">Cadastrar Funcion&#xE1;rio</button>
-
-                <h3 style="font-size:1.1rem;margin:30px 0 16px 0;">Equipe Atual</h3>
-                <div id="grid-equipe" style="display:flex;flex-direction:column;gap:10px;"></div>
+                <button class="btn-grande" onclick="pedirSenhaParaAcao('salvarFuncionario')">Cadastrar Funcionário</button>
+                
+                <h3 style="font-size: 1.1rem; margin: 30px 0 16px 0;">Funcionários Atuais</h3>
+                <div id="grid-equipe" style="display: flex; flex-direction: column; gap: 10px;">
+                    <!-- Preenchido via script -->
+                </div>
             </div>
         </div>
 
-        <!-- ABA 5: CADASTRO DE NOVO ITEM - MESMA L&#xD3;GICA DA EDI&#xC7;&#xC3;O -->
+        <!-- ABA 5: CADASTRO DE NOVO ITEM -->
         <div id="aba-cadastros" class="content">
-            <div style="max-width:760px;margin:0 auto;background:var(--card-bg);border:1px solid var(--border);padding:24px;border-radius:12px;">
-                <h2 style="font-size:1.3rem;margin-bottom:5px;">&#x2795; Cadastrar Novo Produto</h2>
-                <p class="subtitulo-bloco-final">Cadastre de forma simples. As contas do estoque ficam por tr&#xE1;s.</p>
+            <div style="max-width: 600px; margin: 0 auto; background: var(--card-bg); border: 1px solid var(--border); padding: 24px; border-radius: 12px;">
+                <h2 style="font-size: 1.3rem; margin-bottom: 20px;">➕ Cadastrar Novo Produto</h2>
+                
+                <div class="form-group">
+                    <label>Nome do Produto</label>
+                    <input type="text" id="cad-nome" placeholder="Ex: Whisky Red Label / Gelo Coco / Red Bull Melancia">
+                </div>
 
-                <div class="form-grid-novo">
-                    <div class="form-group full">
-                        <label>Nome do Produto</label>
-                        <input type="text" id="cad-nome" placeholder="Ex: Corona 330ml">
-                    </div>
+                <div class="form-group">
+                    <label>Categoria</label>
+                    <select id="cad-categoria" onchange="verificarCategoriaCadastro()">
+                        <option value="Geral">Geral</option>
+                        <option value="Cervejas">Cervejas</option>
+                        <option value="Destilados">Destilados</option>
+                        <option value="Whisky">Whisky</option>
+                        <option value="Energético">Energético / Red Bull</option>
+                        <option value="Gelo">Gelo</option>
+                        <option value="Combos">Combos</option>
+                        <option value="Doses">Doses</option>
+                        <option value="Tabaco">Tabaco</option>
+                        <option value="Sem Álcool">Sem Álcool</option>
+                        <option value="Gelo e Carvão">Gelo e Carvão</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="bloco-preco-normal">
+                    <label>Preço Final de Venda (R$)</label>
+                    <input type="number" step="0.01" id="cad-preco" placeholder="Ex: 150.00">
+                </div>
+
+                <div id="bloco-combo-detalhes" style="display: none; background: rgba(0,0,0,0.25); border: 1px solid var(--border); padding: 20px; border-radius: 10px; margin-bottom: 22px;">
+                    <h3 style="font-size: 1.1rem; color: var(--text); margin-bottom: 12px;">🍹 Combos</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Selecione os adicionais do combo. Eles darão baixa em unidades inteiras no estoque.</p>
+                </div>
+
+                <div id="bloco-dose-detalhes" style="display: none; background: rgba(0,0,0,0.25); border: 1px solid var(--border); padding: 24px; border-radius: 10px; margin-bottom: 22px;">
+                    <h3 style="font-size: 1.2rem; color: var(--text); margin-bottom: 20px;">🥃 Cadastrar Dose</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">As doses funcionam de forma direta (venda inteira/direta de dose).</p>
+                </div>
+
+                <div id="bloco-preco-cigarro" style="display: none; background: rgba(0,0,0,0.25); border: 1px solid var(--border); padding: 20px; border-radius: 10px; margin-bottom: 22px;">
+                    <h3 style="font-size: 1.2rem; color: var(--text); margin-bottom: 16px;">🚬 Preços do Cigarro</h3>
                     <div class="form-group">
-                        <label>Categoria</label>
-                        <select id="cad-categoria" onchange="verificarCategoriaCadastro()">
-                            <option value="Geral">Geral</option>
-                            <option value="Cervejas">Cervejas</option>
-                            <option value="Destilados">Destilados</option>
-                            <option value="Whisky">Whisky</option>
-                            <option value="Energ&#xE9;tico">Energ&#xE9;tico / Red Bull</option>
-                            <option value="Gelo">Gelo</option>
-                            <option value="Combos">Combos</option>
-                            <option value="Doses">Doses</option>
-                            <option value="Tabaco">Tabaco</option>
-                            <option value="Sem &#xC1;lcool">Sem &#xC1;lcool</option>
-                            <option value="Gelo e Carv&#xE3;o">Gelo e Carv&#xE3;o</option>
-                        </select>
+                        <label>Preço do Maço Inteiro (R$):</label>
+                        <input type="number" step="0.01" id="cad-preco-maco" placeholder="Ex: 12.00">
                     </div>
-                    <div class="form-group">
-                        <label>Status</label>
-                        <select id="cad-status"><option value="Ativo">Ativo</option><option value="Inativo">Inativo</option></select>
-                    </div>
-                    <div class="form-group">
-                        <label>C&#xF3;digo da Unidade / Solto</label>
-                        <input type="text" id="cad-barcode" placeholder="Opcional &#x2014; ser&#xE1; salvo na coluna G">
-                    </div>
-                    <div class="form-group">
-                        <label>ML / Volume</label>
-                        <input type="number" id="cad-ml" min="0" placeholder="Ex: 330">
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label>Preço do Cigarro Solto / Unidade (R$):</label>
+                        <input type="number" step="0.01" id="cad-preco-solto" placeholder="Ex: 1.50">
                     </div>
                 </div>
 
-                <div id="cad-info-especial" class="info-especial-final" style="display:none;"></div>
-
-                <div class="separador-bloco-final" id="cad-bloco-forma-venda">
-                    <strong>Como este produto &#xE9; vendido?</strong>
-                    <p class="subtitulo-bloco-final" style="margin-top:4px;">Para cerveja, cigarro e seda, use &#x201C;Unidade + embalagem&#x201D; quando vender dos dois jeitos.</p>
-                    <input type="hidden" id="cad-modo-venda" value="unidade">
-                    <div class="modo-venda-final" id="cad-modo-botoes">
-                        <button type="button" id="cad-btn-unidade" class="ativo" onclick="selecionarModoVendaCadastro('unidade')">&#x1F9C3; S&#xF3; unidade</button>
-                        <button type="button" id="cad-btn-embalagem" onclick="selecionarModoVendaCadastro('embalagem')">&#x1F4E6; Unidade + embalagem</button>
-                    </div>
+                <div class="form-group" id="bloco-ml-produto" style="display:none;">
+                    <label>Volume da embalagem em ML</label>
+                    <input type="number" id="cad-ml" min="0" placeholder="Ex: 1000 para 1 litro">
                 </div>
 
-                <div id="cad-bloco-unidade">
-                    <div class="form-group">
-                        <label>Pre&#xE7;o de Venda (R$)</label>
-                        <input type="number" step="0.01" id="cad-preco-unidade" min="0" placeholder="Ex: 9.00">
-                    </div>
+                <div class="form-group">
+                    <label>Código de Barras</label>
+                    <input type="text" id="cad-barcode" placeholder="Opcional">
                 </div>
-
-                <div id="cad-bloco-embalagem" style="display:none;">
-                    <div class="form-grid-novo">
-                        <div class="form-group">
-                            <label>Embalagem</label>
-                            <select id="cad-tipo-embalagem" onchange="atualizarCadastroHumano()">
-                                <option value="Caixa">Caixa</option>
-                                <option value="Ma&#xE7;o">Ma&#xE7;o</option>
-                                <option value="Pacote">Pacote</option>
-                                <option value="Fardo">Fardo</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Quantas unidades v&#xEA;m dentro?</label>
-                            <input type="number" id="cad-unidades-embalagem" min="1" value="1" oninput="atualizarCadastroHumano()">
-                        </div>
-                        <div class="form-group">
-                            <label id="cad-label-preco-solto">Pre&#xE7;o Unit&#xE1;rio / Solto (R$)</label>
-                            <input type="number" step="0.01" id="cad-preco-solto" min="0" placeholder="Ex: 9.00">
-                        </div>
-                        <div class="form-group">
-                            <label id="cad-label-preco-embalagem">Pre&#xE7;o da Embalagem (R$)</label>
-                            <input type="number" step="0.01" id="cad-preco-embalagem" min="0" placeholder="Ex: 54.00">
-                        </div>
-                        <div class="form-group full">
-                            <label id="cad-label-codigo-embalagem">C&#xF3;digo da Embalagem</label>
-                            <input type="text" id="cad-codigo-embalagem" placeholder="C&#xF3;digo da caixa / fardo / ma&#xE7;o / pacote &#x2014; coluna N">
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label>Quantidade no Estoque</label>
+                    <input type="number" id="cad-estoque" value="10">
                 </div>
-
-                <div class="separador-bloco-final">
-                    <strong>Estoque inicial</strong>
-                    <p class="subtitulo-bloco-final" style="margin-top:4px;">Informe do jeito que voc&#xEA; conta fisicamente.</p>
-                    <div id="cad-estoque-unidade-box" class="form-group">
-                        <label>Quantidade de unidades</label>
-                        <input type="number" id="cad-estoque-unidades" min="0" value="0" oninput="atualizarCadastroHumano()">
-                    </div>
-                    <div id="cad-estoque-embalagem-box" class="estoque-humano-final" style="display:none;">
-                        <div class="form-group">
-                            <label id="cad-label-qtd-embalagens">Caixas completas</label>
-                            <input type="number" id="cad-estoque-embalagens" min="0" value="0" oninput="atualizarCadastroHumano()">
-                        </div>
-                        <div class="form-group">
-                            <label id="cad-label-qtd-soltas">Unidades soltas</label>
-                            <input type="number" id="cad-estoque-soltas" min="0" value="0" oninput="atualizarCadastroHumano()">
-                        </div>
-                    </div>
-                    <div id="cad-resumo-estoque" class="resumo-humano-final"></div>
-                </div>
-
-                <button class="btn-grande" onclick="confirmarCadastroProduto()">SALVAR PRODUTO</button>
+                <button class="btn-grande" onclick="pedirSenhaParaAcao('salvarProduto')">Salvar Cadastro no Sistema</button>
             </div>
         </div>
     </div>
 
-    <!-- SCRIPT DE FUNCIONAMENTO - VERS&#xC3;O NOVA SOBRE O ORIGINAL RECUPERADO -->
+    <!-- SCRIPT DE FUNCIONAMENTO -->
     <script>
-        const URL_API = "https://script.google.com/macros/s/AKfycbwwwGgSg9iVo7Ts_afPaADDPoEBbmx2j9aSjoPD0emMPC1vbiH6bD-ThNw8W1MCVLF1/exec";
-
+        const SENHA_GERENTE = "9104"; 
+        const URL_API = "https://script.google.com/macros/s/AKfycbxr3wEmRx9ROZ5x99Pb-hqIW1ZodxeFu6fHch0d8TTsi1q2Z9rsWJQT00sBKSDilbrS/exec";
+        
         let produtos = [];
         let carrinho = [];
+        let historicoVendas = [];
         let equipe = [];
         let produtoSelecionadoAtual = null;
-        let usuarioAtual = null;
+        let funcionarioAtualTurno = "";
         let temaClaro = false;
+        let acaoPendente = null;
+        let parametroAcaoPendente = null;
 
-        let comboProdutoAtual = null;
-        let comboSelecaoEne = {};
-        let comboSelecaoGelo = {};
-        let comboSelecaoCerveja = {};
-
-        window.onload = async function() {
-            aplicarTemaSalvo();
-            recuperarSessao();
-            recuperarCarrinho();
-            await carregarDadosIniciais();
-
-            if(usuarioAtual) {
-                entrarNoSistema();
-            } else {
-                mostrarLogin();
-            }
+        window.onload = function() { 
+            carregarDadosIniciais(); 
         };
 
         function mostrarLoading(status) {
@@ -1737,238 +936,167 @@
         async function lerRespostaAPI(res) {
             const texto = await res.text();
             let dados;
+
             try {
                 dados = JSON.parse(texto);
             } catch (erro) {
-                throw new Error("A API n\u00E3o retornou um JSON v\u00E1lido.");
+                throw new Error("A API não retornou um JSON válido. Resposta: " + texto.slice(0, 180));
             }
-            if(!res.ok) throw new Error(dados.mensagem || ("Erro HTTP " + res.status));
-            if(dados.sucesso === false) throw new Error(dados.mensagem || "Opera\u00E7\u00E3o n\u00E3o confirmada.");
+
+            if(!res.ok) {
+                throw new Error(dados.mensagem || ("Erro HTTP " + res.status));
+            }
+
+            if(dados.status && dados.status !== "sucesso") {
+                throw new Error(dados.mensagem || "A operação não foi confirmada pelo servidor.");
+            }
+
             return dados;
         }
 
-        async function apiPost(obj) {
-            const res = await fetch(URL_API, {
-                method:'POST',
-                headers:{'Content-Type':'text/plain;charset=utf-8'},
-                body:JSON.stringify(obj)
-            });
-            return lerRespostaAPI(res);
-        }
-
-        async function apiGet(acao, extras={}) {
-            const qs = new URLSearchParams(Object.assign({acao:acao,t:Date.now()}, extras));
-            const res = await fetch(URL_API + "?" + qs.toString(), {cache:'no-store'});
-            return lerRespostaAPI(res);
-        }
-
-        async function carregarDadosIniciais() {
+        function carregarDadosIniciais() {
             mostrarLoading(true);
-            try {
-                const data = await apiGet('listar');
-                produtos = Array.isArray(data.produtos) ? data.produtos : [];
-                equipe = Array.isArray(data.equipe) ? data.equipe : [];
-                preencherLogin();
-                atualizarInterfaceCompleta();
-                verificarCategoriaCadastro();
-            } catch(err) {
-                console.error(err);
-                document.getElementById('login-status').innerText = "Erro ao conectar: " + err.message;
-                alert("N\u00E3o foi poss\u00EDvel carregar os dados:\n" + err.message);
-            } finally {
-                mostrarLoading(false);
-            }
-        }
+            fetch(URL_API + "?acao=listar&t=" + Date.now())
+                .then(lerRespostaAPI)
+                .then(data => {
+                    produtos = Array.isArray(data.produtos) ? data.produtos : [];
+                    equipe = Array.isArray(data.equipe) ? data.equipe : [];
 
-        async function carregarDadosSemAbrirTurno() {
-            try {
-                const data = await apiGet('listar');
-                produtos = Array.isArray(data.produtos) ? data.produtos : [];
-                equipe = Array.isArray(data.equipe) ? data.equipe : [];
-                preencherLogin();
-                atualizarInterfaceCompleta();
-            } catch(err) {
-                console.error(err);
-                alert("A tela n\u00E3o conseguiu atualizar:\n" + err.message);
-            }
-        }
-
-        /* LOGIN */
-        function preencherLogin() {
-            const sel = document.getElementById('login-usuario');
-            if(!sel) return;
-            const atual = sel.value;
-            sel.innerHTML = '<option value="">Selecione...</option>';
-            equipe
-                .filter(f => normalizarTexto(f.status) !== 'inativo')
-                .forEach(f => {
-                    const o = document.createElement('option');
-                    o.value = f.nome;
-                    o.innerText = f.nome;
-                    sel.appendChild(o);
+                    atualizarInterfaceCompleta();
+                    mostrarLoading(false);
+                    abrirModalAberturaTurno();
+                })
+                .catch(err => {
+                    console.error("Erro ao carregar dados da planilha:", err);
+                    mostrarLoading(false);
+                    alert("Não foi possível carregar os dados da planilha:\n" + err.message);
                 });
-            if([...sel.options].some(o => o.value === atual)) sel.value = atual;
         }
 
-        function loginEnter(e) {
-            if(e.key === 'Enter') fazerLogin();
+        function carregarDadosSemAbrirTurno() {
+            mostrarLoading(true);
+            fetch(URL_API + "?acao=listar&t=" + Date.now())
+                .then(lerRespostaAPI)
+                .then(data => {
+                    produtos = Array.isArray(data.produtos) ? data.produtos : [];
+                    equipe = Array.isArray(data.equipe) ? data.equipe : [];
+
+                    atualizarInterfaceCompleta();
+                    mostrarLoading(false);
+                })
+                .catch(err => {
+                    console.error("Erro ao atualizar os dados:", err);
+                    mostrarLoading(false);
+                    alert("A operação foi concluída, mas a tela não conseguiu atualizar:\n" + err.message);
+                });
         }
 
-        async function fazerLogin() {
-            const nome = document.getElementById('login-usuario').value;
-            const pin = document.getElementById('login-pin').value.trim();
-            if(!nome || !pin) {
-                alert("Selecione o usu\u00E1rio e informe o PIN.");
+        function abrirModalAberturaTurno() {
+            let sel = document.getElementById('select-operador-turno');
+            sel.innerHTML = "";
+            if(equipe.length === 0) {
+                sel.innerHTML = `<option value="Jhou">Jhou (Padrão)</option>`;
+            } else {
+                equipe.forEach(f => {
+                    let nome = f.nome || f.name;
+                    let opt = document.createElement('option');
+                    opt.value = nome;
+                    opt.innerText = nome;
+                    sel.appendChild(opt);
+                });
+            }
+            document.getElementById('modal-abertura-turno').style.display = 'flex';
+        }
+
+        function confirmarAberturaTurno() {
+            let sel = document.getElementById('select-operador-turno');
+            funcionarioAtualTurno = sel.value || "Jhou";
+            document.getElementById('nome-operador-topo').innerText = funcionarioAtualTurno;
+            document.getElementById('modal-abertura-turno').style.display = 'none';
+            document.getElementById('busca-unificada').focus();
+        }
+
+        function abrirModalTrocaOperador() {
+            abrirModalAberturaTurno();
+        }
+
+        function pedirSenhaParaAcao(acao, parametro = null) {
+            acaoPendente = acao;
+            parametroAcaoPendente = parametro;
+            document.getElementById('input-senha-gerente').value = "";
+            document.getElementById('modal-senha').style.display = 'flex';
+            document.getElementById('input-senha-gerente').focus();
+        }
+
+        function fecharModalSenha() {
+            document.getElementById('modal-senha').style.display = 'none';
+            acaoPendente = null;
+            parametroAcaoPendente = null;
+        }
+
+        function verificarSenhaEnter(e) {
+            if(e.key === 'Enter') confirmarSenhaGerente();
+        }
+
+        function confirmarSenhaGerente() {
+            const digitada = document.getElementById('input-senha-gerente').value;
+
+            if(digitada !== SENHA_GERENTE) {
+                alert("Senha incorreta!");
+                document.getElementById('input-senha-gerente').focus();
                 return;
             }
 
-            mostrarLoading(true);
-            try {
-                const r = await apiPost({acao:'autenticarUsuario', nome:nome, pin:pin});
-                usuarioAtual = r.usuario;
-                salvarSessao();
-                document.getElementById('login-pin').value = "";
-                entrarNoSistema();
-            } catch(err) {
-                alert(err.message);
-            } finally {
-                mostrarLoading(false);
-            }
+            const acaoSalva = acaoPendente;
+            const parametroSalvo = parametroAcaoPendente;
+
+            document.getElementById('modal-senha').style.display = 'none';
+            acaoPendente = acaoSalva;
+            parametroAcaoPendente = parametroSalvo;
+
+            executarAcaoPendente();
+
+            acaoPendente = null;
+            parametroAcaoPendente = null;
         }
 
-        function mostrarLogin() {
-            document.getElementById('login-novo').style.display = 'flex';
+        function executarAcaoPendente() {
+            if(acaoPendente === 'reposicao') salvarReposicaoEstoqueExec();
+            if(acaoPendente === 'salvarProduto') salvarProdutoExec();
+            if(acaoPendente === 'editarProduto') abrirModalEditarProdutoExec(parametroAcaoPendente);
+            if(acaoPendente === 'deletarProduto') deletarProdutoExec(parametroAcaoPendente);
+            if(acaoPendente === 'salvarFuncionario') salvarFuncionarioExec();
+            if(acaoPendente === 'deletarFuncionario') deletarFuncionarioExec(parametroAcaoPendente);
+            if(acaoPendente === 'zerarCaixa') zerarCaixaExec();
+            if(acaoPendente === 'zerarGarrafaItem') zerarValorItemCarrinhoExec(parametroAcaoPendente);
         }
 
-        function entrarNoSistema() {
-            if(!usuarioAtual) return mostrarLogin();
-            document.getElementById('login-novo').style.display = 'none';
-            document.getElementById('nome-operador-topo').innerText = usuarioAtual.nome;
-            aplicarPermissoes();
-            atualizarInterfaceCompleta();
-            const btn = ehAdmin() ? document.querySelector('nav button.admin-only-nav') : document.querySelector('nav button[onclick*="vendas"]');
-            mudarAba(ehAdmin() ? 'inicio' : 'vendas', btn);
+        function alternarCarrinhoMobile() {
+            const painel = document.getElementById('painel-carrinho');
+            const abriu = painel.classList.toggle('ativo-mobile');
+            document.body.classList.toggle('carrinho-aberto', abriu);
         }
 
-        function sairSistema() {
-            if(!confirm("Sair do sistema neste computador?")) return;
-            usuarioAtual = null;
-            localStorage.removeItem('carbura_sessao');
-            const modal = document.getElementById('modal-abertura-turno');
-            if(modal) modal.style.display = 'none';
-            mostrarLogin();
+        function fecharCarrinhoMobile() {
+            const painel = document.getElementById('painel-carrinho');
+            painel.classList.remove('ativo-mobile');
+            document.body.classList.remove('carrinho-aberto');
         }
 
-        function salvarSessao() {
-            localStorage.setItem('carbura_sessao', JSON.stringify({usuario: usuarioAtual}));
-        }
+        document.addEventListener('keydown', function(evento) {
+            if (evento.key === 'Escape') fecharCarrinhoMobile();
+        });
 
-        function recuperarSessao() {
-            try {
-                const s = JSON.parse(localStorage.getItem('carbura_sessao') || 'null');
-                if(s && s.usuario) usuarioAtual = s.usuario;
-            } catch(e) {}
-        }
-
-        function ehAdmin() {
-            if(!usuarioAtual) return false;
-            const p = normalizarTexto(usuarioAtual.perfil);
-            return p.includes('dona') || p.includes('admin') || p.includes('gerente');
-        }
-
-        function aplicarPermissoes() {
-            document.querySelectorAll('.admin-only-nav').forEach(el => {
-                el.style.display = ehAdmin() ? '' : 'none';
-            });
-        }
-
-        /* SEM TURNOS: vendas e trocas são vinculadas ao operador e à data/hora. */
-        function atualizarTurnoTopo() {
-            const el = document.getElementById('turno-topo');
-            if(el) el.innerText = usuarioAtual ? 'Operador: ' + usuarioAtual.nome : 'Sem operador';
-            const legenda = document.getElementById('fechamento-turno-legenda');
-            if(legenda) legenda.innerText = usuarioAtual ? 'Vendas e trocas do operador ' + usuarioAtual.nome + ' — sem turno.' : 'Sem operador.';
-        }
-
-        /* NAVEGA\u00C7\u00C3O */
         function mudarAba(idAba, btn) {
-            if(!ehAdmin() && ['inicio','reposicao','produtos','equipe','cadastros','auditoria'].includes(idAba)) {
-                idAba = 'vendas';
-                btn = document.querySelector('nav button[onclick*="vendas"]');
-            }
-
             document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
             document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-
-            const aba = document.getElementById('aba-' + idAba);
-            if(aba) aba.classList.add('active');
+            document.getElementById('aba-' + idAba).classList.add('active');
             if(btn) btn.classList.add('active');
-
-            if(idAba === 'inicio') carregarDashboard();
-            if(idAba === 'produtos') renderizarProdutosAdmin(produtos);
-            if(idAba === 'auditoria') prepararAuditoriaVendas();
-            if(idAba === 'fechamento') atualizarRelatorioCaixa();
-            if(idAba === 'vendas') setTimeout(focarBusca,50);
+            if(idAba === 'vendas') document.getElementById('busca-unificada').focus();
         }
 
-
-        /* AUDITORIA DE VENDAS */
-        function prepararAuditoriaVendas() {
-            if(!ehAdmin()) return;
-            const sel=document.getElementById('auditoria-funcionario');
-            if(!sel) return;
-            const atual=sel.value;
-            sel.innerHTML='<option value="">Todos</option>';
-            (equipe||[]).forEach(f=>{
-                if(normalizarTexto(f.status)==='inativo') return;
-                const o=document.createElement('option'); o.value=f.nome; o.innerText=f.nome; sel.appendChild(o);
-            });
-            if(atual && [...sel.options].some(o=>o.value===atual)) sel.value=atual;
-            carregarAuditoriaVendas();
-        }
-        function limparAuditoriaVendas(){
-            ['auditoria-produto','auditoria-data-inicial','auditoria-data-final'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});
-            const s=document.getElementById('auditoria-funcionario'); if(s)s.value='';
-            carregarAuditoriaVendas();
-        }
-        async function carregarAuditoriaVendas(){
-            if(!ehAdmin()) return alert("Apenas Dona/Admin pode acessar a auditoria.");
-            try{
-                mostrarLoading(true);
-                const r=await apiGet('auditoriaVendas',{
-                    operador:document.getElementById('auditoria-funcionario')?.value||'',
-                    produto:document.getElementById('auditoria-produto')?.value||'',
-                    dataInicial:document.getElementById('auditoria-data-inicial')?.value||'',
-                    dataFinal:document.getElementById('auditoria-data-final')?.value||''
-                });
-                const linhas=Array.isArray(r.vendas)?r.vendas:[];
-                document.getElementById('auditoria-lancamentos').innerText=Number(r.quantidadeLancamentos||0);
-                document.getElementById('auditoria-quantidade').innerText=Number(r.totalItens||0);
-                document.getElementById('auditoria-total').innerText=formatarMoeda(r.totalValor||0);
-                const tbody=document.getElementById('auditoria-tabela');
-                if(!linhas.length){tbody.innerHTML='<tr><td colspan="7" style="padding:18px;text-align:center;color:var(--text-muted);">Nenhuma venda encontrada.</td></tr>';return;}
-                tbody.innerHTML=linhas.map(v=>`<tr style="border-top:1px solid var(--border);">
-                    <td style="padding:10px;">${escaparHTML(v.dataHora)}</td><td style="padding:10px;">${escaparHTML(v.operador)}</td>
-                    <td style="padding:10px;">${escaparHTML(v.produto)}</td><td style="padding:10px;text-align:right;">${Number(v.quantidade||0)}</td>
-                    <td style="padding:10px;">${escaparHTML(v.idVenda||'—')}</td><td style="padding:10px;">${escaparHTML(v.pagamento||'—')}</td>
-                    <td style="padding:10px;text-align:right;">${formatarMoeda(v.valor||0)}</td></tr>`).join('');
-            }catch(err){alert("Não foi possível carregar a auditoria:\\n"+err.message);}
-            finally{mostrarLoading(false);}
-        }
-
-        /* TEMA */
         function alternarTema() {
             temaClaro = !temaClaro;
-            aplicarTema();
-            localStorage.setItem('carbura_tema', temaClaro ? 'claro' : 'escuro');
-        }
-
-        function aplicarTemaSalvo() {
-            temaClaro = localStorage.getItem('carbura_tema') === 'claro';
-            aplicarTema();
-        }
-
-        function aplicarTema() {
             let root = document.documentElement;
             if(temaClaro) {
                 root.style.setProperty('--bg', '#f4f4f5');
@@ -1976,643 +1104,365 @@
                 root.style.setProperty('--text', '#09090b');
                 root.style.setProperty('--text-muted', '#52525b');
                 root.style.setProperty('--border', '#d4d4d8');
-                document.getElementById('icone-tema') && (document.getElementById('icone-tema').innerText = "\uD83C\uDF19");
-                document.getElementById('texto-tema') && (document.getElementById('texto-tema').innerText = "Escuro");
+                document.getElementById('icone-tema').innerText = "🌙";
+                document.getElementById('texto-tema').innerText = "Escuro";
             } else {
                 root.style.setProperty('--bg', '#09090b');
                 root.style.setProperty('--card-bg', '#18181b');
                 root.style.setProperty('--text', '#fafafa');
                 root.style.setProperty('--text-muted', '#a1a1aa');
                 root.style.setProperty('--border', '#27272a');
-                document.getElementById('icone-tema') && (document.getElementById('icone-tema').innerText = "\u2600\uFE0F");
-                document.getElementById('texto-tema') && (document.getElementById('texto-tema').innerText = "Claro");
+                document.getElementById('icone-tema').innerText = "☀️";
+                document.getElementById('texto-tema').innerText = "Claro";
             }
         }
 
-        /* INTERFACE */
+        function verificarCategoriaCadastro() {
+            let cat = document.getElementById('cad-categoria').value;
+            document.getElementById('bloco-combo-detalhes').style.display = (cat === 'Combos') ? 'block' : 'none';
+            document.getElementById('bloco-dose-detalhes').style.display = (cat === 'Doses') ? 'block' : 'none';
+            document.getElementById('bloco-preco-cigarro').style.display = (cat === 'Tabaco') ? 'block' : 'none';
+            document.getElementById('bloco-preco-normal').style.display = (cat === 'Tabaco') ? 'none' : 'block';
+        }
+
+        function alterarStepperVendaCombo(tipo, delta) {
+            let inputId = `venda-combo-${tipo}-qtd`;
+            let input = document.getElementById(inputId);
+            let valorAtual = parseInt(input.value) || 0;
+            let novoValor = valorAtual + delta;
+            if (novoValor >= 0 && novoValor <= 4) {
+                input.value = novoValor;
+            }
+        }
+
+        function verificarDinheiro() {
+            let pag = document.getElementById('pagamento').value;
+            document.getElementById('bloco-dinheiro').style.display = (pag === 'Dinheiro') ? 'block' : 'none';
+            if(pag === 'Dinheiro') calcularTroco();
+        }
+
+        function calcularTroco() {
+            let total = carrinho.reduce((acc, item) => acc + (item.preco * item.qtd), 0);
+            let recebido = parseFloat(document.getElementById('valor-recebido').value) || 0;
+            let troco = recebido - total;
+            document.getElementById('troco-txt').innerText = `Troco: R$ ${troco >= 0 ? troco.toFixed(2) : '0.00'}`;
+        }
+
         function atualizarInterfaceCompleta() {
             renderizarGridVendas(produtos);
             renderizarGridEstoque();
-            renderizarProdutosAdmin(produtos);
             renderizarGridEquipe();
-            atualizarSelectRepositorio();
-            atualizarCarrinho();
+            atualizarSelectRepositório();
+            atualizarSelectsVendaCombo();
+            atualizarRelatorioCaixa();
         }
 
-        function normalizarTexto(v) {
-            return String(v || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
-        }
+        function atualizarSelectsVendaCombo() {
+            const sels = ['venda-combo-ene1-sel', 'venda-combo-ene2-sel', 'venda-combo-ene3-sel', 'venda-combo-ene4-sel'];
+            const geloSels = ['venda-combo-gelo1-sel', 'venda-combo-gelo2-sel', 'venda-combo-gelo3-sel', 'venda-combo-gelo4-sel'];
 
-        function formatarMoeda(v) {
-            return Number(v || 0).toLocaleString('pt-BR', {style:'currency',currency:'BRL'});
-        }
+            sels.forEach(id => {
+                let el = document.getElementById(id);
+                if(!el) return;
+                let atual = el.value;
+                el.innerHTML = '<option value="">Nenhum</option>';
+                produtos.forEach(p => {
+                    let opt = document.createElement('option');
+                    opt.value = p.id;
+                    opt.textContent = p.nome;
+                    el.appendChild(opt);
+                });
+                el.value = atual;
+            });
 
-        function pluralEmbalagem(tipo, qtd) {
-            const t = String(tipo || 'Embalagem');
-            if(Number(qtd) === 1) return t;
-            const n = normalizarTexto(t);
-            if(n === 'maco') return 'Ma\u00E7os';
-            if(n === 'caixa') return 'Caixas';
-            if(n === 'pacote') return 'Pacotes';
-            if(n === 'fardo') return 'Fardos';
-            return t + 's';
-        }
-
-        function estoqueVisual(p) {
-            const est = Math.max(0, Math.floor(Number(p.estoque || 0)));
-            const fator = Math.max(1, Math.floor(Number(p.unidadesPorEmbalagem || 1)));
-            const tipo = p.tipoEmbalagem || '';
-            if(tipo && fator > 1) {
-                const embalagens = Math.floor(est / fator);
-                const soltas = est % fator;
-                const partes = [];
-                if(embalagens > 0) partes.push(embalagens + ' ' + pluralEmbalagem(tipo, embalagens).toLowerCase());
-                if(soltas > 0 || embalagens === 0) partes.push(soltas + (soltas === 1 ? ' unidade' : ' unidades'));
-                return partes.join(' + ');
-            }
-            return est + (est === 1 ? ' unidade' : ' unidades');
-        }
-
-        function criarEstoqueVisual(p, novoEstoque) {
-            return estoqueVisual(Object.assign({}, p, {estoque:novoEstoque}));
-        }
-
-        function precoVendaUnidade(p) {
-            if(Number(p.precoSolto || 0) > 0) return Number(p.precoSolto);
-            return Number(p.preco || 0);
-        }
-
-        function precoVendaEmbalagem(p) {
-            const fator = Math.max(1, Number(p.unidadesPorEmbalagem || 1));
-            if(Number(p.precoMaco || 0) > 0) return Number(p.precoMaco);
-            return Number(p.preco || 0) * fator;
+            geloSels.forEach(id => {
+                let el = document.getElementById(id);
+                if(!el) return;
+                let atual = el.value;
+                el.innerHTML = '<option value="">Nenhum</option>';
+                produtos.forEach(p => {
+                    let opt = document.createElement('option');
+                    opt.value = p.id;
+                    opt.textContent = p.nome;
+                    el.appendChild(opt);
+                });
+                el.value = atual;
+            });
         }
 
         function renderizarGridVendas(lista) {
-            const grid = document.getElementById('grid-vendas');
+            let grid = document.getElementById('grid-vendas');
             grid.innerHTML = "";
-            const ativos = (lista || []).filter(p => normalizarTexto(p.status) !== 'inativo');
-
-            if(ativos.length === 0) {
-                grid.innerHTML = '<p style="color:var(--text-muted);">Nenhum produto encontrado.</p>';
+            if(lista.length === 0) {
+                grid.innerHTML = `<p style="color: var(--text-muted); grid-column: 1/-1;">Nenhum produto encontrado.</p>`;
                 return;
             }
-
-            ativos.forEach(p => {
-                const estoque = Number(p.estoque || 0);
-                const card = document.createElement('div');
+            lista.forEach(p => {
+                let card = document.createElement('div');
                 card.className = 'card-produto';
-
-                if(estoque <= 0) card.classList.add('estoque-esgotado-card');
-                else if(estoque <= 10) card.classList.add('estoque-baixo-card');
-
-                let preco = precoVendaUnidade(p);
-                const temEmbalagem = p.tipoEmbalagem && Number(p.unidadesPorEmbalagem || 1) > 1;
+                card.onclick = () => selecionarProdutoVenda(p);
+                
+                let precoExibicao = String(p.categoria || '').toLowerCase() === 'tabaco'
+                    ? `Maço: R$ ${parseFloat(p.precoMaco || 0).toFixed(2)}`
+                    : `R$ ${parseFloat(p.preco || 0).toFixed(2)}`;
+                
+                let qtdEstoque = parseInt(p.estoque) || 0;
+                let badgeHtml = "";
+                if(qtdEstoque <= 0) {
+                    badgeHtml = `<span class="badge-zerado">ESGOTADO</span>`;
+                } else if(qtdEstoque <= 3) {
+                    badgeHtml = `<span class="badge-alerta">ACABANDO (${qtdEstoque})</span>`;
+                }
 
                 card.innerHTML = `
-                    ${estoque <= 0 ? '<span class="badge-zerado">ESGOTADO</span>' : estoque <= 10 ? '<span class="badge-zerado" style="background:#f59e0b;color:black;">BAIXO</span>' : ''}
+                    ${badgeHtml}
                     <div>
-                        <h3>${escaparHTML(p.nome)}</h3>
-                        <span style="font-size:.76rem;color:var(--text-muted);">${escaparHTML(p.categoria)}</span>
+                        <h3>${p.nome}</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 8px;">Estoque: ${qtdEstoque}</p>
                     </div>
-                    <div>
-                        <span class="preco">${formatarMoeda(preco)}</span>
-                        ${temEmbalagem ? `<small style="display:block;color:var(--text-muted);margin-top:3px;">${escaparHTML(p.tipoEmbalagem)}: ${formatarMoeda(precoVendaEmbalagem(p))}</small>` : ''}
-                        <small style="display:block;color:var(--text-muted);margin-top:4px;">${escaparHTML(estoqueVisual(p))}</small>
-                    </div>
+                    <div class="preco">${precoExibicao}</div>
                 `;
-
-                if(estoque > 0) card.onclick = () => selecionarProdutoVenda(p);
                 grid.appendChild(card);
             });
         }
 
         function renderizarGridEstoque() {
-            const grid = document.getElementById('grid-estoque');
-            if(!grid) return;
+            let grid = document.getElementById('grid-estoque');
             grid.innerHTML = "";
-
             produtos.forEach(p => {
-                const div = document.createElement('div');
-                div.style.cssText = 'display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--bg);border:1px solid var(--border);padding:12px;border-radius:8px;';
-                const estoque = Number(p.estoque || 0);
-                const badge = estoque <= 0
-                    ? '<span class="badge-esgotado-novo">ESGOTADO</span>'
-                    : estoque <= 10
-                    ? '<span class="badge-baixo-novo">BAIXO</span>'
-                    : '';
+                let qtdEstoque = parseInt(p.estoque) || 0;
+                let card = document.createElement('div');
+                card.className = 'card-produto';
+                
+                let badgeHtml = "";
+                if(qtdEstoque <= 0) {
+                    badgeHtml = `<span class="badge-zerado">ESGOTADO</span>`;
+                } else if(qtdEstoque <= 3) {
+                    badgeHtml = `<span class="badge-alerta">BAIXO</span>`;
+                }
 
-                div.innerHTML = `
+                card.innerHTML = `
+                    ${badgeHtml}
                     <div>
-                        <strong>${escaparHTML(p.nome)}</strong>
-                        <div style="font-size:.78rem;color:var(--text-muted);">${escaparHTML(p.categoria)} \u2022 ${escaparHTML(estoqueVisual(p))} ${badge}</div>
+                        <h3>${p.nome}</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Preço: R$ ${parseFloat(p.preco || 0).toFixed(2)} | Cat: ${p.categoria}</p>
                     </div>
-                    <div class="acoes-produto-novo">
-                        <button class="btn-mini-novo" onclick="abrirModalEditarProdutoExec('${escaparAtributo(p.id)}')">Editar</button>
-                        <button class="btn-mini-novo danger" onclick="deletarProdutoExec('${escaparAtributo(p.id)}')">Excluir</button>
+                    <div style="margin-top: 12px; display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: bold; color: var(--info);">Qtd: ${qtdEstoque}</span>
+                        <div style="display: flex; gap: 6px;">
+                            <button onclick="pedirSenhaParaAcao('editarProduto', '${p.id}')" style="background: var(--primary); border: none; color: #000; padding: 6px 10px; border-radius: 6px; cursor: pointer; font-weight: bold;">✏️ Editar</button>
+                            <button onclick="pedirSenhaParaAcao('deletarProduto', '${p.id}')" style="background: var(--danger); border: none; color: #fff; padding: 6px 10px; border-radius: 6px; cursor: pointer;">Excluir</button>
+                        </div>
                     </div>
                 `;
-                grid.appendChild(div);
+                grid.appendChild(card);
             });
         }
 
         function renderizarGridEquipe() {
-            const grid = document.getElementById('grid-equipe');
-            if(!grid) return;
+            let grid = document.getElementById('grid-equipe');
             grid.innerHTML = "";
-
             equipe.forEach(f => {
-                const div = document.createElement('div');
-                div.style.cssText = 'display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--bg);border:1px solid var(--border);padding:12px;border-radius:8px;';
-                div.innerHTML = `
-                    <div><strong>${escaparHTML(f.nome)}</strong><div style="color:var(--text-muted);font-size:.78rem;">${escaparHTML(f.perfil || 'Funcion\u00E1rio')} \u2022 ${escaparHTML(f.status || 'Ativo')}</div></div>
-                    <button class="btn-mini-novo danger" onclick="deletarFuncionarioExec('${escaparAtributo(f.nome)}')">Excluir</button>
+                let nome = f.nome || f.name;
+                let card = document.createElement('div');
+                card.style.cssText = "background: var(--card-bg); border: 1px solid var(--border); padding: 16px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;";
+                card.innerHTML = `
+                    <span style="font-weight: bold; font-size: 1.1rem;">👤 ${nome}</span>
+                    <button onclick="pedirSenhaParaAcao('deletarFuncionario', '${nome}')" style="background: var(--danger); border: none; color: #fff; padding: 6px 12px; border-radius: 6px; cursor: pointer;">Remover</button>
                 `;
-                grid.appendChild(div);
+                grid.appendChild(card);
             });
         }
 
-
-        /* PRODUTOS / EDI\u00C7\u00C3O ADMIN */
-        function abrirCadastroProdutos() {
-            if(!ehAdmin()) return;
-            const btn = Array.from(document.querySelectorAll('nav button'))
-                .find(b => (b.getAttribute('onclick') || '').includes("'cadastros'"));
-            mudarAba('cadastros', btn || null);
-        }
-
-        function precoAdminTexto(p) {
-            const fator = Math.max(1, Number(p.unidadesPorEmbalagem || 1));
-            const temEmbalagem = !!p.tipoEmbalagem && fator > 1;
-
-            if(temEmbalagem) {
-                return "Unidade: " + formatarMoeda(precoVendaUnidade(p)) +
-                    " \u2022 " + escaparHTML(p.tipoEmbalagem) + ": " + formatarMoeda(precoVendaEmbalagem(p));
-            }
-
-            return "Pre\u00E7o: " + formatarMoeda(Number(p.preco || p.precoSolto || 0));
-        }
-
-        function renderizarProdutosAdmin(lista) {
-            const grid = document.getElementById('grid-produtos-admin');
-            if(!grid) return;
-
-            const itens = Array.isArray(lista) ? lista : produtos;
-            grid.innerHTML = "";
-
-            if(itens.length === 0) {
-                grid.innerHTML = '<div class="reposicao-card-novo" style="color:var(--text-muted);">Nenhum produto encontrado.</div>';
-                return;
-            }
-
-            itens.forEach(p => {
-                const div = document.createElement('div');
-                div.className = 'reposicao-card-novo';
-                div.style.cssText += 'display:grid;grid-template-columns:minmax(220px,1.4fr) minmax(240px,1.2fr) auto;align-items:center;gap:14px;';
-
-                const codigoUnidade = p.codigo ? escaparHTML(p.codigo) : '\u2014';
-                const codigoEmb = p.codigoEmbalagem ? escaparHTML(p.codigoEmbalagem) : '\u2014';
-
-                div.innerHTML = `
-                    <div>
-                        <strong style="font-size:1rem;">${escaparHTML(p.nome)}</strong>
-                        <div style="color:var(--text-muted);font-size:.78rem;margin-top:4px;">
-                            ${escaparHTML(p.categoria)} \u2022 ${escaparHTML(estoqueVisual(p))}
-                        </div>
-                        <div style="color:var(--primary);font-size:.82rem;font-weight:700;margin-top:5px;">
-                            ${precoAdminTexto(p)}
-                        </div>
-                    </div>
-
-                    <div style="font-size:.78rem;color:var(--text-muted);line-height:1.6;">
-                        <div><strong style="color:var(--text);">C\u00F3digo unidade:</strong> ${codigoUnidade}</div>
-                        <div><strong style="color:var(--text);">C\u00F3digo embalagem:</strong> ${codigoEmb}</div>
-                    </div>
-
-                    <div class="acoes-produto-novo" style="justify-content:flex-end;">
-                        <button class="btn-mini-novo" onclick="abrirModalEditarProdutoExec('${escaparAtributo(p.id)}')">\u270F\uFE0F Editar</button>
-                        <button class="btn-mini-novo danger" onclick="deletarProdutoExec('${escaparAtributo(p.id)}')">\uD83D\uDDD1\uFE0F Excluir</button>
-                    </div>
-                `;
-
-                grid.appendChild(div);
+        function atualizarSelectRepositório() {
+            let sel = document.getElementById('rep-produto');
+            sel.innerHTML = "";
+            produtos.forEach(p => {
+                let opt = document.createElement('option');
+                opt.value = p.id;
+                opt.innerText = p.nome;
+                sel.appendChild(opt);
             });
         }
 
-        function filtrarProdutosAdmin() {
-            const campo = document.getElementById('busca-produtos-admin');
-            const busca = normalizarTexto(campo ? campo.value : "");
-
-            const filtrados = produtos.filter(p => {
-                return normalizarTexto(p.nome).includes(busca) ||
-                    normalizarTexto(p.categoria).includes(busca) ||
-                    String(p.codigo || '').toLowerCase().includes(busca) ||
-                    String(p.codigoEmbalagem || '').toLowerCase().includes(busca);
-            });
-
-            renderizarProdutosAdmin(filtrados);
-        }
-
-        async function excluirProdutoDoModal() {
-            if(!ehAdmin()) return alert("Apenas Dona/Admin pode excluir produtos.");
-
-            const id = document.getElementById('edit-prod-id').value;
-            if(!id) return;
-
-            fecharModalEditarProduto();
-            await deletarProdutoExec(id);
-        }
-
-        /* BUSCA / BIPE */
         function filtrarVendasUnificado() {
-            const busca = normalizarTexto(document.getElementById('busca-unificada').value);
-            renderizarGridVendas(produtos.filter(p =>
-                normalizarTexto(p.nome).includes(busca) ||
-                String(p.codigo || '').includes(busca) ||
-                String(p.codigoEmbalagem || '').includes(busca)
-            ));
-        }
-
-        function normalizarCodigoBarras(v) {
-            return String(v || '').trim().replace(/\s+/g, '');
+            let termo = document.getElementById('busca-unificada').value.toLowerCase();
+            let filtrados = produtos.filter(p => {
+                const nome = String(p.nome || "").toLowerCase();
+                const codigo = String(p.codigo || p.codigoBarras || p.barcode || "").toLowerCase();
+                return nome.includes(termo) || codigo.includes(termo);
+            });
+            renderizarGridVendas(filtrados);
         }
 
         function verificarBipeUnificado(e) {
-            if(e.key !== 'Enter') return;
-            const codigo = normalizarCodigoBarras(e.target.value);
-            if(!codigo) return;
+            if(e.key === 'Enter') {
+                let termo = document.getElementById('busca-unificada').value.trim();
+                let encontrado = produtos.find(p => {
+                    const codigo = String(p.codigo || p.codigoBarras || p.barcode || "").trim();
+                    const nome = String(p.nome || "").trim().toLowerCase();
+                    return codigo === termo || nome === termo.toLowerCase();
+                });
 
-            /*
-              IMPORTANTE: c\u00F3digo da embalagem (coluna N) tem prioridade.
-              Isso evita que um c\u00F3digo antigo que ainda esteja na coluna G de
-              outro cadastro seja tratado como unidade por engano.
-            */
-            const pEmbalagem = produtos.find(x =>
-                normalizarTexto(x.status) !== 'inativo' &&
-                normalizarCodigoBarras(x.codigoEmbalagem) === codigo
-            );
-
-            const pUnidade = produtos.find(x =>
-                normalizarTexto(x.status) !== 'inativo' &&
-                normalizarCodigoBarras(x.codigo) === codigo
-            );
-
-            const p = pEmbalagem || pUnidade;
-            if(!p) return alert('C\u00F3digo n\u00E3o encontrado.');
-
-            e.target.value = '';
-            renderizarGridVendas(produtos);
-
-            if(pEmbalagem) {
-                const fator = Math.floor(Number(p.unidadesPorEmbalagem || 1));
-                const tipo = String(p.tipoEmbalagem || '').trim();
-                if(!tipo || fator < 2) {
-                    return alert('Este c\u00F3digo est\u00E1 cadastrado como embalagem, mas faltam o Tipo de Embalagem ou as Unidades por Embalagem no produto. Abra Editar Produto e complete esses dados.');
+                if(encontrado) {
+                    selecionarProdutoVenda(encontrado);
+                    document.getElementById('busca-unificada').value = "";
+                    filtrarVendasUnificado();
+                } else {
+                    alert("Produto não encontrado!");
                 }
-                adicionarProdutoDiretoPorBipe(p, tipo, codigo, true);
-                return;
             }
-
-            adicionarProdutoDiretoPorBipe(p, 'Unidade', codigo, false);
         }
 
-        function adicionarProdutoDiretoPorBipe(p, tipoVenda, codigoBipado, bipouEmbalagem=false) {
-            if(Number(p.estoque || 0) <= 0) return alert('Produto esgotado.');
-
-            const cat = normalizarTexto(p.categoria);
-            if(cat.includes('combo') || cat.includes('dose')) {
-                selecionarProdutoVenda(p);
-                return;
+        function selecionarProdutoVenda(produto) {
+            produtoSelecionadoAtual = produto;
+            document.getElementById('modal-titulo').innerText = produto.nome;
+            
+            let blocoCigarro = document.getElementById('bloco-tipo-venda-modal');
+            let blocoVendaCombo = document.getElementById('bloco-venda-combo');
+            let categoriaProd = String(produto.categoria || '').toLowerCase();
+            
+            if(categoriaProd === 'tabaco') {
+                blocoCigarro.style.display = 'block';
+                blocoVendaCombo.style.display = 'none';
+            } else if(categoriaProd === 'combos' || categoriaProd === 'doses') {
+                blocoCigarro.style.display = 'none';
+                blocoVendaCombo.style.display = 'block';
+                atualizarSelectsVendaCombo();
+                ['ene1', 'ene2', 'ene3', 'ene4', 'gelo1', 'gelo2', 'gelo3', 'gelo4'].forEach(tipo => {
+                    let inputQtd = document.getElementById(`venda-combo-${tipo}-qtd`);
+                    if(inputQtd) inputQtd.value = 0;
+                });
+            } else {
+                blocoCigarro.style.display = 'none';
+                blocoVendaCombo.style.display = 'none';
             }
 
-            const ehEmbalagem = bipouEmbalagem || tipoVenda !== 'Unidade';
-            const fator = ehEmbalagem ? Math.max(1, Math.floor(Number(p.unidadesPorEmbalagem || 1))) : 1;
-
-            if(ehEmbalagem && fator < 2) {
-                return alert('A embalagem deste produto precisa ter pelo menos 2 unidades cadastradas.');
-            }
-
-            if(Number(p.estoque || 0) < fator) return alert('Estoque insuficiente para esta venda.');
-
-            const precoCorreto = ehEmbalagem ? precoVendaEmbalagem(p) : precoVendaUnidade(p);
-
-            carrinho.push({
-                id:p.id,
-                codigo:codigoBipado || p.codigo || '',
-                nome:p.nome + (ehEmbalagem ? ' (' + tipoVenda + ')' : ''),
-                preco:precoCorreto,
-                qtd:1,
-                tipoVenda:ehEmbalagem ? tipoVenda : 'Unidade',
-                bipouEmbalagem:!!ehEmbalagem,
-                categoria:p.categoria,
-                extras:[]
-            });
-            salvarCarrinho();
-            atualizarCarrinho();
-            focarBusca();
-        }
-
-        function focarBusca() {
-            const el = document.getElementById('busca-unificada');
-            if(el) { el.focus(); el.select(); }
-        }
-
-        /* SELE\u00C7\u00C3O DE VENDA */
-        function selecionarProdutoVenda(p) {
-            if(Number(p.estoque || 0) <= 0) return alert("Produto esgotado.");
-
-            produtoSelecionadoAtual = p;
-            const cat = normalizarTexto(p.categoria);
-
-            if(cat.includes('combo')) {
-                abrirModalComboNovo(p);
-                return;
-            }
-
-            if(cat.includes('dose')) {
-                abrirModalDoseNovo(p);
-                return;
-            }
-
-            const sel = document.getElementById('modal-tipo-venda');
-            sel.innerHTML = "";
-
-            const fator = Math.max(1, Math.floor(Number(p.unidadesPorEmbalagem || 1)));
-            const tipoEmb = p.tipoEmbalagem || '';
-
-            adicionarOpcaoSelect(sel, 'Unidade', 'Unidade / Solto \u2014 ' + formatarMoeda(precoVendaUnidade(p)));
-
-            if(tipoEmb && fator > 1) {
-                adicionarOpcaoSelect(sel, tipoEmb, tipoEmb + ' (' + fator + ' un.) \u2014 ' + formatarMoeda(precoVendaEmbalagem(p)));
-            }
-
-            document.getElementById('modal-titulo').innerText = p.nome;
             document.getElementById('modal-qtd').value = 1;
-            document.getElementById('modal-info-estoque').innerText = "Estoque: " + estoqueVisual(p);
             document.getElementById('modal-adicional').style.display = 'flex';
         }
 
-        function adicionarOpcaoSelect(sel, valor, texto) {
-            const o = document.createElement('option');
-            o.value = valor;
-            o.innerText = texto;
-            sel.appendChild(o);
+        function fecharModais() {
+            document.getElementById('modal-adicional').style.display = 'none';
+            document.getElementById('modal-editar-produto').style.display = 'none';
+        }
+
+        function fecharModalEditarProduto() {
+            document.getElementById('modal-editar-produto').style.display = 'none';
+            produtoSelecionadoAtual = null;
+        }
+
+        function abrirModalEditarProdutoExec(id) {
+            let prod = produtos.find(p => String(p.id) === String(id));
+            if(!prod) {
+                alert("Produto não encontrado!");
+                return;
+            }
+            produtoSelecionadoAtual = prod;
+            document.getElementById('edit-prod-nome-titulo').innerText = prod.nome;
+            document.getElementById('edit-prod-preco').value = prod.preco || 0;
+            document.getElementById('edit-prod-estoque').value = prod.estoque || 0;
+            document.getElementById('modal-editar-produto').style.display = 'flex';
+        }
+
+        function salvarEdicaoProduto() {
+            if(!produtoSelecionadoAtual) return;
+            let novoPreco = parseFloat(document.getElementById('edit-prod-preco').value) || 0;
+            let novoEstoque = parseInt(document.getElementById('edit-prod-estoque').value) || 0;
+
+            mostrarLoading(true);
+            fetch(URL_API, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify({
+                    acao: "editarProduto",
+                    id: produtoSelecionadoAtual.id,
+                    preco: novoPreco,
+                    estoque: novoEstoque
+                })
+            })
+            .then(lerRespostaAPI)
+            .then(resposta => {
+                mostrarLoading(false);
+                fecharModalEditarProduto();
+                alert(resposta.mensagem || "Produto atualizado com sucesso!");
+                carregarDadosSemAbrirTurno();
+            })
+            .catch(err => {
+                mostrarLoading(false);
+                alert("Erro ao atualizar produto:\n" + err.message);
+            });
         }
 
         function confirmarModalItem() {
-            const p = produtoSelecionadoAtual;
-            if(!p) return;
+            if(!produtoSelecionadoAtual) return;
+            let qtd = parseInt(document.getElementById('modal-qtd').value) || 1;
+            let tipoVenda = document.getElementById('modal-tipo-cigarro').value;
+            
+            let precoUnitario = parseFloat(produtoSelecionadoAtual.preco || 0);
+            let nomeItem = produtoSelecionadoAtual.nome;
+            let itensAdicionaisDescontoEstoque = [];
 
-            const qtd = Math.max(1, parseInt(document.getElementById('modal-qtd').value) || 1);
-            const tipoVenda = document.getElementById('modal-tipo-venda').value || 'Unidade';
-            const fator = normalizarTexto(tipoVenda) === normalizarTexto(p.tipoEmbalagem)
-                ? Math.max(1, Number(p.unidadesPorEmbalagem || 1))
-                : 1;
+            let categoriaProd = String(produtoSelecionadoAtual.categoria || '').toLowerCase();
 
-            if(Number(p.estoque || 0) < qtd * fator) {
-                alert("Estoque insuficiente. Dispon\u00EDvel: " + p.estoque + " unidade(s) base.");
-                return;
+            if(categoriaProd === 'tabaco') {
+                if(tipoVenda === 'maco') {
+                    precoUnitario = parseFloat(produtoSelecionadoAtual.precoMaco || 0);
+                    nomeItem += " (Maço)";
+                } else {
+                    precoUnitario = parseFloat(produtoSelecionadoAtual.precoSolto || 0);
+                    nomeItem += " (Solto)";
+                }
+            } else if(categoriaProd === 'combos' || categoriaProd === 'doses') {
+                let descExtras = [];
+                
+                ['ene1', 'ene2', 'ene3', 'ene4', 'gelo1', 'gelo2', 'gelo3', 'gelo4'].forEach(tipo => {
+                    let selId = `venda-combo-${tipo}-sel`;
+                    let qtdId = `venda-combo-${tipo}-qtd`;
+                    let itemId = document.getElementById(selId).value;
+                    let itemQtd = parseInt(document.getElementById(qtdId).value) || 0;
+
+                    if(itemId && itemQtd > 0) {
+                        let p = produtos.find(item => String(item.id) === String(itemId));
+                        if(p) {
+                            descExtras.push(`${itemQtd}x ${p.nome}`);
+                            itensAdicionaisDescontoEstoque.push({ id: p.id, qtd: itemQtd * qtd });
+                        }
+                    }
+                });
+
+                if(descExtras.length > 0) {
+                    nomeItem += " (" + descExtras.join(" | ") + ")";
+                }
             }
 
-            const preco = fator > 1 ? precoVendaEmbalagem(p) : precoVendaUnidade(p);
             carrinho.push({
-                id:p.id,
-                codigo:p.codigo || "",
-                nome:p.nome + (tipoVenda !== 'Unidade' ? " (" + tipoVenda + ")" : ""),
-                preco:preco,
-                qtd:qtd,
-                tipoVenda:tipoVenda,
-                categoria:p.categoria,
-                extras:[]
+                id: produtoSelecionadoAtual.id,
+                codigo: String(
+                    produtoSelecionadoAtual.codigo ||
+                    produtoSelecionadoAtual.codigoBarras ||
+                    produtoSelecionadoAtual.barcode ||
+                    ""
+                ),
+                nome: nomeItem,
+                preco: precoUnitario,
+                qtd: qtd,
+                tipoVenda: tipoVenda,
+                itensAdicionaisDescontoEstoque: itensAdicionaisDescontoEstoque
             });
 
-            salvarCarrinho();
             fecharModais();
             atualizarCarrinho();
-            focarBusca();
         }
 
-        /* COMBO */
-        function produtosEnergeticos() {
-            return produtos.filter(p =>
-                normalizarTexto(p.status) !== 'inativo' &&
-                Number(p.estoque || 0) > 0 &&
-                normalizarTexto(p.categoria).includes('energet')
-            );
+        function zerarValorItemCarrinho(index) {
+            pedirSenhaParaAcao('zerarGarrafaItem', index);
         }
 
-        function produtosGelos() {
-            return produtos.filter(p => {
-                const cat = normalizarTexto(p.categoria);
-                return normalizarTexto(p.status) !== 'inativo' &&
-                       Number(p.estoque || 0) > 0 &&
-                       (cat === 'gelo' || cat.includes('gelo'));
-            });
-        }
-
-        function produtosCervejas() {
-            return produtos.filter(p => {
-                const cat = normalizarTexto(p.categoria);
-                const nome = normalizarTexto(p.nome);
-                return normalizarTexto(p.status) !== 'inativo' && Number(p.estoque || 0) > 0 &&
-                       (cat.includes('cerveja') || cat.includes('chopp') || cat.includes('beer') || nome.includes('cerveja'));
-            });
-        }
-
-        function abrirModalComboNovo(p) {
-            comboProdutoAtual = p;
-            comboSelecaoEne = {};
-            comboSelecaoGelo = {};
-            comboSelecaoCerveja = {};
-            document.getElementById('combo-novo-titulo').innerText = "\uD83C\uDF79 " + p.nome;
-            renderComboNovo();
-            document.getElementById('modal-combo-novo').style.display = 'flex';
-        }
-
-        function renderComboNovo() {
-            renderGrupoCombo('combo-lista-ene', produtosEnergeticos(), comboSelecaoEne, 'ene');
-            renderGrupoCombo('combo-lista-gelo', produtosGelos(), comboSelecaoGelo, 'gelo');
-            renderGrupoCombo('combo-lista-cerveja', produtosCervejas(), comboSelecaoCerveja, 'cerveja');
-
-            const totalE = totalSelecionado(comboSelecaoEne);
-            const totalG = totalSelecionado(comboSelecaoGelo);
-            const totalC = totalSelecionado(comboSelecaoCerveja);
-            document.getElementById('combo-cont-ene').innerText = totalE + "/4";
-            document.getElementById('combo-cont-gelo').innerText = totalG + "/4";
-            document.getElementById('combo-cont-cerveja').innerText = totalC + "/8";
-
-            const resumo = [];
-            Object.keys(comboSelecaoEne).forEach(id => {
-                const q = comboSelecaoEne[id] || 0;
-                const p = produtos.find(x => String(x.id) === String(id));
-                if(q > 0 && p) resumo.push(q + "x " + p.nome);
-            });
-            Object.keys(comboSelecaoCerveja).forEach(id => {
-                const q = comboSelecaoCerveja[id] || 0;
-                const p = produtos.find(x => String(x.id) === String(id));
-                if(q > 0 && p) resumo.push(q + "x " + p.nome);
-            });
-            Object.keys(comboSelecaoGelo).forEach(id => {
-                const q = comboSelecaoGelo[id] || 0;
-                const p = produtos.find(x => String(x.id) === String(id));
-                if(q > 0 && p) resumo.push(q + "x " + p.nome);
-            });
-            document.getElementById('combo-resumo-itens').innerText = resumo.length ? resumo.join(" \u2022 ") : "Sem adicionais.";
-        }
-
-        function renderGrupoCombo(containerId, lista, objeto, tipo) {
-            const c = document.getElementById(containerId);
-            if(lista.length === 0) {
-                c.innerHTML = '<p style="color:var(--text-muted);font-size:.82rem;">Nenhum item dispon\u00EDvel.</p>';
-                return;
-            }
-            c.innerHTML = "";
-            lista.forEach(p => {
-                const q = Number(objeto[p.id] || 0);
-                const div = document.createElement('div');
-                div.className = 'combo-produto-novo';
-                div.innerHTML = `
-                    <div>
-                        <strong>${escaparHTML(p.nome)}</strong>
-                        <div style="font-size:.72rem;color:var(--text-muted);">Estoque: ${p.estoque}</div>
-                    </div>
-                    <div class="combo-stepper-novo">
-                        <button onclick="alterarComboNovo('${tipo}','${escaparAtributo(p.id)}',-1)">\u2212</button>
-                        <span>${q}</span>
-                        <button onclick="alterarComboNovo('${tipo}','${escaparAtributo(p.id)}',1)">+</button>
-                    </div>
-                `;
-                c.appendChild(div);
-            });
-        }
-
-        function totalSelecionado(obj) {
-            return Object.values(obj).reduce((a,b) => a + Number(b || 0), 0);
-        }
-
-        function alterarComboNovo(tipo, id, delta) {
-            const obj = tipo === 'ene' ? comboSelecaoEne : (tipo === 'cerveja' ? comboSelecaoCerveja : comboSelecaoGelo);
-            const atual = Number(obj[id] || 0);
-            const total = totalSelecionado(obj);
-
-            if(delta > 0 && total >= 4) return alert("M\u00E1ximo de 4 itens nesta se\u00E7\u00E3o.");
-
-            const p = produtos.find(x => String(x.id) === String(id));
-            if(delta > 0 && p && atual >= Number(p.estoque || 0)) {
-                return alert("Estoque insuficiente deste item.");
-            }
-
-            obj[id] = Math.max(0, atual + delta);
-            renderComboNovo();
-        }
-
-        function limparComboNovo() {
-            comboSelecaoEne = {};
-            comboSelecaoGelo = {};
-            comboSelecaoCerveja = {};
-            renderComboNovo();
-        }
-
-        function fecharModalComboNovo() {
-            document.getElementById('modal-combo-novo').style.display = 'none';
-        }
-
-        function confirmarComboNovo() {
-            if(!comboProdutoAtual) return;
-            const extras = [];
-
-            Object.keys(comboSelecaoEne).forEach(id => {
-                const q = comboSelecaoEne[id] || 0;
-                if(q > 0) extras.push({id:id,qtd:q,tipoVenda:'Unidade'});
-            });
-            Object.keys(comboSelecaoCerveja).forEach(id => {
-                const q = comboSelecaoCerveja[id] || 0;
-                if(q > 0) extras.push({id:id,qtd:q,tipoVenda:'Unidade'});
-            });
-            Object.keys(comboSelecaoGelo).forEach(id => {
-                const q = comboSelecaoGelo[id] || 0;
-                if(q > 0) extras.push({id:id,qtd:q,tipoVenda:'Unidade'});
-            });
-
-            carrinho.push({
-                id:comboProdutoAtual.id,
-                codigo:comboProdutoAtual.codigo || "",
-                nome:comboProdutoAtual.nome,
-                preco:Number(comboProdutoAtual.preco || 0),
-                qtd:1,
-                tipoVenda:'Unidade',
-                categoria:comboProdutoAtual.categoria,
-                extras:extras
-            });
-
-            salvarCarrinho();
-            fecharModalComboNovo();
+        function zerarValorItemCarrinhoExec(index) {
+            carrinho[index].preco = 0.00;
+            carrinho[index].nome = "[Garrafa Vazia] " + carrinho[index].nome;
             atualizarCarrinho();
-            focarBusca();
-        }
-
-        /* DOSE */
-        function abrirModalDoseNovo(p) {
-            produtoSelecionadoAtual = p;
-            document.getElementById('dose-novo-titulo').innerText = "\uD83E\uDD43 " + p.nome;
-
-            const ene = document.getElementById('dose-ene-sel');
-            const gelo = document.getElementById('dose-gelo-sel');
-            ene.innerHTML = '<option value="">Nenhum</option>';
-            gelo.innerHTML = '<option value="">Nenhum</option>';
-
-            produtosEnergeticos().forEach(x => adicionarOpcaoSelect(ene, x.id, x.nome + " \u2014 estoque " + x.estoque));
-            produtosGelos().forEach(x => adicionarOpcaoSelect(gelo, x.id, x.nome + " \u2014 estoque " + x.estoque));
-
-            document.getElementById('dose-qtd').value = 1;
-            document.getElementById('modal-dose-novo').style.display = 'flex';
-        }
-
-        function fecharModalDoseNovo() {
-            document.getElementById('modal-dose-novo').style.display = 'none';
-        }
-
-        function confirmarDoseNovo() {
-            const p = produtoSelecionadoAtual;
-            if(!p) return;
-
-            const qtd = Math.max(1, parseInt(document.getElementById('dose-qtd').value) || 1);
-            const ene = document.getElementById('dose-ene-sel').value;
-            const gelo = document.getElementById('dose-gelo-sel').value;
-            const extras = [];
-
-            if(ene) extras.push({id:ene,qtd:qtd,tipoVenda:'Unidade'});
-            if(gelo) extras.push({id:gelo,qtd:qtd,tipoVenda:'Unidade'});
-
-            carrinho.push({
-                id:p.id,
-                codigo:p.codigo || "",
-                nome:p.nome,
-                preco:Number(p.preco || 0),
-                qtd:qtd,
-                tipoVenda:'Unidade',
-                categoria:p.categoria,
-                extras:extras,
-                permiteZerar:true
-            });
-
-            salvarCarrinho();
-            fecharModalDoseNovo();
-            atualizarCarrinho();
-            focarBusca();
-        }
-
-        /* CARRINHO */
-        function salvarCarrinho() {
-            localStorage.setItem('carbura_carrinho', JSON.stringify(carrinho));
-        }
-
-        function recuperarCarrinho() {
-            try {
-                carrinho = JSON.parse(localStorage.getItem('carbura_carrinho') || '[]') || [];
-            } catch(e) {
-                carrinho = [];
-            }
         }
 
         function atualizarCarrinho() {
@@ -2622,29 +1472,24 @@
             let qtdTotalItens = 0;
 
             if(carrinho.length === 0) {
-                listaDiv.innerHTML = '<p style="color:var(--text-muted);text-align:center;">Carrinho vazio</p>';
+                listaDiv.innerHTML = `<p style="color: var(--text-muted); text-align: center;">Carrinho vazio</p>`;
             } else {
-                carrinho.forEach((item,index) => {
-                    let sub = Number(item.preco || 0) * Number(item.qtd || 0);
+                carrinho.forEach((item, index) => {
+                    let sub = item.preco * item.qtd;
                     total += sub;
-                    qtdTotalItens += Number(item.qtd || 0);
-
-                    const extrasTexto = (item.extras || []).map(extra => {
-                        const p = produtos.find(x => String(x.id) === String(extra.id));
-                        return p ? extra.qtd + "x " + p.nome : "";
-                    }).filter(Boolean).join(" | ");
+                    qtdTotalItens += item.qtd;
 
                     let divItem = document.createElement('div');
                     divItem.className = 'item-carrinho';
                     divItem.innerHTML = `
                         <div>
-                            <strong>${escaparHTML(item.nome)}</strong><br>
-                            <small style="color:var(--text-muted);">${item.qtd}x ${formatarMoeda(item.preco)}${extrasTexto ? "<br>"+escaparHTML(extrasTexto) : ""}</small>
+                            <strong>${item.nome}</strong><br>
+                            <small style="color: var(--text-muted);">${item.qtd}x R$ ${item.preco.toFixed(2)}</small>
                         </div>
-                        <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end;">
-                            <span style="color:#4ade80;font-weight:bold;">${formatarMoeda(sub)}</span>
-                            ${ehAdmin() ? `<button class="btn-zerar-admin-final" onclick="zerarValorItemCarrinho(${index})" title="Somente Dona/Admin">\u267B\uFE0F Zerar</button>` : ""}
-                            <button onclick="removerItemCarrinho(${index})" style="background:none;border:none;color:var(--danger);cursor:pointer;font-size:1.1rem;">\u2715</button>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="color: #4ade80; font-weight: bold;">R$ ${sub.toFixed(2)}</span>
+                            <button onclick="zerarValorItemCarrinho(${index})" title="Zerar valor (Garrafa Vazia)" style="background: var(--primary); border: none; color: black; font-weight: bold; padding: 4px 8px; border-radius: 6px; cursor: pointer; font-size: 0.75rem;">♻️ Zerar</button>
+                            <button onclick="removerItemCarrinho(${index})" style="background: none; border: none; color: var(--danger); cursor: pointer; font-size: 1.1rem;">✕</button>
                         </div>
                     `;
                     listaDiv.appendChild(divItem);
@@ -2657,828 +1502,297 @@
         }
 
         function removerItemCarrinho(index) {
-            carrinho.splice(index,1);
-            salvarCarrinho();
+            carrinho.splice(index, 1);
             atualizarCarrinho();
         }
 
-        function zerarValorItemCarrinho(index) {
-            if(!ehAdmin()) return alert("Apenas Dona/Admin pode zerar o valor.");
-            const item = carrinho[index];
-            if(!item) return;
-            if(Number(item.preco || 0) === 0) return alert("Este item j\u00E1 est\u00E1 com valor zerado.");
-            if(!confirm("Zerar o valor de " + item.nome + "?\n\nO estoque continuar\u00E1 sendo descontado normalmente ao finalizar a venda.")) return;
-            item.precoOriginal = Number(item.preco || 0);
-            item.preco = 0;
-            item.permitirPrecoZero = true;
-            salvarCarrinho();
-            atualizarCarrinho();
-        }
+        function finalizarVenda() {
+            if(carrinho.length === 0) {
+                alert("O carrinho está vazio!");
+                return;
+            }
 
-        function verificarDinheiro() {
-            const dinheiro = document.getElementById('pagamento').value === 'Dinheiro';
-            document.getElementById('bloco-dinheiro').style.display = dinheiro ? 'block' : 'none';
-            if(dinheiro) calcularTroco();
-        }
+            if(!funcionarioAtualTurno) {
+                alert("Selecione o operador antes de finalizar a venda.");
+                abrirModalAberturaTurno();
+                return;
+            }
 
-        function calcularTroco() {
-            const total = carrinho.reduce((a,i) => a + Number(i.preco || 0) * Number(i.qtd || 0), 0);
-            const recebido = parseFloat(document.getElementById('valor-recebido').value) || 0;
-            document.getElementById('troco-txt').innerText = "Troco: " + formatarMoeda(Math.max(0, recebido-total));
-        }
-
-        async function finalizarVenda() {
-            if(carrinho.length === 0) return alert("O carrinho est\u00E1 vazio!");
-            if(!usuarioAtual) return alert("Fa\u00E7a login novamente.");
-const formaPagamento = document.getElementById('pagamento').value;
-            const totalVenda = carrinho.reduce((acc,item) => acc + Number(item.preco || 0) * Number(item.qtd || 0),0);
+            const formaPagamento = document.getElementById('pagamento').value;
+            const totalVenda = carrinho.reduce((acc, item) => acc + (item.preco * item.qtd), 0);
 
             if(formaPagamento === 'Dinheiro') {
                 const recebido = parseFloat(document.getElementById('valor-recebido').value) || 0;
-                if(recebido < totalVenda) return alert("O valor recebido \u00E9 menor que o total da venda!");
+                if(recebido < totalVenda) {
+                    alert("O valor recebido é menor que o total da venda!");
+                    return;
+                }
             }
 
-            const itensParaEnviar = [];
+            mostrarLoading(true);
+
+            let itensParaEnviar = [];
             carrinho.forEach(item => {
                 itensParaEnviar.push({
-                    id:item.id,
-                    codigo:item.codigo || "",
-                    nome:item.nome,
-                    preco:Number(item.preco || 0),
-                    qtd:Number(item.qtd || 0),
-                    tipoVenda:item.tipoVenda || "Unidade",
-                    bipouEmbalagem:!!item.bipouEmbalagem,
-                    permitirPrecoZero:!!item.permitirPrecoZero
+                    id: item.id,
+                    codigo: item.codigo || "",
+                    nome: item.nome,
+                    preco: item.preco,
+                    qtd: item.qtd,
+                    tipoVenda: item.tipoVenda || ""
                 });
-
-                (item.extras || []).forEach(extra => {
-                    const p = produtos.find(x => String(x.id) === String(extra.id));
-                    itensParaEnviar.push({
-                        id:extra.id,
-                        codigo:p ? (p.codigo || "") : "",
-                        nome:"[Incluso] " + (p ? p.nome : extra.id),
-                        preco:0,
-                        qtd:Number(extra.qtd || 0),
-                        tipoVenda:extra.tipoVenda || "Unidade",
-                        permitirPrecoZero:true
+                if(item.itensAdicionaisDescontoEstoque) {
+                    item.itensAdicionaisDescontoEstoque.forEach(extra => {
+                        itensParaEnviar.push({
+                            id: extra.id,
+                            codigo: "",
+                            nome: "[Incluso] " + extra.id,
+                            preco: 0,
+                            qtd: extra.qtd,
+                            tipoVenda: ""
+                        });
                     });
-                });
+                }
             });
 
-            mostrarLoading(true);
-            try {
-                const resposta = await apiPost({
-                    acao:'registrarVenda',
-                    operador:usuarioAtual.nome,
-                    pagamento:formaPagamento,
-                    itens:itensParaEnviar
+            const dadosVenda = {
+                acao: "registrarVenda",
+                operador: funcionarioAtualTurno,
+                pagamento: formaPagamento,
+                total: totalVenda,
+                itens: itensParaEnviar
+            };
+
+            fetch(URL_API, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'text/plain;charset=utf-8'
+                },
+                body: JSON.stringify(dadosVenda)
+            })
+            .then(lerRespostaAPI)
+            .then(resposta => {
+                historicoVendas.push({
+                    pagamento: formaPagamento,
+                    total: totalVenda,
+                    itens: [...carrinho],
+                    data: new Date(),
+                    operador: funcionarioAtualTurno
                 });
 
                 carrinho = [];
-                salvarCarrinho();
                 atualizarCarrinho();
-                document.getElementById('valor-recebido').value = "";
-                await carregarDadosSemAbrirTurno();
-                alert(resposta.mensagem || "Venda finalizada com sucesso!");
-                focarBusca();
-            } catch(err) {
-                alert("N\u00E3o foi poss\u00EDvel finalizar a venda:\n" + err.message);
-            } finally {
-                mostrarLoading(false);
-            }
-        }
+                
+                if(document.getElementById('pagamento').value === 'Dinheiro') {
+                    document.getElementById('valor-recebido').value = "";
+                    calcularTroco();
+                }
 
-
-        /* TROCA POR DINHEIRO */
-        function abrirModalTrocaDinheiro() {
-            if(!usuarioAtual) return alert("Fa\u00E7a login novamente.");
-document.getElementById('troca-forma').value = 'Pix';
-            document.getElementById('troca-valor').value = '';
-            document.getElementById('troca-taxa').value = '';
-            calcularTrocaDinheiro();
-            document.getElementById('modal-troca-dinheiro').style.display = 'flex';
-            setTimeout(() => document.getElementById('troca-valor').focus(), 50);
-        }
-
-        function fecharModalTrocaDinheiro() {
-            document.getElementById('modal-troca-dinheiro').style.display = 'none';
-        }
-
-        function calcularTrocaDinheiro() {
-            const valor = Math.max(0, Number(document.getElementById('troca-valor').value || 0));
-            const taxa = Math.max(0, Number(document.getElementById('troca-taxa').value || 0));
-            const total = valor + taxa;
-
-            document.getElementById('troca-resumo-entregar').innerText = formatarMoeda(valor);
-            document.getElementById('troca-resumo-taxa').innerText = formatarMoeda(taxa);
-            document.getElementById('troca-resumo-total').innerText = formatarMoeda(total);
-        }
-
-        async function confirmarTrocaDinheiro() {
-            if(!usuarioAtual) return alert("Faça login novamente.");
-
-            const forma = document.getElementById('troca-forma').value;
-            const valorEntregue = Math.max(0, Number(document.getElementById('troca-valor').value || 0));
-            const taxa = Math.max(0, Number(document.getElementById('troca-taxa').value || 0));
-            const totalRecebido = valorEntregue + taxa;
-
-            if(valorEntregue <= 0) return alert("Informe quanto ser\u00E1 entregue em dinheiro.");
-
-            const ok = confirm(
-                "Confirmar troca?\n\n" +
-                "Receber por: " + forma + "\n" +
-                "Cliente paga: " + formatarMoeda(totalRecebido) + "\n" +
-                "Entregar em dinheiro: " + formatarMoeda(valorEntregue) + "\n" +
-                "Taxa: " + formatarMoeda(taxa)
-            );
-
-            if(!ok) return;
-
-            mostrarLoading(true);
-            try {
-                const r = await apiPost({
-                    acao:'registrarTroca',
-                    operador:usuarioAtual.nome,
-                    formaPagamento:forma,
-                    valorEntregue:valorEntregue,
-                    taxa:taxa
-                });
-
-                fecharModalTrocaDinheiro();
-                alert(r.mensagem || "Troca registrada com sucesso!");
                 atualizarRelatorioCaixa();
-                if(ehAdmin()) carregarDashboard();
-                focarBusca();
-            } catch(err) {
-                alert("N\u00E3o foi poss\u00EDvel registrar a troca:\n" + err.message);
-            } finally {
+
                 mostrarLoading(false);
-            }
+                alert(resposta.mensagem || "Venda finalizada com sucesso!");
+                carregarDadosSemAbrirTurno();
+            })
+            .catch(err => {
+                console.error("Erro ao finalizar venda:", err);
+                mostrarLoading(false);
+                alert("Não foi possível finalizar a venda:\n" + err.message);
+            });
         }
 
-        /* DASHBOARD / FECHAMENTO */
-        async function carregarDashboard() {
-            if(!ehAdmin()) return;
-            try {
-                const d = await apiGet('resumoHoje');
-                const v = d.vendasHoje || {};
-                document.getElementById('dash-total').innerText = formatarMoeda(v.total);
-                document.getElementById('dash-pix').innerText = formatarMoeda(v.pix);
-                document.getElementById('dash-dinheiro').innerText = formatarMoeda(v.dinheiro);
-                document.getElementById('dash-cartoes').innerText = formatarMoeda(Number(v.cartao || 0) + Number(v.diversos || 0));
-                const t = d.trocasHoje || {};
-                document.getElementById('dash-troca-taxas').innerText = formatarMoeda(t.taxas || 0);
-                document.getElementById('dash-troca-dinheiro').innerText = formatarMoeda(t.dinheiroEntregue || 0);
-                renderListaDashboard('dash-baixo', d.estoqueBaixo || [], false);
-                renderListaDashboard('dash-esgotado', d.esgotados || [], true);
-                preencherFiltroAuditoria();
-                carregarAuditoriaVendas();
-            } catch(err) {
-                console.error(err);
-            }
-        }
+        function atualizarRelatorioCaixa() {
+            let totalPix = 0;
+            let totalDinheiro = 0;
+            let totalCartao = 0;
 
-        function preencherFiltroAuditoria() {
-            const sel = document.getElementById('auditoria-operador');
-            if(!sel) return;
-            const atual = sel.value;
-            sel.innerHTML = '<option value="">Todos</option>' + (equipe || []).map(f => '<option value="' + escaparAtributo(f.nome || f) + '">' + escaparHTML(f.nome || f) + '</option>').join('');
-            sel.value = atual;
-        }
+            historicoVendas.forEach(v => {
+                if(v.pagamento === 'Pix') totalPix += v.total;
+                if(v.pagamento === 'Dinheiro') totalDinheiro += v.total;
+                if(v.pagamento === 'Cartão') totalCartao += v.total;
+            });
 
-        async function carregarAuditoriaVendas() {
-            if(!ehAdmin()) return;
-            const hoje = new Date().toISOString().slice(0,10);
-            const di = document.getElementById('auditoria-data-inicial');
-            const df = document.getElementById('auditoria-data-final');
-            if(di && !di.value) di.value = hoje;
-            if(df && !df.value) df.value = hoje;
-            try {
-                const d = await apiGet('auditoriaVendas', {dataInicial: di ? di.value : hoje, dataFinal: df ? df.value : hoje, operador: (document.getElementById('auditoria-operador') || {}).value || ''});
-                const lista = d.vendas || [];
-                const resumo = document.getElementById('auditoria-resumo');
-                const box = document.getElementById('auditoria-lista');
-                if(resumo) resumo.innerText = lista.length + ' lançamento(s) — Total: ' + formatarMoeda(d.total || 0);
-                if(!box) return;
-                if(!lista.length) { box.innerHTML = '<p style="color:var(--text-muted);padding:10px 0;">Nenhuma venda encontrada.</p>'; return; }
-                box.innerHTML = lista.map(v => `<div style="padding:10px;border:1px solid var(--border);border-radius:8px;margin-bottom:8px;background:var(--bg);"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;"><strong>${escaparHTML(v.produto)}</strong><strong style="color:var(--success);">${formatarMoeda(v.valor)}</strong></div><div style="color:var(--text-muted);font-size:.78rem;margin-top:4px;">${escaparHTML(v.dataHora)} • Funcionário: <strong>${escaparHTML(v.operador)}</strong> • Qtd: ${v.quantidade} • ${escaparHTML(v.pagamento)} • ${escaparHTML(v.tipoVenda)}</div><div style="color:var(--text-muted);font-size:.72rem;margin-top:3px;">ID venda: ${escaparHTML(v.idVenda)}</div></div>`).join('');
-            } catch(err) {
-                const box = document.getElementById('auditoria-lista');
-                if(box) box.innerHTML = '<p style="color:var(--danger);">Erro na auditoria: ' + escaparHTML(err.message) + '</p>';
-            }
-        }
+            let totalGeral = totalPix + totalDinheiro + totalCartao;
 
-        function renderListaDashboard(id, lista, esgotado) {
-            const c = document.getElementById(id);
-            if(!lista.length) {
-                c.innerHTML = '<p style="color:var(--text-muted);padding:12px 0;">Nenhum item.</p>';
-                return;
-            }
-            c.innerHTML = lista.map(p => `
-                <div class="dashboard-item">
-                    <div><strong>${escaparHTML(p.nome)}</strong><div style="color:var(--text-muted);font-size:.76rem;">${escaparHTML(p.categoria)}</div></div>
-                    <span class="${esgotado ? 'badge-esgotado-novo' : 'badge-baixo-novo'}">${p.estoque}</span>
-                </div>
-            `).join('');
-        }
-
-        async function atualizarRelatorioCaixa() {
-            if(!usuarioAtual) return;
-            try {
-                const d = await apiGet('resumoTurno', {
-                    operador:usuarioAtual.nome,
-                });
-                const r = d.resumo || {};
-                document.getElementById('rel-pix').innerText = formatarMoeda(r.pix);
-                document.getElementById('rel-dinheiro').innerText = formatarMoeda(r.dinheiro);
-                document.getElementById('rel-debito').innerText = formatarMoeda(r.debito);
-                document.getElementById('rel-credito').innerText = formatarMoeda(r.credito);
-                document.getElementById('rel-diversos').innerText = formatarMoeda(r.diversos);
-                document.getElementById('rel-total').innerText = formatarMoeda(r.total);
-
-                const t = d.trocas || {};
-                document.getElementById('rel-troca-pix').innerText = formatarMoeda(t.pix || 0);
-                document.getElementById('rel-troca-debito').innerText = formatarMoeda(t.debito || 0);
-                document.getElementById('rel-troca-credito').innerText = formatarMoeda(t.credito || 0);
-                document.getElementById('rel-troca-dinheiro').innerText = formatarMoeda(t.dinheiroEntregue || 0);
-                document.getElementById('rel-troca-taxas').innerText = formatarMoeda(t.taxas || 0);
-                document.getElementById('rel-troca-total').innerText = formatarMoeda(t.totalRecebido || 0);
-                atualizarTurnoTopo();
-            } catch(err) {
-                console.error(err);
-            }
+            document.getElementById('rel-pix').innerText = `R$ ${totalPix.toFixed(2)}`;
+            document.getElementById('rel-dinheiro').innerText = `R$ ${totalDinheiro.toFixed(2)}`;
+            document.getElementById('rel-cartao').innerText = `R$ ${totalCartao.toFixed(2)}`;
+            document.getElementById('rel-total').innerText = `R$ ${totalGeral.toFixed(2)}`;
         }
 
         function enviarRelatorioWhatsApp() {
-            const mensagem = `\uD83D\uDCCA *Fechamento de Caixa - Carbura Bar*\n\n` +
-                `\uD83D\uDC64 Operador: ${usuarioAtual ? usuarioAtual.nome : ''}\n` +
-                `\uD83D\uDCF1 PIX: ${document.getElementById('rel-pix').innerText}\n` +
-                `\uD83D\uDCB5 Dinheiro: ${document.getElementById('rel-dinheiro').innerText}\n` +
-                `\uD83D\uDCB3 D\u00E9bito: ${document.getElementById('rel-debito').innerText}\n` +
-                `\uD83D\uDCB3 Cr\u00E9dito: ${document.getElementById('rel-credito').innerText}\n` +
-                `\u2795 Diversos: ${document.getElementById('rel-diversos').innerText}\n\n` +
-                `\uD83D\uDCB0 *Total vendas: ${document.getElementById('rel-total').innerText}*\n\n` +
-                `\uD83D\uDCB1 *Trocas por Dinheiro*\n` +
-                `\uD83D\uDCF1 Pix recebido: ${document.getElementById('rel-troca-pix').innerText}\n` +
-                `\uD83D\uDCB3 D\u00E9bito recebido: ${document.getElementById('rel-troca-debito').innerText}\n` +
-                `\uD83D\uDCB3 Cr\u00E9dito recebido: ${document.getElementById('rel-troca-credito').innerText}\n` +
-                `\uD83D\uDCB5 Dinheiro entregue: ${document.getElementById('rel-troca-dinheiro').innerText}\n` +
-                `\u2795 Taxas: ${document.getElementById('rel-troca-taxas').innerText}\n` +
-                `\uD83D\uDCB0 Total recebido nas trocas: ${document.getElementById('rel-troca-total').innerText}`;
+            let pix = document.getElementById('rel-pix').innerText;
+            let dinheiro = document.getElementById('rel-dinheiro').innerText;
+            let cartao = document.getElementById('rel-cartao').innerText;
+            let total = document.getElementById('rel-total').innerText;
 
-            window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(mensagem), '_blank');
+            let mensagem = `📊 *Fechamento de Caixa - Carbura Bar*\n\n` +
+                           `👤 Operador: ${funcionarioAtualTurno}\n\n` +
+                           `📱 PIX: ${pix}\n` +
+                           `💵 Dinheiro: ${dinheiro}\n` +
+                           `💳 Cartão: ${cartao}\n\n` +
+                           `💰 *Total Geral: ${total}*`;
+
+            let url = `https://api.whatsapp.com/send?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, '_blank');
         }
 
-        /* REPOSI\u00C7\u00C3O */
-        function atualizarSelectRepositorio() {
-            const sel = document.getElementById('rep-produto');
-            if(!sel) return;
-            const atual = sel.value;
-            sel.innerHTML = '<option value="">Selecione...</option>';
-            produtos.forEach(p => adicionarOpcaoSelect(sel, p.id, p.nome));
-            if([...sel.options].some(o => o.value === atual)) sel.value = atual;
-            selecionarProdutoReposicao();
+        function zerarCaixaExec() {
+            historicoVendas = [];
+            atualizarRelatorioCaixa();
+            alert("Turno zerado com sucesso!");
         }
 
-        function filtrarReposicao() {
-            const busca = normalizarTexto(document.getElementById('rep-busca').value);
-            const sel = document.getElementById('rep-produto');
-            const atual = sel.value;
-            sel.innerHTML = '<option value="">Selecione...</option>';
-            produtos
-                .filter(p => normalizarTexto(p.nome).includes(busca) || String(p.codigo || '').includes(busca) || String(p.codigoEmbalagem || '').includes(busca))
-                .forEach(p => adicionarOpcaoSelect(sel, p.id, p.nome));
-            if([...sel.options].some(o => o.value === atual)) sel.value = atual;
-            if(sel.options.length === 2) {
-                sel.selectedIndex = 1;
-                selecionarProdutoReposicao();
-            }
-        }
+        function salvarProdutoExec() {
+            const nome = document.getElementById('cad-nome').value.trim();
+            const categoria = document.getElementById('cad-categoria').value;
+            const codigo = document.getElementById('cad-barcode').value.trim();
+            const estoque = parseInt(document.getElementById('cad-estoque').value) || 0;
+            const ml = 0;
 
-        function verificarBipeReposicao(e) {
-            if(e.key !== 'Enter') return;
-            const cod = normalizarCodigoBarras(e.target.value);
-            if(!cod) return;
-
-            // Embalagem (N) tem prioridade sobre unidade (G), igual no PDV.
-            const pEmbalagem = produtos.find(x => normalizarCodigoBarras(x.codigoEmbalagem) === cod);
-            const pUnidade = produtos.find(x => normalizarCodigoBarras(x.codigo) === cod);
-            const p = pEmbalagem || pUnidade;
-            if(!p) return alert('C\u00F3digo n\u00E3o encontrado.');
-
-            const sel = document.getElementById('rep-produto');
-            if(![...sel.options].some(o => o.value === p.id)) adicionarOpcaoSelect(sel, p.id, p.nome);
-            sel.value = p.id;
-            selecionarProdutoReposicao();
-
-            if(pEmbalagem) {
-                const fator = Math.floor(Number(p.unidadesPorEmbalagem || 1));
-                if(!p.tipoEmbalagem || fator < 2) {
-                    e.target.value = '';
-                    return alert('C\u00F3digo de embalagem encontrado, mas faltam Tipo de Embalagem ou Unidades por Embalagem no cadastro.');
-                }
-                selecionarTipoReposicao(p.tipoEmbalagem);
-            } else {
-                selecionarTipoReposicao('Unidade');
-            }
-            e.target.value = '';
-        }
-
-        function produtoReposicaoAtual() {
-            const id = document.getElementById('rep-produto').value;
-            return produtos.find(p => String(p.id) === String(id));
-        }
-
-        function selecionarProdutoReposicao() {
-            const p = produtoReposicaoAtual();
-            const preview = document.getElementById('rep-preview');
-            const area = document.getElementById('rep-area-entrada');
-            const opcoes = document.getElementById('rep-opcoes');
-            if(!p) {
-                preview.innerText = 'Selecione um produto.';
-                area.style.display = 'none';
+            if(!nome) {
+                alert("Preencha o nome do produto!");
                 return;
             }
 
-            preview.innerHTML = `<strong>${escaparHTML(p.nome)}</strong><br><span style="color:var(--text-muted);">Estoque atual: <strong style="color:var(--text);">${escaparHTML(estoqueVisual(p))}</strong></span>`;
-            area.style.display = 'block';
-            document.getElementById('rep-qtd').value = 1;
-            opcoes.innerHTML = '';
-
-            const fator = Math.max(1, Number(p.unidadesPorEmbalagem || 1));
-            if(p.tipoEmbalagem && fator > 1) {
-                const tipo = p.tipoEmbalagem;
-                opcoes.innerHTML = `
-                    <button type="button" id="rep-btn-embalagem" onclick="selecionarTipoReposicao('${escaparAtributo(tipo)}')">\uD83D\uDCE6 ${escaparHTML(pluralEmbalagem(tipo,2))}</button>
-                    <button type="button" id="rep-btn-unidade" onclick="selecionarTipoReposicao('Unidade')">\uD83E\uDDC3 Unidades</button>`;
-                selecionarTipoReposicao(tipo);
-            } else {
-                opcoes.innerHTML = '<button type="button" id="rep-btn-unidade" class="ativo" onclick="selecionarTipoReposicao(\'Unidade\')">\uD83E\uDDC3 Unidades</button>';
-                document.getElementById('rep-tipo').value = 'Unidade';
-                atualizarPreviewReposicao();
-            }
-        }
-
-        function selecionarTipoReposicao(tipo) {
-            document.getElementById('rep-tipo').value = tipo;
-            document.querySelectorAll('#rep-opcoes button').forEach(b => b.classList.remove('ativo'));
-            const p = produtoReposicaoAtual();
-            if(p && normalizarTexto(tipo) === normalizarTexto(p.tipoEmbalagem)) {
-                const b = document.getElementById('rep-btn-embalagem'); if(b) b.classList.add('ativo');
-            } else {
-                const b = document.getElementById('rep-btn-unidade'); if(b) b.classList.add('ativo');
-            }
-            atualizarPreviewReposicao();
-        }
-
-        function alterarQtdReposicao(delta) {
-            const input = document.getElementById('rep-qtd');
-            input.value = Math.max(1, (parseInt(input.value) || 1) + delta);
-            atualizarPreviewReposicao();
-        }
-
-        function atualizarPreviewReposicao() {
-            const p = produtoReposicaoAtual();
-            if(!p) return;
-            const qtd = Math.max(1, parseInt(document.getElementById('rep-qtd').value) || 1);
-            const tipo = document.getElementById('rep-tipo').value || 'Unidade';
-            const embalagem = normalizarTexto(tipo) === normalizarTexto(p.tipoEmbalagem) && Number(p.unidadesPorEmbalagem || 1) > 1;
-            const fator = embalagem ? Math.max(1, Number(p.unidadesPorEmbalagem || 1)) : 1;
-            const add = qtd * fator;
-            const novo = Number(p.estoque || 0) + add;
-            const unidadeTexto = embalagem ? pluralEmbalagem(p.tipoEmbalagem, qtd).toLowerCase() : (qtd === 1 ? 'unidade' : 'unidades');
-            document.getElementById('rep-pergunta-qtd').innerText = embalagem
-                ? 'Quantas ' + pluralEmbalagem(p.tipoEmbalagem,2).toLowerCase() + ' chegaram?'
-                : 'Quantas unidades chegaram?';
-            document.getElementById('rep-calculo').innerHTML = `<strong>+ ${qtd} ${escaparHTML(unidadeTexto)}</strong><br>Novo estoque: <strong>${escaparHTML(criarEstoqueVisual(p, novo))}</strong>`;
-        }
-
-        async function salvarReposicaoEstoqueExec() {
-            if(!ehAdmin()) return alert('Apenas Dona/Admin pode repor estoque.');
-            const p = produtoReposicaoAtual();
-            const qtd = Math.max(1, parseInt(document.getElementById('rep-qtd').value) || 1);
-            const tipo = document.getElementById('rep-tipo').value || 'Unidade';
-            if(!p) return alert('Selecione um produto.');
-
-            const embalagem = normalizarTexto(tipo) === normalizarTexto(p.tipoEmbalagem) && Number(p.unidadesPorEmbalagem || 1) > 1;
-            const texto = embalagem
-                ? qtd + ' ' + pluralEmbalagem(p.tipoEmbalagem,qtd).toLowerCase()
-                : qtd + (qtd === 1 ? ' unidade' : ' unidades');
-            if(!confirm('Confirmar reposi\u00E7\u00E3o?\n\n' + p.nome + '\n+ ' + texto + '\nNovo estoque: ' + criarEstoqueVisual(p, Number(p.estoque || 0) + qtd * (embalagem ? Number(p.unidadesPorEmbalagem || 1) : 1)))) return;
-
-            mostrarLoading(true);
-            try {
-                const r = await apiPost({
-                    acao:'registrarReposicao', id:p.id, quantidade:qtd,
-                    tipoReposicao:tipo, responsavel:usuarioAtual.nome
-                });
-                alert(r.mensagem || 'Reposi\u00E7\u00E3o registrada!');
-                await carregarDadosSemAbrirTurno();
-                document.getElementById('rep-busca').value = '';
-                atualizarSelectRepositorio();
-            } catch(err) {
-                alert('Erro ao registrar reposi\u00E7\u00E3o:\n' + err.message);
-            } finally {
-                mostrarLoading(false);
-            }
-        }
-
-        /* EDI\u00C7\u00C3O PRODUTO */        /* EDI\u00C7\u00C3O PRODUTO */
-        function fecharModalEditarProduto() {
-            document.getElementById('modal-editar-produto').style.display = 'none';
-        }
-
-        function selecionarModoVendaEdicao(modo) {
-            document.getElementById('edit-modo-venda').value = modo;
-            document.getElementById('edit-btn-unidade').classList.toggle('ativo', modo === 'unidade');
-            document.getElementById('edit-btn-embalagem').classList.toggle('ativo', modo === 'embalagem');
-            document.getElementById('edit-bloco-unidade').style.display = modo === 'unidade' ? 'block' : 'none';
-            document.getElementById('edit-bloco-embalagem').style.display = modo === 'embalagem' ? 'block' : 'none';
-            document.getElementById('edit-estoque-unidade-box').style.display = modo === 'unidade' ? 'block' : 'none';
-            document.getElementById('edit-estoque-embalagem-box').style.display = modo === 'embalagem' ? 'grid' : 'none';
-            atualizarEdicaoHumana();
-        }
-
-        function verificarCategoriaEdicao() {
-            const cat = document.getElementById('edit-prod-categoria').value;
-            const info = document.getElementById('edit-info-especial');
-            if(cat === 'Doses') {
-                info.style.display = 'block';
-                info.innerText = 'Dose: pode ser vendida sozinha. Na venda, energ\u00E9tico e gelo s\u00E3o opcionais (m\u00E1ximo 1 de cada).';
-                selecionarModoVendaEdicao('unidade');
-            } else if(cat === 'Combos') {
-                info.style.display = 'block';
-                info.innerText = 'Combo: na venda, o sistema carrega automaticamente os energ\u00E9ticos cadastrados (inclusive 2L) e os gelos. Pode escolher at\u00E9 4 + 4.';
-                selecionarModoVendaEdicao('unidade');
-            } else {
-                info.style.display = 'none';
-            }
-        }
-
-        function abrirModalEditarProdutoExec(id) {
-            if(!ehAdmin()) return;
-            const p = produtos.find(x => String(x.id) === String(id));
-            if(!p) return;
-
-            document.getElementById('edit-prod-id').value = p.id;
-            document.getElementById('edit-prod-nome-titulo').innerText = p.nome;
-            document.getElementById('edit-prod-nome').value = p.nome || '';
-            selecionarValor('edit-prod-categoria', p.categoria || 'Geral');
-            selecionarValor('edit-prod-status', p.status || 'Ativo');
-            document.getElementById('edit-prod-codigo').value = p.codigo || '';
-            document.getElementById('edit-prod-codigo-embalagem').value = p.codigoEmbalagem || '';
-            document.getElementById('edit-prod-ml').value = Number(p.ml || 0);
-
-            const fator = Math.max(1, Math.floor(Number(p.unidadesPorEmbalagem || 1)));
-            const temEmbalagem = !!p.tipoEmbalagem && fator > 1;
-            document.getElementById('edit-preco-unidade').value = Number(p.precoSolto || p.preco || 0);
-            document.getElementById('edit-prod-preco-solto').value = Number(p.precoSolto || p.preco || 0);
-            document.getElementById('edit-prod-preco-maco').value = Number(p.precoMaco || 0);
-            selecionarValor('edit-prod-tipo-embalagem', p.tipoEmbalagem || 'Caixa');
-            document.getElementById('edit-prod-unidades-embalagem').value = fator;
-
-            if(temEmbalagem) {
-                document.getElementById('edit-estoque-embalagens').value = Math.floor(Number(p.estoque || 0) / fator);
-                document.getElementById('edit-estoque-soltas').value = Math.floor(Number(p.estoque || 0) % fator);
-                selecionarModoVendaEdicao('embalagem');
-            } else {
-                document.getElementById('edit-estoque-unidades').value = Math.max(0, Math.floor(Number(p.estoque || 0)));
-                selecionarModoVendaEdicao('unidade');
-            }
-            document.getElementById('edit-estoque-atual-texto').innerText = 'Hoje: ' + estoqueVisual(p);
-            verificarCategoriaEdicao();
-            atualizarEdicaoHumana();
-            document.getElementById('modal-editar-produto').style.display = 'flex';
-        }
-
-        function selecionarValor(id, valor) {
-            const sel = document.getElementById(id);
-            if(![...sel.options].some(o => o.value === valor)) {
-                const o = document.createElement('option'); o.value = valor; o.innerText = valor; sel.appendChild(o);
-            }
-            sel.value = valor;
-        }
-
-        function atualizarEdicaoHumana() {
-            const modo = document.getElementById('edit-modo-venda').value;
-            const tipo = document.getElementById('edit-prod-tipo-embalagem').value || 'Caixa';
-            const fator = Math.max(1, Math.floor(Number(document.getElementById('edit-prod-unidades-embalagem').value || 1)));
-            document.getElementById('edit-label-preco-embalagem').innerText = 'Pre\u00E7o da ' + tipo + ' (R$)';
-            document.getElementById('edit-label-preco-solto').innerText = normalizarTexto(tipo) === 'maco' ? 'Pre\u00E7o do Cigarro Solto (R$)' : 'Pre\u00E7o Unit\u00E1rio / Solto (R$)';
-            document.getElementById('edit-label-qtd-embalagens').innerText = pluralEmbalagem(tipo,2) + ' completas';
-            document.getElementById('edit-label-qtd-soltas').innerText = normalizarTexto(tipo) === 'maco' ? 'Cigarros soltos' : 'Unidades soltas';
-            const lblCodEdit = document.getElementById('edit-label-codigo-embalagem');
-            if(lblCodEdit) lblCodEdit.innerText = 'C\u00F3digo da ' + tipo + ' (coluna N)';
-
-            let estoque = 0;
-            if(modo === 'embalagem') {
-                const emb = Math.max(0, Math.floor(Number(document.getElementById('edit-estoque-embalagens').value || 0)));
-                const soltas = Math.max(0, Math.floor(Number(document.getElementById('edit-estoque-soltas').value || 0)));
-                estoque = emb * fator + soltas;
-                const pFake = {estoque:estoque,tipoEmbalagem:tipo,unidadesPorEmbalagem:fator};
-                document.getElementById('edit-resumo-estoque').innerHTML = 'Estoque que ser\u00E1 salvo: <strong>' + escaparHTML(estoqueVisual(pFake)) + '</strong>';
-            } else {
-                estoque = Math.max(0, Math.floor(Number(document.getElementById('edit-estoque-unidades').value || 0)));
-                document.getElementById('edit-resumo-estoque').innerHTML = 'Estoque que ser\u00E1 salvo: <strong>' + estoque + (estoque === 1 ? ' unidade' : ' unidades') + '</strong>';
-            }
-        }
-
-        async function salvarEdicaoProduto() {
-            if(!ehAdmin()) return;
-            const id = document.getElementById('edit-prod-id').value;
-            const antigo = produtos.find(x => String(x.id) === String(id));
-            if(!antigo) return;
-
-            const modo = document.getElementById('edit-modo-venda').value;
-            const tipo = modo === 'embalagem' ? document.getElementById('edit-prod-tipo-embalagem').value : '';
-            const fator = modo === 'embalagem' ? Math.max(1,Math.floor(Number(document.getElementById('edit-prod-unidades-embalagem').value || 1))) : 1;
-            const precoUnidade = Number(modo === 'embalagem' ? document.getElementById('edit-prod-preco-solto').value : document.getElementById('edit-preco-unidade').value || 0);
-            const precoEmbalagem = modo === 'embalagem' ? Number(document.getElementById('edit-prod-preco-maco').value || 0) : 0;
-            const estoque = modo === 'embalagem'
-                ? Math.max(0,Math.floor(Number(document.getElementById('edit-estoque-embalagens').value || 0))) * fator + Math.max(0,Math.floor(Number(document.getElementById('edit-estoque-soltas').value || 0)))
-                : Math.max(0,Math.floor(Number(document.getElementById('edit-estoque-unidades').value || 0)));
-
-            const dados = {
-                acao:'salvarProduto', id:id,
-                nome:document.getElementById('edit-prod-nome').value.trim(),
-                categoria:document.getElementById('edit-prod-categoria').value,
-                status:document.getElementById('edit-prod-status').value,
-                codigo:document.getElementById('edit-prod-codigo').value.trim(),
-                codigoEmbalagem: modo === 'embalagem' ? document.getElementById('edit-prod-codigo-embalagem').value.trim() : '',
-                ml:Number(document.getElementById('edit-prod-ml').value || 0),
-                preco:precoUnidade,
-                estoque:estoque,
-                tipoEmbalagem:tipo,
-                unidadesPorEmbalagem:fator,
-                precoMaco:precoEmbalagem,
-                precoSolto:modo === 'embalagem' ? precoUnidade : 0
+            const dadosNovo = {
+                acao: "cadastrarProduto",
+                nome,
+                categoria,
+                codigo,
+                estoque,
+                ml
             };
-            if(!dados.nome) return alert('Informe o nome do produto.');
-            if(modo === 'embalagem' && (!tipo || fator < 2)) return alert('Informe a embalagem e quantas unidades v\u00EAm dentro.');
 
-            const visualNovo = estoqueVisual({estoque:dados.estoque,tipoEmbalagem:dados.tipoEmbalagem,unidadesPorEmbalagem:dados.unidadesPorEmbalagem});
-            const linhas = [
-                'Salvar altera\u00E7\u00F5es em ' + antigo.nome + '?', '',
-                'Produto: ' + dados.nome,
-                'Venda: ' + (modo === 'embalagem' ? 'Unidade + ' + tipo : 'S\u00F3 unidade'),
-                'Pre\u00E7o unit\u00E1rio: ' + formatarMoeda(precoUnidade),
-                'C\u00F3digo unidade: ' + (dados.codigo || 'n\u00E3o informado')
-            ];
-            if(modo === 'embalagem') linhas.push('C\u00F3digo ' + tipo.toLowerCase() + ': ' + (dados.codigoEmbalagem || 'n\u00E3o informado'));
-            if(modo === 'embalagem') linhas.push('Pre\u00E7o da ' + tipo.toLowerCase() + ': ' + formatarMoeda(precoEmbalagem));
-            linhas.push('Estoque: ' + visualNovo);
-            if(!confirm(linhas.join('\n'))) return;
+            if(categoria === 'Tabaco') {
+                dadosNovo.precoMaco = parseFloat(document.getElementById('cad-preco-maco').value) || 0;
+                dadosNovo.precoSolto = parseFloat(document.getElementById('cad-preco-solto').value) || 0;
+                dadosNovo.preco = dadosNovo.precoMaco;
+            } else {
+                dadosNovo.preco = parseFloat(document.getElementById('cad-preco').value) || 0;
+            }
 
             mostrarLoading(true);
-            try {
-                const r = await apiPost(dados);
-                alert(r.mensagem || 'Produto atualizado.');
-                fecharModalEditarProduto();
-                await carregarDadosSemAbrirTurno();
-            } catch(err) {
-                alert('Erro ao atualizar produto:\n' + err.message);
-            } finally { mostrarLoading(false); }
+            fetch(URL_API, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify(dadosNovo)
+            })
+            .then(lerRespostaAPI)
+            .then(resposta => {
+                mostrarLoading(false);
+                alert(resposta.mensagem || "Produto cadastrado com sucesso!");
+                document.getElementById('cad-nome').value = "";
+                document.getElementById('cad-preco').value = "";
+                document.getElementById('cad-preco-maco').value = "";
+                document.getElementById('cad-preco-solto').value = "";
+                document.getElementById('cad-barcode').value = "";
+                mudarAba('vendas', document.querySelector('nav button'));
+                carregarDadosSemAbrirTurno();
+            })
+            .catch(err => {
+                mostrarLoading(false);
+                console.error("Erro ao cadastrar produto:", err);
+                alert("Erro ao cadastrar produto:\n" + err.message);
+            });
         }
 
-        async function deletarProdutoExec(id) {
-            if(!ehAdmin()) return;
-            const p = produtos.find(x => String(x.id) === String(id));
-            if(!confirm("Excluir " + (p ? p.nome : "este produto") + "?")) return;
+        function salvarReposicaoEstoqueExec() {
+            const idProd = document.getElementById('rep-produto').value;
+            const qtdAdicionar = parseInt(document.getElementById('rep-qtd').value) || 0;
+
+            if(!idProd || qtdAdicionar <= 0) {
+                alert("Selecione um produto e informe uma quantidade válida.");
+                return;
+            }
 
             mostrarLoading(true);
-            try {
-                const r = await apiPost({acao:'deletarProduto', id:id});
-                alert(r.mensagem || "Produto exclu\u00EDdo.");
-                await carregarDadosSemAbrirTurno();
-            } catch(err) {
+            fetch(URL_API, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify({
+                    acao: "reposicao",
+                    id: idProd,
+                    qtd: qtdAdicionar,
+                    operador: funcionarioAtualTurno
+                })
+            })
+            .then(lerRespostaAPI)
+            .then(resposta => {
+                mostrarLoading(false);
+                alert(resposta.mensagem || "Reposição registrada com sucesso!");
+                carregarDadosSemAbrirTurno();
+            })
+            .catch(err => {
+                mostrarLoading(false);
+                console.error("Erro ao registrar reposição:", err);
+                alert("Erro ao registrar reposição:\n" + err.message);
+            });
+        }
+
+        function deletarProdutoExec(id) {
+            mostrarLoading(true);
+            fetch(URL_API, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify({ acao: "deletarProduto", id: id })
+            })
+            .then(lerRespostaAPI)
+            .then(resposta => {
+                mostrarLoading(false);
+                alert(resposta.mensagem || "Produto excluído com sucesso!");
+                carregarDadosSemAbrirTurno();
+            })
+            .catch(err => {
+                mostrarLoading(false);
                 alert("Erro ao excluir produto:\n" + err.message);
-            } finally {
+            });
+        }
+
+        function salvarFuncionarioExec() {
+            let nomeFunc = document.getElementById('func-nome').value.trim();
+            if(!nomeFunc) {
+                alert("Informe o nome do funcionário.");
+                return;
+            }
+
+            mostrarLoading(true);
+            fetch(URL_API, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify({ acao: "cadastrarFuncionario", nome: nomeFunc })
+            })
+            .then(lerRespostaAPI)
+            .then(resposta => {
                 mostrarLoading(false);
-            }
-        }
-
-        /* CADASTRO */
-        function selecionarModoVendaCadastro(modo) {
-            document.getElementById('cad-modo-venda').value = modo;
-            document.getElementById('cad-btn-unidade').classList.toggle('ativo', modo === 'unidade');
-            document.getElementById('cad-btn-embalagem').classList.toggle('ativo', modo === 'embalagem');
-            document.getElementById('cad-bloco-unidade').style.display = modo === 'unidade' ? 'block' : 'none';
-            document.getElementById('cad-bloco-embalagem').style.display = modo === 'embalagem' ? 'block' : 'none';
-            document.getElementById('cad-estoque-unidade-box').style.display = modo === 'unidade' ? 'block' : 'none';
-            document.getElementById('cad-estoque-embalagem-box').style.display = modo === 'embalagem' ? 'grid' : 'none';
-            atualizarCadastroHumano();
-        }
-
-        function verificarCategoriaCadastro() {
-            const cat = document.getElementById('cad-categoria').value;
-            const info = document.getElementById('cad-info-especial');
-            const forma = document.getElementById('cad-bloco-forma-venda');
-            forma.style.display = 'block';
-
-            if(cat === 'Doses') {
-                info.style.display = 'block';
-                info.innerText = 'Dose: pode ser vendida sozinha. Na venda, energ\u00E9tico e gelo s\u00E3o opcionais (m\u00E1ximo 1 de cada).';
-                selecionarModoVendaCadastro('unidade');
-                forma.style.display = 'none';
-            } else if(cat === 'Combos') {
-                info.style.display = 'block';
-                info.innerText = 'Combo: os adicionais n\u00E3o s\u00E3o cadastrados aqui. Na venda, o sistema mostra automaticamente os energ\u00E9ticos cadastrados (inclusive 2L) e os gelos, permitindo at\u00E9 4 de cada.';
-                selecionarModoVendaCadastro('unidade');
-                forma.style.display = 'none';
-            } else {
-                info.style.display = 'none';
-                if(cat === 'Tabaco') {
-                    selecionarModoVendaCadastro('embalagem');
-                    selecionarValor('cad-tipo-embalagem','Ma\u00E7o');
-                }
-            }
-            atualizarCadastroHumano();
-        }
-
-        function atualizarCadastroHumano() {
-            const modo = document.getElementById('cad-modo-venda').value;
-            const tipo = document.getElementById('cad-tipo-embalagem').value || 'Caixa';
-            const fator = Math.max(1, Math.floor(Number(document.getElementById('cad-unidades-embalagem').value || 1)));
-            document.getElementById('cad-label-preco-embalagem').innerText = 'Pre\u00E7o da ' + tipo + ' (R$)';
-            document.getElementById('cad-label-preco-solto').innerText = normalizarTexto(tipo) === 'maco' ? 'Pre\u00E7o do Cigarro Solto (R$)' : 'Pre\u00E7o Unit\u00E1rio / Solto (R$)';
-            document.getElementById('cad-label-qtd-embalagens').innerText = pluralEmbalagem(tipo,2) + ' completas';
-            document.getElementById('cad-label-qtd-soltas').innerText = normalizarTexto(tipo) === 'maco' ? 'Cigarros soltos' : 'Unidades soltas';
-            const lblCodCad = document.getElementById('cad-label-codigo-embalagem');
-            if(lblCodCad) lblCodCad.innerText = 'C\u00F3digo da ' + tipo + ' (coluna N)';
-
-            if(modo === 'embalagem') {
-                const emb = Math.max(0, Math.floor(Number(document.getElementById('cad-estoque-embalagens').value || 0)));
-                const soltas = Math.max(0, Math.floor(Number(document.getElementById('cad-estoque-soltas').value || 0)));
-                const estoque = emb * fator + soltas;
-                const pFake = {estoque:estoque,tipoEmbalagem:tipo,unidadesPorEmbalagem:fator};
-                document.getElementById('cad-resumo-estoque').innerHTML = 'Ser\u00E1 cadastrado: <strong>' + escaparHTML(estoqueVisual(pFake)) + '</strong>';
-            } else {
-                const estoque = Math.max(0, Math.floor(Number(document.getElementById('cad-estoque-unidades').value || 0)));
-                document.getElementById('cad-resumo-estoque').innerHTML = 'Ser\u00E1 cadastrado: <strong>' + estoque + (estoque === 1 ? ' unidade' : ' unidades') + '</strong>';
-            }
-        }
-
-        function dadosCadastroAtual() {
-            const modo = document.getElementById('cad-modo-venda').value;
-            const tipo = modo === 'embalagem' ? document.getElementById('cad-tipo-embalagem').value : '';
-            const fator = modo === 'embalagem' ? Math.max(1, Math.floor(Number(document.getElementById('cad-unidades-embalagem').value || 1))) : 1;
-            const precoUnidade = Number(modo === 'embalagem' ? document.getElementById('cad-preco-solto').value : document.getElementById('cad-preco-unidade').value || 0);
-            const precoEmbalagem = modo === 'embalagem' ? Number(document.getElementById('cad-preco-embalagem').value || 0) : 0;
-            const estoque = modo === 'embalagem'
-                ? Math.max(0,Math.floor(Number(document.getElementById('cad-estoque-embalagens').value || 0))) * fator + Math.max(0,Math.floor(Number(document.getElementById('cad-estoque-soltas').value || 0)))
-                : Math.max(0,Math.floor(Number(document.getElementById('cad-estoque-unidades').value || 0)));
-
-            return {
-                acao:'cadastrarProduto',
-                nome:document.getElementById('cad-nome').value.trim(),
-                categoria:document.getElementById('cad-categoria').value,
-                codigo:document.getElementById('cad-barcode').value.trim(),
-                codigoEmbalagem:modo === 'embalagem' ? document.getElementById('cad-codigo-embalagem').value.trim() : '',
-                estoque:estoque,
-                ml:Math.max(0,Number(document.getElementById('cad-ml').value || 0)),
-                tipoEmbalagem:tipo,
-                unidadesPorEmbalagem:fator,
-                status:document.getElementById('cad-status').value,
-                preco:precoUnidade,
-                precoSolto:modo === 'embalagem' ? precoUnidade : 0,
-                precoMaco:precoEmbalagem,
-                _modo:modo
-            };
-        }
-
-        function confirmarCadastroProduto() {
-            if(!ehAdmin()) return alert('Apenas Dona/Admin pode cadastrar produtos.');
-            const d = dadosCadastroAtual();
-            if(!d.nome) return alert('Informe o nome do produto.');
-            if(d._modo === 'embalagem' && (!d.tipoEmbalagem || d.unidadesPorEmbalagem < 2)) return alert('Informe a embalagem e quantas unidades v\u00EAm dentro.');
-            if(d._modo === 'embalagem' && d.precoSolto <= 0 && d.precoMaco <= 0) return alert('Informe os pre\u00E7os de venda.');
-
-            const linhas = [
-                'Confirmar cadastro?', '',
-                d.nome,
-                'Categoria: ' + d.categoria,
-                'Venda: ' + (d._modo === 'embalagem' ? 'Unidade + ' + d.tipoEmbalagem : 'S\u00F3 unidade'),
-                'Pre\u00E7o unit\u00E1rio: ' + formatarMoeda(d.preco),
-                'C\u00F3digo unidade: ' + (d.codigo || 'n\u00E3o informado')
-            ];
-            if(d._modo === 'embalagem') {
-                linhas.push(d.tipoEmbalagem + ': ' + d.unidadesPorEmbalagem + ' unidades');
-                linhas.push('Pre\u00E7o da ' + d.tipoEmbalagem.toLowerCase() + ': ' + formatarMoeda(d.precoMaco));
-                linhas.push('C\u00F3digo ' + d.tipoEmbalagem.toLowerCase() + ': ' + (d.codigoEmbalagem || 'n\u00E3o informado'));
-            }
-            linhas.push('Estoque inicial: ' + estoqueVisual({estoque:d.estoque,tipoEmbalagem:d.tipoEmbalagem,unidadesPorEmbalagem:d.unidadesPorEmbalagem}));
-            if(confirm(linhas.join('\n'))) salvarProdutoExec(d);
-        }
-
-        async function salvarProdutoExec(dadosProntos=null) {
-            if(!ehAdmin()) return;
-            const dados = dadosProntos || dadosCadastroAtual();
-            delete dados._modo;
-            mostrarLoading(true);
-            try {
-                const r = await apiPost(dados);
-                alert(r.mensagem || 'Produto cadastrado.');
-                limparCadastroProduto();
-                await carregarDadosSemAbrirTurno();
-            } catch(err) {
-                alert('Erro ao cadastrar produto:\n' + err.message);
-            } finally { mostrarLoading(false); }
-        }
-
-        function limparCadastroProduto() {
-            ['cad-nome','cad-barcode','cad-codigo-embalagem','cad-ml','cad-preco-unidade','cad-preco-solto','cad-preco-embalagem'].forEach(id => { const el=document.getElementById(id); if(el) el.value=''; });
-            document.getElementById('cad-estoque-unidades').value = 0;
-            document.getElementById('cad-estoque-embalagens').value = 0;
-            document.getElementById('cad-estoque-soltas').value = 0;
-            document.getElementById('cad-unidades-embalagem').value = 1;
-            selecionarModoVendaCadastro('unidade');
-            document.getElementById('cad-categoria').value = 'Geral';
-            document.getElementById('cad-status').value = 'Ativo';
-            verificarCategoriaCadastro();
-        }
-
-        /* EQUIPE */        /* EQUIPE */
-        async function salvarFuncionarioExec() {
-            if(!ehAdmin()) return;
-            const nome = document.getElementById('func-nome').value.trim();
-            const perfil = document.getElementById('func-perfil').value;
-            const pin = document.getElementById('func-pin').value.trim();
-
-            if(!nome || !pin) return alert("Informe nome e PIN.");
-
-            mostrarLoading(true);
-            try {
-                const r = await apiPost({
-                    acao:'salvarFuncionario',
-                    nome:nome,
-                    perfil:perfil,
-                    pin:pin,
-                    status:'Ativo'
-                });
-                alert(r.mensagem || "Funcion\u00E1rio cadastrado.");
                 document.getElementById('func-nome').value = "";
-                document.getElementById('func-pin').value = "";
-                await carregarDadosSemAbrirTurno();
-            } catch(err) {
-                alert("Erro ao salvar funcion\u00E1rio:\n" + err.message);
-            } finally {
+                alert(resposta.mensagem || "Funcionário cadastrado com sucesso!");
+                carregarDadosSemAbrirTurno();
+            })
+            .catch(err => {
                 mostrarLoading(false);
-            }
+                alert("Erro ao salvar funcionário:\n" + err.message);
+            });
         }
 
-        async function deletarFuncionarioExec(nome) {
-            if(!ehAdmin()) return;
-            if(!confirm("Excluir " + nome + " da equipe?")) return;
-
+        function deletarFuncionarioExec(nome) {
             mostrarLoading(true);
-            try {
-                const r = await apiPost({acao:'deletarFuncionario', nome:nome});
-                alert(r.mensagem || "Funcion\u00E1rio removido.");
-                await carregarDadosSemAbrirTurno();
-            } catch(err) {
-                alert("Erro ao remover funcion\u00E1rio:\n" + err.message);
-            } finally {
+            fetch(URL_API, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify({ acao: "deletarFuncionario", nome: nome })
+            })
+            .then(lerRespostaAPI)
+            .then(resposta => {
                 mostrarLoading(false);
-            }
-        }
-
-        /* COMPATIBILIDADE DOS BOT\u00D5ES ANTIGOS */
-        function pedirSenhaParaAcao(acao, parametro=null) {
-            if(!ehAdmin()) return alert("Apenas Dona/Admin pode realizar esta a\u00E7\u00E3o.");
-            if(acao === 'reposicao') return salvarReposicaoEstoqueExec();
-            if(acao === 'salvarProduto') return salvarProdutoExec();
-            if(acao === 'editarProduto') return abrirModalEditarProdutoExec(parametro);
-            if(acao === 'deletarProduto') return deletarProdutoExec(parametro);
-            if(acao === 'salvarFuncionario') return salvarFuncionarioExec();
-            if(acao === 'deletarFuncionario') return deletarFuncionarioExec(parametro);
-        }
-
-        function fecharModais() {
-            document.getElementById('modal-adicional').style.display = 'none';
-        }
-
-        function alternarCarrinhoMobile() {
-            const painel = document.getElementById('painel-carrinho');
-            const abriu = painel.classList.toggle('ativo-mobile');
-            document.body.classList.toggle('carrinho-aberto', abriu);
-        }
-
-        function fecharCarrinhoMobile() {
-            document.getElementById('painel-carrinho').classList.remove('ativo-mobile');
-            document.body.classList.remove('carrinho-aberto');
-        }
-
-        /* SEGURAN\u00C7A DE HTML */
-        function escaparHTML(v) {
-            return String(v ?? '').replace(/[&<>"']/g, c => ({
-                '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-            }[c]));
-        }
-
-        function escaparAtributo(v) {
-            return escaparHTML(v).replace(/`/g,'&#96;');
+                alert(resposta.mensagem || "Funcionário removido com sucesso!");
+                carregarDadosSemAbrirTurno();
+            })
+            .catch(err => {
+                mostrarLoading(false);
+                alert("Erro ao remover funcionário:\n" + err.message);
+            });
         }
     </script>
-
 </body>
 </html>
