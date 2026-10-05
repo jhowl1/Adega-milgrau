@@ -803,6 +803,16 @@
             .dashboard-duplo, .reposicao-novo-grid, .combo-builder-novo { grid-template-columns: 1fr; }
         }
 
+
+        @media (max-width: 800px) {
+            #grid-produtos-admin > .reposicao-card-novo {
+                grid-template-columns: 1fr !important;
+            }
+            #grid-produtos-admin .acoes-produto-novo {
+                justify-content: flex-start !important;
+            }
+        }
+
         @media (max-width: 600px) {
             .dashboard-grid, .form-grid-novo { grid-template-columns: 1fr; }
             .form-grid-novo .full { grid-column: auto; }
@@ -811,7 +821,7 @@
 
 
 
-        /* ===== AJUSTE FINAL: cadastro/edição/reposição simples ===== */
+        /* ===== AJUSTE FINAL: cadastro/edi\E7 \E3 o/reposi\E7 \E3 o simples ===== */
         .subtitulo-bloco-final {
             color: var(--text-muted);
             font-size: .82rem;
@@ -977,16 +987,16 @@
 </head>
 <body>
 
-    <!-- LOGIN NOVO: perfil vem da aba Equipe; o usuário não escolhe o cargo -->
+    <!-- LOGIN NOVO: perfil vem da aba Equipe; o usu&#xE1;rio n&#xE3;o escolhe o cargo -->
     <div id="login-novo" class="login-overlay-novo">
         <div class="login-card-novo">
             <div class="login-marca-novo">
-                <div class="icone">🍷</div>
+                <div class="icone">&#x1F377;</div>
                 <h1>Carbura Bar</h1>
-                <p>Entre com seu usuário e PIN.</p>
+                <p>Entre com seu usu&#xE1;rio e PIN.</p>
             </div>
             <div class="form-group">
-                <label>Usuário</label>
+                <label>Usu&#xE1;rio</label>
                 <select id="login-usuario">
                     <option value="">Carregando equipe...</option>
                 </select>
@@ -997,7 +1007,7 @@
             </div>
             <div class="login-acoes-novo">
                 <button class="btn-grande" onclick="fazerLogin()">Entrar</button>
-                <button class="btn-topo" style="justify-content:center;" onclick="alternarTema()">◐ Tema</button>
+                <button class="btn-topo" style="justify-content:center;" onclick="alternarTema()">&#x25D0; Tema</button>
             </div>
             <p id="login-status" style="color:var(--text-muted);font-size:.78rem;margin-top:12px;text-align:center;"></p>
         </div>
@@ -1013,7 +1023,7 @@
     <!-- MODAL DE SENHA -->
     <div id="modal-senha" class="modal-overlay" style="display:none !important;">
         <div class="modal-box">
-            <h2>🔒 Área Restrita (Gerência)</h2>
+            <h2>&#x1F512; &#xC1;rea Restrita (Ger&#xEA;ncia)</h2>
             <p style="color: var(--text-muted); font-size: 0.9rem;">Digite a senha do gerente para prosseguir:</p>
             <div class="form-group" style="margin-bottom: 0;">
                 <input type="password" id="input-senha-gerente" placeholder="Senha (ex: 1234)" onkeypress="verificarSenhaEnter(event)">
@@ -1025,12 +1035,12 @@
         </div>
     </div>
 
-    <!-- MODAL DE EDIÇÃO DE PRODUTO - SIMPLES E COMPLETO / SOMENTE DONA-ADMIN -->
+    <!-- MODAL DE EDI&#xC7;&#xC3;O DE PRODUTO - SIMPLES E COMPLETO / SOMENTE DONA-ADMIN -->
     <div id="modal-editar-produto" class="modal-overlay">
         <div class="modal-box modal-largo">
-            <h2>✏️ Editar Produto</h2>
+            <h2>&#x270F;&#xFE0F; Editar Produto</h2>
             <p id="edit-prod-nome-titulo" style="color:var(--primary);font-weight:bold;margin-bottom:4px;"></p>
-            <p class="subtitulo-bloco-final">Mesma lógica do cadastro: produto, forma de venda e estoque.</p>
+            <p class="subtitulo-bloco-final">Mesma l&#xF3;gica do cadastro: produto, forma de venda e estoque.</p>
             <input type="hidden" id="edit-prod-id">
 
             <div class="form-grid-novo">
@@ -1045,13 +1055,13 @@
                         <option value="Cervejas">Cervejas</option>
                         <option value="Destilados">Destilados</option>
                         <option value="Whisky">Whisky</option>
-                        <option value="Energético">Energético</option>
+                        <option value="Energ&#xE9;tico">Energ&#xE9;tico</option>
                         <option value="Gelo">Gelo</option>
                         <option value="Combos">Combos</option>
                         <option value="Doses">Doses</option>
                         <option value="Tabaco">Tabaco</option>
-                        <option value="Sem Álcool">Sem Álcool</option>
-                        <option value="Gelo e Carvão">Gelo e Carvão</option>
+                        <option value="Sem &#xC1;lcool">Sem &#xC1;lcool</option>
+                        <option value="Gelo e Carv&#xE3;o">Gelo e Carv&#xE3;o</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -1059,8 +1069,8 @@
                     <select id="edit-prod-status"><option value="Ativo">Ativo</option><option value="Inativo">Inativo</option></select>
                 </div>
                 <div class="form-group">
-                    <label>Código da Unidade / Solto</label>
-                    <input type="text" id="edit-prod-codigo" placeholder="Código que já fica na coluna G">
+                    <label>C&#xF3;digo da Unidade / Solto</label>
+                    <input type="text" id="edit-prod-codigo" placeholder="C&#xF3;digo que j&#xE1; fica na coluna G">
                 </div>
                 <div class="form-group">
                     <label>ML / Volume</label>
@@ -1069,12 +1079,12 @@
             </div>
 
             <div class="separador-bloco-final">
-                <strong>Como este produto é vendido?</strong>
-                <p class="subtitulo-bloco-final" style="margin-top:4px;">Escolha apenas uma opção.</p>
+                <strong>Como este produto &#xE9; vendido?</strong>
+                <p class="subtitulo-bloco-final" style="margin-top:4px;">Escolha apenas uma op&#xE7;&#xE3;o.</p>
                 <input type="hidden" id="edit-modo-venda" value="unidade">
                 <div class="modo-venda-final" id="edit-modo-botoes">
-                    <button type="button" id="edit-btn-unidade" class="ativo" onclick="selecionarModoVendaEdicao('unidade')">🧃 Só unidade</button>
-                    <button type="button" id="edit-btn-embalagem" onclick="selecionarModoVendaEdicao('embalagem')">📦 Unidade + embalagem</button>
+                    <button type="button" id="edit-btn-unidade" class="ativo" onclick="selecionarModoVendaEdicao('unidade')">&#x1F9C3; S&#xF3; unidade</button>
+                    <button type="button" id="edit-btn-embalagem" onclick="selecionarModoVendaEdicao('embalagem')">&#x1F4E6; Unidade + embalagem</button>
                 </div>
             </div>
 
@@ -1082,7 +1092,7 @@
 
             <div id="edit-bloco-unidade">
                 <div class="form-group">
-                    <label>Preço de Venda (R$)</label>
+                    <label>Pre&#xE7;o de Venda (R$)</label>
                     <input type="number" step="0.01" id="edit-preco-unidade" min="0">
                 </div>
             </div>
@@ -1093,26 +1103,26 @@
                         <label>Embalagem</label>
                         <select id="edit-prod-tipo-embalagem" onchange="atualizarEdicaoHumana()">
                             <option value="Caixa">Caixa</option>
-                            <option value="Maço">Maço</option>
+                            <option value="Ma&#xE7;o">Ma&#xE7;o</option>
                             <option value="Pacote">Pacote</option>
                             <option value="Fardo">Fardo</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Quantas unidades vêm dentro?</label>
+                        <label>Quantas unidades v&#xEA;m dentro?</label>
                         <input type="number" id="edit-prod-unidades-embalagem" min="1" value="1" oninput="atualizarEdicaoHumana()">
                     </div>
                     <div class="form-group">
-                        <label id="edit-label-preco-solto">Preço Unitário / Solto (R$)</label>
+                        <label id="edit-label-preco-solto">Pre&#xE7;o Unit&#xE1;rio / Solto (R$)</label>
                         <input type="number" step="0.01" id="edit-prod-preco-solto" min="0">
                     </div>
                     <div class="form-group">
-                        <label id="edit-label-preco-embalagem">Preço da Embalagem (R$)</label>
+                        <label id="edit-label-preco-embalagem">Pre&#xE7;o da Embalagem (R$)</label>
                         <input type="number" step="0.01" id="edit-prod-preco-maco" min="0">
                     </div>
                     <div class="form-group full">
-                        <label id="edit-label-codigo-embalagem">Código da Embalagem</label>
-                        <input type="text" id="edit-prod-codigo-embalagem" placeholder="Código da caixa / fardo / maço / pacote — coluna N">
+                        <label id="edit-label-codigo-embalagem">C&#xF3;digo da Embalagem</label>
+                        <input type="text" id="edit-prod-codigo-embalagem" placeholder="C&#xF3;digo da caixa / fardo / ma&#xE7;o / pacote &#x2014; coluna N">
                     </div>
                 </div>
             </div>
@@ -1137,21 +1147,24 @@
                 <div id="edit-resumo-estoque" class="resumo-humano-final"></div>
             </div>
 
-            <div class="modal-botoes">
-                <button class="btn-modal btn-modal-cancelar" onclick="fecharModalEditarProduto()">Cancelar</button>
-                <button class="btn-modal btn-modal-confirmar" onclick="salvarEdicaoProduto()">Salvar Alterações</button>
+            <div class="modal-botoes" style="justify-content:space-between;flex-wrap:wrap;">
+                <button class="btn-modal" style="background:var(--danger);color:white;" onclick="excluirProdutoDoModal()">&#x1F5D1;&#xFE0F; Excluir Produto</button>
+                <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                    <button class="btn-modal btn-modal-cancelar" onclick="fecharModalEditarProduto()">Cancelar</button>
+                    <button class="btn-modal btn-modal-confirmar" onclick="salvarEdicaoProduto()">&#x1F4BE; Salvar Altera&#xE7;&#xF5;es</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- MODAL ABERTURA DE TURNO - usuário já vem do login -->
+    <!-- MODAL ABERTURA DE TURNO - usu&#xE1;rio j&#xE1; vem do login -->
     <div id="modal-abertura-turno" class="modal-overlay">
         <div class="modal-box">
-            <h2>🕒 Iniciar Turno</h2>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">O operador já foi identificado pelo login. Selecione apenas o turno.</p>
+            <h2>&#x1F552; Iniciar Turno</h2>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">O operador j&#xE1; foi identificado pelo login. Selecione apenas o turno.</p>
             <div class="form-group" style="margin-bottom: 0;">
                 <select id="select-turno-atual">
-                    <option value="Manhã">Manhã</option>
+                    <option value="Manh&#xE3;">Manh&#xE3;</option>
                     <option value="Tarde">Tarde</option>
                     <option value="Noite">Noite</option>
                 </select>
@@ -1162,7 +1175,7 @@
         </div>
     </div>
 
-    <!-- MODAL ADICIONAR PRODUTO NORMAL / CAIXA / MAÇO / PACOTE -->
+    <!-- MODAL ADICIONAR PRODUTO NORMAL / CAIXA / MA&#xC7;O / PACOTE -->
     <div id="modal-adicional" class="modal-overlay">
         <div class="modal-box">
             <h2 id="modal-titulo">Produto</h2>
@@ -1186,20 +1199,20 @@
         </div>
     </div>
 
-    <!-- MODAL COMBO - até 4 energéticos e 4 gelos, iguais ou diferentes -->
+    <!-- MODAL COMBO - at&#xE9; 4 energ&#xE9;ticos e 4 gelos, iguais ou diferentes -->
     <div id="modal-combo-novo" class="modal-overlay">
         <div class="modal-box modal-largo">
-            <h2 id="combo-novo-titulo">🍹 Montar Combo</h2>
+            <h2 id="combo-novo-titulo">&#x1F379; Montar Combo</h2>
             <p style="color:var(--text-muted);font-size:.86rem;margin-bottom:14px;">
-                Escolha até 4 energéticos e até 4 gelos. Pode repetir ou misturar. Energéticos são carregados do cadastro, inclusive 2L.
+                Escolha at&#xE9; 4 energ&#xE9;ticos e at&#xE9; 4 gelos. Pode repetir ou misturar. Energ&#xE9;ticos s&#xE3;o carregados do cadastro, inclusive 2L.
             </p>
             <div class="combo-builder-novo">
                 <div class="combo-coluna-novo">
-                    <div class="combo-titulo-novo"><strong>⚡ Energéticos</strong><span id="combo-cont-ene" class="badge-baixo-novo">0/4</span></div>
+                    <div class="combo-titulo-novo"><strong>&#x26A1; Energ&#xE9;ticos</strong><span id="combo-cont-ene" class="badge-baixo-novo">0/4</span></div>
                     <div id="combo-lista-ene"></div>
                 </div>
                 <div class="combo-coluna-novo">
-                    <div class="combo-titulo-novo"><strong>🧊 Gelos</strong><span id="combo-cont-gelo" class="badge-baixo-novo">0/4</span></div>
+                    <div class="combo-titulo-novo"><strong>&#x1F9CA; Gelos</strong><span id="combo-cont-gelo" class="badge-baixo-novo">0/4</span></div>
                     <div id="combo-lista-gelo"></div>
                 </div>
             </div>
@@ -1215,19 +1228,19 @@
         </div>
     </div>
 
-    <!-- MODAL DOSE - adicionais opcionais, no máximo 1 energético + 1 gelo -->
+    <!-- MODAL DOSE - adicionais opcionais, no m&#xE1;ximo 1 energ&#xE9;tico + 1 gelo -->
     <div id="modal-dose-novo" class="modal-overlay">
         <div class="modal-box">
-            <h2 id="dose-novo-titulo">🥃 Dose</h2>
+            <h2 id="dose-novo-titulo">&#x1F943; Dose</h2>
             <p style="color:var(--text-muted);font-size:.86rem;margin-bottom:14px;">
-                A dose pode ser vendida sozinha. Energético e gelo são opcionais.
+                A dose pode ser vendida sozinha. Energ&#xE9;tico e gelo s&#xE3;o opcionais.
             </p>
             <div class="form-group">
-                <label>Energético (opcional - máximo 1)</label>
+                <label>Energ&#xE9;tico (opcional - m&#xE1;ximo 1)</label>
                 <select id="dose-ene-sel"><option value="">Nenhum</option></select>
             </div>
             <div class="form-group">
-                <label>Gelo (opcional - máximo 1)</label>
+                <label>Gelo (opcional - m&#xE1;ximo 1)</label>
                 <select id="dose-gelo-sel"><option value="">Nenhum</option></select>
             </div>
             <div class="form-group">
@@ -1245,17 +1258,17 @@
     <!-- MODAL TROCA POR DINHEIRO -->
     <div id="modal-troca-dinheiro" class="modal-overlay">
         <div class="modal-box">
-            <h2>💱 Trocar por Dinheiro</h2>
+            <h2>&#x1F4B1; Trocar por Dinheiro</h2>
             <p style="color:var(--text-muted);font-size:.86rem;">
-                O cliente paga por Pix, Débito ou Crédito e recebe o valor combinado em dinheiro.
+                O cliente paga por Pix, D&#xE9;bito ou Cr&#xE9;dito e recebe o valor combinado em dinheiro.
             </p>
 
             <div class="form-group">
                 <label>Cliente vai pagar por</label>
                 <select id="troca-forma" onchange="calcularTrocaDinheiro()">
                     <option value="Pix">Pix</option>
-                    <option value="Débito">Débito</option>
-                    <option value="Crédito">Crédito</option>
+                    <option value="D&#xE9;bito">D&#xE9;bito</option>
+                    <option value="Cr&#xE9;dito">Cr&#xE9;dito</option>
                 </select>
             </div>
 
@@ -1285,59 +1298,60 @@
     <!-- HEADER -->
     <header>
         <div class="logo-area">
-            <h1>🍷 Carbura Bar</h1>
+            <h1>&#x1F377; Carbura Bar</h1>
             <span style="font-size: 0.85rem; background: var(--border); padding: 4px 10px; border-radius: 20px; color: var(--text-muted);">
-                Usuário: <strong id="nome-operador-topo" style="color: var(--primary);">—</strong>
+                Usu&#xE1;rio: <strong id="nome-operador-topo" style="color: var(--primary);">&#x2014;</strong>
             </span>
             <span id="turno-topo" class="turno-topo">Sem turno</span>
         </div>
         <div class="topo-acoes">
-            <button class="btn-topo" onclick="abrirModalTrocaOperador()">🕒 Trocar Turno</button>
+            <button class="btn-topo" onclick="abrirModalTrocaOperador()">&#x1F552; Trocar Turno</button>
             <button class="btn-topo" onclick="alternarTema()">
-                <span id="icone-tema">☀️</span> <span id="texto-tema">Claro</span>
+                <span id="icone-tema">&#x2600;&#xFE0F;</span> <span id="texto-tema">Claro</span>
             </button>
-            <button class="btn-topo" onclick="sairSistema()">🚪 Sair</button>
+            <button class="btn-topo" onclick="sairSistema()">&#x1F6AA; Sair</button>
         </div>
     </header>
 
     <!-- NAV -->
     <nav>
-        <button class="admin-only-nav" onclick="mudarAba('inicio', this)">🏠 Início</button>
-        <button class="active" onclick="mudarAba('vendas', this)">🛒 Vendas / PDV</button>
-        <button class="admin-only-nav" onclick="mudarAba('reposicao', this)">📦 Reposição / Estoque</button>
-        <button onclick="mudarAba('fechamento', this)">📊 Meu Turno</button>
-        <button class="admin-only-nav" onclick="mudarAba('equipe', this)">👥 Equipe</button>
-        <button class="admin-only-nav" onclick="mudarAba('cadastros', this)">➕ Novo Item</button>
+        <button class="admin-only-nav" onclick="mudarAba('inicio', this)">&#x1F3E0; In&#xED;cio</button>
+        <button class="active" onclick="mudarAba('vendas', this)">&#x1F6D2; Vendas / PDV</button>
+        <button class="admin-only-nav" onclick="mudarAba('reposicao', this)">&#x1F4E6; Reposi&#xE7;&#xE3;o / Estoque</button>
+        <button class="admin-only-nav" onclick="mudarAba('produtos', this)">&#x1F9FE; Produtos</button>
+        <button onclick="mudarAba('fechamento', this)">&#x1F4CA; Meu Turno</button>
+        <button class="admin-only-nav" onclick="mudarAba('equipe', this)">&#x1F465; Equipe</button>
+        <button class="admin-only-nav" onclick="mudarAba('cadastros', this)">&#x2795; Novo Item</button>
     </nav>
 
     <!-- CONTAINER DAS ABAS -->
     <div class="main-container">
 
-        <!-- ABA INÍCIO / DASHBOARD - SOMENTE DONA/ADMIN -->
+        <!-- ABA IN&#xCD;CIO / DASHBOARD - SOMENTE DONA/ADMIN -->
         <div id="aba-inicio" class="content">
             <div style="max-width:1200px;margin:0 auto;">
                 <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px;">
                     <div>
-                        <h2 style="font-size:1.45rem;margin-bottom:4px;">🏠 Dashboard</h2>
+                        <h2 style="font-size:1.45rem;margin-bottom:4px;">&#x1F3E0; Dashboard</h2>
                         <p style="color:var(--text-muted);font-size:.88rem;">Resumo do dia e alertas de estoque.</p>
                     </div>
-                    <button class="btn-topo" onclick="carregarDashboard()">↻ Atualizar</button>
+                    <button class="btn-topo" onclick="carregarDashboard()">&#x21BB; Atualizar</button>
                 </div>
                 <div class="dashboard-grid">
                     <div class="dashboard-card"><small>VENDAS HOJE</small><strong id="dash-total">R$ 0,00</strong></div>
                     <div class="dashboard-card"><small>PIX</small><strong id="dash-pix">R$ 0,00</strong></div>
                     <div class="dashboard-card"><small>DINHEIRO</small><strong id="dash-dinheiro">R$ 0,00</strong></div>
-                    <div class="dashboard-card"><small>CARTÕES / DIVERSOS</small><strong id="dash-cartoes">R$ 0,00</strong></div>
+                    <div class="dashboard-card"><small>CART&#xD5;ES / DIVERSOS</small><strong id="dash-cartoes">R$ 0,00</strong></div>
                     <div class="dashboard-card"><small>TAXAS DE TROCA</small><strong id="dash-troca-taxas">R$ 0,00</strong></div>
                     <div class="dashboard-card"><small>DINHEIRO ENTREGUE EM TROCAS</small><strong id="dash-troca-dinheiro">R$ 0,00</strong></div>
                 </div>
                 <div class="dashboard-duplo">
                     <div class="dashboard-lista">
-                        <h3 style="margin-bottom:10px;">🟠 Estoque baixo (1–10)</h3>
+                        <h3 style="margin-bottom:10px;">&#x1F7E0; Estoque baixo (1&#x2013;10)</h3>
                         <div id="dash-baixo"></div>
                     </div>
                     <div class="dashboard-lista">
-                        <h3 style="margin-bottom:10px;">🔴 Esgotados</h3>
+                        <h3 style="margin-bottom:10px;">&#x1F534; Esgotados</h3>
                         <div id="dash-esgotado"></div>
                     </div>
                 </div>
@@ -1349,7 +1363,7 @@
             <div class="layout-vendas">
                 <div class="produtos-area">
                     <div class="busca-container">
-                        <input type="text" id="busca-unificada" placeholder="🔍 Buscar produto ou bipar código de barras..." oninput="filtrarVendasUnificado()" onkeypress="verificarBipeUnificado(event)">
+                        <input type="text" id="busca-unificada" placeholder="&#x1F50D; Buscar produto ou bipar c&#xF3;digo de barras..." oninput="filtrarVendasUnificado()" onkeypress="verificarBipeUnificado(event)">
                     </div>
                     <div class="grid-produtos" id="grid-vendas">
                         <!-- Produtos carregados dinamicamente -->
@@ -1359,8 +1373,8 @@
                 <!-- PAINEL CARRINHO -->
                 <div class="carrinho-area" id="painel-carrinho">
                     <div class="carrinho-header" style="display: flex; justify-content: space-between; align-items: center;">
-                        <span>🛒 Carrinho de Compras</span>
-                        <button onclick="fecharCarrinhoMobile()" aria-label="Fechar carrinho" style="background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; display: none;" class="btn-fechar-carrinho-mobile">✕</button>
+                        <span>&#x1F6D2; Carrinho de Compras</span>
+                        <button onclick="fecharCarrinhoMobile()" aria-label="Fechar carrinho" style="background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; display: none;" class="btn-fechar-carrinho-mobile">&#x2715;</button>
                     </div>
                     <div class="carrinho-lista" id="carrinho-lista">
                         <p style="color: var(--text-muted); text-align: center;">Carrinho vazio</p>
@@ -1371,8 +1385,8 @@
                             <select id="pagamento" onchange="verificarDinheiro()">
                                 <option value="Pix">Pix</option>
                                 <option value="Dinheiro">Dinheiro</option>
-                                <option value="Débito">Débito</option>
-                                <option value="Crédito">Crédito</option>
+                                <option value="D&#xE9;bito">D&#xE9;bito</option>
+                                <option value="Cr&#xE9;dito">Cr&#xE9;dito</option>
                                 <option value="Diversos">Diversos</option>
                             </select>
                         </div>
@@ -1386,24 +1400,24 @@
                             <span style="color: var(--success);">R$ <span id="total-txt">0.00</span></span>
                         </div>
                         <button class="btn-finalizar" onclick="finalizarVenda()">Finalizar Venda</button>
-                        <button class="btn-troca-dinheiro" onclick="abrirModalTrocaDinheiro()">💱 Trocar por Dinheiro</button>
+                        <button class="btn-troca-dinheiro" onclick="abrirModalTrocaDinheiro()">&#x1F4B1; Trocar por Dinheiro</button>
                     </div>
                 </div>
             </div>
             <button class="btn-carrinho-mobile" onclick="alternarCarrinhoMobile()">
-                🛒 Carrinho <span id="badge-qtd-flutuante" style="background: black; color: white; border-radius: 50%; padding: 2px 8px; font-size: 0.8rem;">0</span>
+                &#x1F6D2; Carrinho <span id="badge-qtd-flutuante" style="background: black; color: white; border-radius: 50%; padding: 2px 8px; font-size: 0.8rem;">0</span>
             </button>
         </div>
 
-        <!-- ABA 2: REPOSIÇÃO / ESTOQUE - SIMPLES -->
+        <!-- ABA 2: REPOSI&#xC7;&#xC3;O / ESTOQUE - SIMPLES -->
         <div id="aba-reposicao" class="content">
             <div class="rep-simples-final">
-                <h2 style="font-size:1.35rem;margin-bottom:5px;">📦 Reposição de Estoque</h2>
+                <h2 style="font-size:1.35rem;margin-bottom:5px;">&#x1F4E6; Reposi&#xE7;&#xE3;o de Estoque</h2>
                 <p class="subtitulo-bloco-final">Busque o produto, diga o que chegou e confirme.</p>
 
                 <div class="form-group">
-                    <label>🔍 Buscar ou bipar produto</label>
-                    <input type="text" id="rep-busca" placeholder="Digite o nome ou bipa o código..." oninput="filtrarReposicao()" onkeypress="verificarBipeReposicao(event)">
+                    <label>&#x1F50D; Buscar ou bipar produto</label>
+                    <input type="text" id="rep-busca" placeholder="Digite o nome ou bipa o c&#xF3;digo..." oninput="filtrarReposicao()" onkeypress="verificarBipeReposicao(event)">
                 </div>
                 <div class="form-group">
                     <label>Produto</label>
@@ -1419,37 +1433,67 @@
 
                     <strong id="rep-pergunta-qtd" style="display:block;margin-top:8px;">Quantas unidades chegaram?</strong>
                     <div class="rep-qtd-final">
-                        <button type="button" onclick="alterarQtdReposicao(-1)">−</button>
+                        <button type="button" onclick="alterarQtdReposicao(-1)">&#x2212;</button>
                         <input type="number" id="rep-qtd" value="1" min="1" oninput="atualizarPreviewReposicao()">
                         <button type="button" onclick="alterarQtdReposicao(1)">+</button>
                     </div>
 
                     <div id="rep-calculo" class="resumo-humano-final"></div>
-                    <button class="btn-grande" style="margin-top:14px;" onclick="salvarReposicaoEstoqueExec()">CONFIRMAR REPOSIÇÃO</button>
+                    <button class="btn-grande" style="margin-top:14px;" onclick="salvarReposicaoEstoqueExec()">CONFIRMAR REPOSI&#xC7;&#xC3;O</button>
                 </div>
+            </div>
+        </div>
+
+
+        <!-- ABA PRODUTOS / EDI&#xC7;&#xC3;O - SOMENTE DONA/ADMIN -->
+        <div id="aba-produtos" class="content">
+            <div style="max-width:1200px;margin:0 auto;">
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap;">
+                    <div>
+                        <h2 style="font-size:1.35rem;margin-bottom:4px;">&#x1F9FE; Produtos</h2>
+                        <p style="color:var(--text-muted);font-size:.85rem;">
+                            Edite nome, pre&#xE7;os, c&#xF3;digos de barras, embalagem, estoque ou exclua um produto.
+                        </p>
+                    </div>
+                    <button class="btn-topo" onclick="abrirCadastroProdutos()" >&#x2795; Novo Produto</button>
+                </div>
+
+                <div class="reposicao-card-novo" style="margin-bottom:16px;">
+                    <div class="form-group" style="margin-bottom:0;">
+                        <label>&#x1F50D; Buscar produto</label>
+                        <input
+                            type="text"
+                            id="busca-produtos-admin"
+                            placeholder="Nome, c&#xF3;digo da unidade ou c&#xF3;digo da embalagem..."
+                            oninput="filtrarProdutosAdmin()"
+                        >
+                    </div>
+                </div>
+
+                <div id="grid-produtos-admin" style="display:flex;flex-direction:column;gap:10px;"></div>
             </div>
         </div>
 
         <!-- ABA 3: FECHAMENTO -->
         <div id="aba-fechamento" class="content">
             <div style="max-width:700px;margin:0 auto;background:var(--card-bg);border:1px solid var(--border);padding:24px;border-radius:12px;">
-                <h2 style="font-size:1.3rem;margin-bottom:6px;">📊 Meu Turno</h2>
+                <h2 style="font-size:1.3rem;margin-bottom:6px;">&#x1F4CA; Meu Turno</h2>
                 <p id="fechamento-turno-legenda" style="color:var(--text-muted);font-size:.85rem;margin-bottom:20px;">Sem turno aberto.</p>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;">
                     <div class="dashboard-card"><small>PIX</small><strong id="rel-pix">R$ 0,00</strong></div>
                     <div class="dashboard-card"><small>DINHEIRO</small><strong id="rel-dinheiro">R$ 0,00</strong></div>
-                    <div class="dashboard-card"><small>DÉBITO</small><strong id="rel-debito">R$ 0,00</strong></div>
-                    <div class="dashboard-card"><small>CRÉDITO</small><strong id="rel-credito">R$ 0,00</strong></div>
+                    <div class="dashboard-card"><small>D&#xC9;BITO</small><strong id="rel-debito">R$ 0,00</strong></div>
+                    <div class="dashboard-card"><small>CR&#xC9;DITO</small><strong id="rel-credito">R$ 0,00</strong></div>
                     <div class="dashboard-card"><small>DIVERSOS</small><strong id="rel-diversos">R$ 0,00</strong></div>
                     <div class="dashboard-card" style="border-color:var(--primary);"><small>TOTAL</small><strong id="rel-total" style="color:var(--primary);">R$ 0,00</strong></div>
                 </div>
                 <div class="fechamento-trocas">
-                    <h3 style="margin-bottom:5px;">💱 Trocas por Dinheiro</h3>
+                    <h3 style="margin-bottom:5px;">&#x1F4B1; Trocas por Dinheiro</h3>
                     <p style="color:var(--text-muted);font-size:.8rem;margin-bottom:12px;">Separado das vendas de produtos.</p>
                     <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
                         <div class="dashboard-card"><small>PIX RECEBIDO</small><strong id="rel-troca-pix">R$ 0,00</strong></div>
-                        <div class="dashboard-card"><small>DÉBITO RECEBIDO</small><strong id="rel-troca-debito">R$ 0,00</strong></div>
-                        <div class="dashboard-card"><small>CRÉDITO RECEBIDO</small><strong id="rel-troca-credito">R$ 0,00</strong></div>
+                        <div class="dashboard-card"><small>D&#xC9;BITO RECEBIDO</small><strong id="rel-troca-debito">R$ 0,00</strong></div>
+                        <div class="dashboard-card"><small>CR&#xC9;DITO RECEBIDO</small><strong id="rel-troca-credito">R$ 0,00</strong></div>
                         <div class="dashboard-card"><small>DINHEIRO ENTREGUE</small><strong id="rel-troca-dinheiro">R$ 0,00</strong></div>
                         <div class="dashboard-card"><small>TAXAS GANHAS</small><strong id="rel-troca-taxas">R$ 0,00</strong></div>
                         <div class="dashboard-card" style="border-color:var(--primary);"><small>TOTAL RECEBIDO NAS TROCAS</small><strong id="rel-troca-total">R$ 0,00</strong></div>
@@ -1457,8 +1501,8 @@
                 </div>
 
                 <div style="display:flex;gap:10px;flex-wrap:wrap;">
-                    <button class="btn-grande" style="background:#25D366;color:white;flex:1;" onclick="enviarRelatorioWhatsApp()">📲 Enviar WhatsApp</button>
-                    <button class="btn-grande" style="background:var(--danger);color:white;flex:1;" onclick="encerrarTurno()">🚪 Encerrar Turno</button>
+                    <button class="btn-grande" style="background:#25D366;color:white;flex:1;" onclick="enviarRelatorioWhatsApp()">&#x1F4F2; Enviar WhatsApp</button>
+                    <button class="btn-grande" style="background:var(--danger);color:white;flex:1;" onclick="encerrarTurno()">&#x1F6AA; Encerrar Turno</button>
                 </div>
             </div>
         </div>
@@ -1466,7 +1510,7 @@
         <!-- ABA 4: EQUIPE -->
         <div id="aba-equipe" class="content">
             <div style="max-width:700px;margin:0 auto;background:var(--card-bg);border:1px solid var(--border);padding:24px;border-radius:12px;">
-                <h2 style="font-size:1.3rem;margin-bottom:20px;">👥 Gerenciar Equipe</h2>
+                <h2 style="font-size:1.3rem;margin-bottom:20px;">&#x1F465; Gerenciar Equipe</h2>
                 <div class="form-grid-novo">
                     <div class="form-group full">
                         <label>Nome</label>
@@ -1475,7 +1519,7 @@
                     <div class="form-group">
                         <label>Perfil</label>
                         <select id="func-perfil">
-                            <option value="Funcionário">Funcionário</option>
+                            <option value="Funcion&#xE1;rio">Funcion&#xE1;rio</option>
                             <option value="Dona">Dona</option>
                             <option value="Admin">Admin</option>
                         </select>
@@ -1485,18 +1529,18 @@
                         <input type="password" id="func-pin" inputmode="numeric" placeholder="Ex: 1234">
                     </div>
                 </div>
-                <button class="btn-grande" onclick="salvarFuncionarioExec()">Cadastrar Funcionário</button>
+                <button class="btn-grande" onclick="salvarFuncionarioExec()">Cadastrar Funcion&#xE1;rio</button>
 
                 <h3 style="font-size:1.1rem;margin:30px 0 16px 0;">Equipe Atual</h3>
                 <div id="grid-equipe" style="display:flex;flex-direction:column;gap:10px;"></div>
             </div>
         </div>
 
-        <!-- ABA 5: CADASTRO DE NOVO ITEM - MESMA LÓGICA DA EDIÇÃO -->
+        <!-- ABA 5: CADASTRO DE NOVO ITEM - MESMA L&#xD3;GICA DA EDI&#xC7;&#xC3;O -->
         <div id="aba-cadastros" class="content">
             <div style="max-width:760px;margin:0 auto;background:var(--card-bg);border:1px solid var(--border);padding:24px;border-radius:12px;">
-                <h2 style="font-size:1.3rem;margin-bottom:5px;">➕ Cadastrar Novo Produto</h2>
-                <p class="subtitulo-bloco-final">Cadastre de forma simples. As contas do estoque ficam por trás.</p>
+                <h2 style="font-size:1.3rem;margin-bottom:5px;">&#x2795; Cadastrar Novo Produto</h2>
+                <p class="subtitulo-bloco-final">Cadastre de forma simples. As contas do estoque ficam por tr&#xE1;s.</p>
 
                 <div class="form-grid-novo">
                     <div class="form-group full">
@@ -1510,13 +1554,13 @@
                             <option value="Cervejas">Cervejas</option>
                             <option value="Destilados">Destilados</option>
                             <option value="Whisky">Whisky</option>
-                            <option value="Energético">Energético / Red Bull</option>
+                            <option value="Energ&#xE9;tico">Energ&#xE9;tico / Red Bull</option>
                             <option value="Gelo">Gelo</option>
                             <option value="Combos">Combos</option>
                             <option value="Doses">Doses</option>
                             <option value="Tabaco">Tabaco</option>
-                            <option value="Sem Álcool">Sem Álcool</option>
-                            <option value="Gelo e Carvão">Gelo e Carvão</option>
+                            <option value="Sem &#xC1;lcool">Sem &#xC1;lcool</option>
+                            <option value="Gelo e Carv&#xE3;o">Gelo e Carv&#xE3;o</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -1524,8 +1568,8 @@
                         <select id="cad-status"><option value="Ativo">Ativo</option><option value="Inativo">Inativo</option></select>
                     </div>
                     <div class="form-group">
-                        <label>Código da Unidade / Solto</label>
-                        <input type="text" id="cad-barcode" placeholder="Opcional — será salvo na coluna G">
+                        <label>C&#xF3;digo da Unidade / Solto</label>
+                        <input type="text" id="cad-barcode" placeholder="Opcional &#x2014; ser&#xE1; salvo na coluna G">
                     </div>
                     <div class="form-group">
                         <label>ML / Volume</label>
@@ -1536,18 +1580,18 @@
                 <div id="cad-info-especial" class="info-especial-final" style="display:none;"></div>
 
                 <div class="separador-bloco-final" id="cad-bloco-forma-venda">
-                    <strong>Como este produto é vendido?</strong>
-                    <p class="subtitulo-bloco-final" style="margin-top:4px;">Para cerveja, cigarro e seda, use “Unidade + embalagem” quando vender dos dois jeitos.</p>
+                    <strong>Como este produto &#xE9; vendido?</strong>
+                    <p class="subtitulo-bloco-final" style="margin-top:4px;">Para cerveja, cigarro e seda, use &#x201C;Unidade + embalagem&#x201D; quando vender dos dois jeitos.</p>
                     <input type="hidden" id="cad-modo-venda" value="unidade">
                     <div class="modo-venda-final" id="cad-modo-botoes">
-                        <button type="button" id="cad-btn-unidade" class="ativo" onclick="selecionarModoVendaCadastro('unidade')">🧃 Só unidade</button>
-                        <button type="button" id="cad-btn-embalagem" onclick="selecionarModoVendaCadastro('embalagem')">📦 Unidade + embalagem</button>
+                        <button type="button" id="cad-btn-unidade" class="ativo" onclick="selecionarModoVendaCadastro('unidade')">&#x1F9C3; S&#xF3; unidade</button>
+                        <button type="button" id="cad-btn-embalagem" onclick="selecionarModoVendaCadastro('embalagem')">&#x1F4E6; Unidade + embalagem</button>
                     </div>
                 </div>
 
                 <div id="cad-bloco-unidade">
                     <div class="form-group">
-                        <label>Preço de Venda (R$)</label>
+                        <label>Pre&#xE7;o de Venda (R$)</label>
                         <input type="number" step="0.01" id="cad-preco-unidade" min="0" placeholder="Ex: 9.00">
                     </div>
                 </div>
@@ -1558,33 +1602,33 @@
                             <label>Embalagem</label>
                             <select id="cad-tipo-embalagem" onchange="atualizarCadastroHumano()">
                                 <option value="Caixa">Caixa</option>
-                                <option value="Maço">Maço</option>
+                                <option value="Ma&#xE7;o">Ma&#xE7;o</option>
                                 <option value="Pacote">Pacote</option>
                                 <option value="Fardo">Fardo</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Quantas unidades vêm dentro?</label>
+                            <label>Quantas unidades v&#xEA;m dentro?</label>
                             <input type="number" id="cad-unidades-embalagem" min="1" value="1" oninput="atualizarCadastroHumano()">
                         </div>
                         <div class="form-group">
-                            <label id="cad-label-preco-solto">Preço Unitário / Solto (R$)</label>
+                            <label id="cad-label-preco-solto">Pre&#xE7;o Unit&#xE1;rio / Solto (R$)</label>
                             <input type="number" step="0.01" id="cad-preco-solto" min="0" placeholder="Ex: 9.00">
                         </div>
                         <div class="form-group">
-                            <label id="cad-label-preco-embalagem">Preço da Embalagem (R$)</label>
+                            <label id="cad-label-preco-embalagem">Pre&#xE7;o da Embalagem (R$)</label>
                             <input type="number" step="0.01" id="cad-preco-embalagem" min="0" placeholder="Ex: 54.00">
                         </div>
                         <div class="form-group full">
-                            <label id="cad-label-codigo-embalagem">Código da Embalagem</label>
-                            <input type="text" id="cad-codigo-embalagem" placeholder="Código da caixa / fardo / maço / pacote — coluna N">
+                            <label id="cad-label-codigo-embalagem">C&#xF3;digo da Embalagem</label>
+                            <input type="text" id="cad-codigo-embalagem" placeholder="C&#xF3;digo da caixa / fardo / ma&#xE7;o / pacote &#x2014; coluna N">
                         </div>
                     </div>
                 </div>
 
                 <div class="separador-bloco-final">
                     <strong>Estoque inicial</strong>
-                    <p class="subtitulo-bloco-final" style="margin-top:4px;">Informe do jeito que você conta fisicamente.</p>
+                    <p class="subtitulo-bloco-final" style="margin-top:4px;">Informe do jeito que voc&#xEA; conta fisicamente.</p>
                     <div id="cad-estoque-unidade-box" class="form-group">
                         <label>Quantidade de unidades</label>
                         <input type="number" id="cad-estoque-unidades" min="0" value="0" oninput="atualizarCadastroHumano()">
@@ -1607,7 +1651,7 @@
         </div>
     </div>
 
-    <!-- SCRIPT DE FUNCIONAMENTO - VERSÃO NOVA SOBRE O ORIGINAL RECUPERADO -->
+    <!-- SCRIPT DE FUNCIONAMENTO - VERS&#xC3;O NOVA SOBRE O ORIGINAL RECUPERADO -->
     <script>
         const URL_API = "https://script.google.com/macros/s/AKfycbwwwGgSg9iVo7Ts_afPaADDPoEBbmx2j9aSjoPD0emMPC1vbiH6bD-ThNw8W1MCVLF1/exec";
 
@@ -1647,10 +1691,10 @@
             try {
                 dados = JSON.parse(texto);
             } catch (erro) {
-                throw new Error("A API não retornou um JSON válido.");
+                throw new Error("A API n\u00E3o retornou um JSON v\u00E1lido.");
             }
             if(!res.ok) throw new Error(dados.mensagem || ("Erro HTTP " + res.status));
-            if(dados.sucesso === false) throw new Error(dados.mensagem || "Operação não confirmada.");
+            if(dados.sucesso === false) throw new Error(dados.mensagem || "Opera\u00E7\u00E3o n\u00E3o confirmada.");
             return dados;
         }
 
@@ -1681,7 +1725,7 @@
             } catch(err) {
                 console.error(err);
                 document.getElementById('login-status').innerText = "Erro ao conectar: " + err.message;
-                alert("Não foi possível carregar os dados:\n" + err.message);
+                alert("N\u00E3o foi poss\u00EDvel carregar os dados:\n" + err.message);
             } finally {
                 mostrarLoading(false);
             }
@@ -1696,7 +1740,7 @@
                 atualizarInterfaceCompleta();
             } catch(err) {
                 console.error(err);
-                alert("A tela não conseguiu atualizar:\n" + err.message);
+                alert("A tela n\u00E3o conseguiu atualizar:\n" + err.message);
             }
         }
 
@@ -1725,7 +1769,7 @@
             const nome = document.getElementById('login-usuario').value;
             const pin = document.getElementById('login-pin').value.trim();
             if(!nome || !pin) {
-                alert("Selecione o usuário e informe o PIN.");
+                alert("Selecione o usu\u00E1rio e informe o PIN.");
                 return;
             }
 
@@ -1846,13 +1890,13 @@
             document.getElementById('turno-topo').innerText = turnoAtual ? "Turno: " + turnoAtual : "Sem turno";
             const legenda = document.getElementById('fechamento-turno-legenda');
             if(legenda) legenda.innerText = turnoAtual
-                ? usuarioAtual.nome + " • " + turnoAtual
+                ? usuarioAtual.nome + " \u2022 " + turnoAtual
                 : "Sem turno aberto.";
         }
 
-        /* NAVEGAÇÃO */
+        /* NAVEGA\u00C7\u00C3O */
         function mudarAba(idAba, btn) {
-            if(!ehAdmin() && ['inicio','reposicao','equipe','cadastros'].includes(idAba)) {
+            if(!ehAdmin() && ['inicio','reposicao','produtos','equipe','cadastros'].includes(idAba)) {
                 idAba = 'vendas';
                 btn = document.querySelector('nav button[onclick*="vendas"]');
             }
@@ -1865,6 +1909,7 @@
             if(btn) btn.classList.add('active');
 
             if(idAba === 'inicio') carregarDashboard();
+            if(idAba === 'produtos') renderizarProdutosAdmin(produtos);
             if(idAba === 'fechamento') atualizarRelatorioCaixa();
             if(idAba === 'vendas') setTimeout(focarBusca,50);
         }
@@ -1889,7 +1934,7 @@
                 root.style.setProperty('--text', '#09090b');
                 root.style.setProperty('--text-muted', '#52525b');
                 root.style.setProperty('--border', '#d4d4d8');
-                document.getElementById('icone-tema') && (document.getElementById('icone-tema').innerText = "🌙");
+                document.getElementById('icone-tema') && (document.getElementById('icone-tema').innerText = "\uD83C\uDF19");
                 document.getElementById('texto-tema') && (document.getElementById('texto-tema').innerText = "Escuro");
             } else {
                 root.style.setProperty('--bg', '#09090b');
@@ -1897,7 +1942,7 @@
                 root.style.setProperty('--text', '#fafafa');
                 root.style.setProperty('--text-muted', '#a1a1aa');
                 root.style.setProperty('--border', '#27272a');
-                document.getElementById('icone-tema') && (document.getElementById('icone-tema').innerText = "☀️");
+                document.getElementById('icone-tema') && (document.getElementById('icone-tema').innerText = "\u2600\uFE0F");
                 document.getElementById('texto-tema') && (document.getElementById('texto-tema').innerText = "Claro");
             }
         }
@@ -1906,6 +1951,7 @@
         function atualizarInterfaceCompleta() {
             renderizarGridVendas(produtos);
             renderizarGridEstoque();
+            renderizarProdutosAdmin(produtos);
             renderizarGridEquipe();
             atualizarSelectRepositorio();
             atualizarCarrinho();
@@ -1923,7 +1969,7 @@
             const t = String(tipo || 'Embalagem');
             if(Number(qtd) === 1) return t;
             const n = normalizarTexto(t);
-            if(n === 'maco') return 'Maços';
+            if(n === 'maco') return 'Ma\u00E7os';
             if(n === 'caixa') return 'Caixas';
             if(n === 'pacote') return 'Pacotes';
             if(n === 'fardo') return 'Fardos';
@@ -2017,7 +2063,7 @@
                 div.innerHTML = `
                     <div>
                         <strong>${escaparHTML(p.nome)}</strong>
-                        <div style="font-size:.78rem;color:var(--text-muted);">${escaparHTML(p.categoria)} • ${escaparHTML(estoqueVisual(p))} ${badge}</div>
+                        <div style="font-size:.78rem;color:var(--text-muted);">${escaparHTML(p.categoria)} \u2022 ${escaparHTML(estoqueVisual(p))} ${badge}</div>
                     </div>
                     <div class="acoes-produto-novo">
                         <button class="btn-mini-novo" onclick="abrirModalEditarProdutoExec('${escaparAtributo(p.id)}')">Editar</button>
@@ -2037,11 +2083,102 @@
                 const div = document.createElement('div');
                 div.style.cssText = 'display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--bg);border:1px solid var(--border);padding:12px;border-radius:8px;';
                 div.innerHTML = `
-                    <div><strong>${escaparHTML(f.nome)}</strong><div style="color:var(--text-muted);font-size:.78rem;">${escaparHTML(f.perfil || 'Funcionário')} • ${escaparHTML(f.status || 'Ativo')}</div></div>
+                    <div><strong>${escaparHTML(f.nome)}</strong><div style="color:var(--text-muted);font-size:.78rem;">${escaparHTML(f.perfil || 'Funcion\u00E1rio')} \u2022 ${escaparHTML(f.status || 'Ativo')}</div></div>
                     <button class="btn-mini-novo danger" onclick="deletarFuncionarioExec('${escaparAtributo(f.nome)}')">Excluir</button>
                 `;
                 grid.appendChild(div);
             });
+        }
+
+
+        /* PRODUTOS / EDI\u00C7\u00C3O ADMIN */
+        function abrirCadastroProdutos() {
+            if(!ehAdmin()) return;
+            const btn = Array.from(document.querySelectorAll('nav button'))
+                .find(b => (b.getAttribute('onclick') || '').includes("'cadastros'"));
+            mudarAba('cadastros', btn || null);
+        }
+
+        function precoAdminTexto(p) {
+            const fator = Math.max(1, Number(p.unidadesPorEmbalagem || 1));
+            const temEmbalagem = !!p.tipoEmbalagem && fator > 1;
+
+            if(temEmbalagem) {
+                return "Unidade: " + formatarMoeda(precoVendaUnidade(p)) +
+                    " \u2022 " + escaparHTML(p.tipoEmbalagem) + ": " + formatarMoeda(precoVendaEmbalagem(p));
+            }
+
+            return "Pre\u00E7o: " + formatarMoeda(Number(p.preco || p.precoSolto || 0));
+        }
+
+        function renderizarProdutosAdmin(lista) {
+            const grid = document.getElementById('grid-produtos-admin');
+            if(!grid) return;
+
+            const itens = Array.isArray(lista) ? lista : produtos;
+            grid.innerHTML = "";
+
+            if(itens.length === 0) {
+                grid.innerHTML = '<div class="reposicao-card-novo" style="color:var(--text-muted);">Nenhum produto encontrado.</div>';
+                return;
+            }
+
+            itens.forEach(p => {
+                const div = document.createElement('div');
+                div.className = 'reposicao-card-novo';
+                div.style.cssText += 'display:grid;grid-template-columns:minmax(220px,1.4fr) minmax(240px,1.2fr) auto;align-items:center;gap:14px;';
+
+                const codigoUnidade = p.codigo ? escaparHTML(p.codigo) : '\u2014';
+                const codigoEmb = p.codigoEmbalagem ? escaparHTML(p.codigoEmbalagem) : '\u2014';
+
+                div.innerHTML = `
+                    <div>
+                        <strong style="font-size:1rem;">${escaparHTML(p.nome)}</strong>
+                        <div style="color:var(--text-muted);font-size:.78rem;margin-top:4px;">
+                            ${escaparHTML(p.categoria)} \u2022 ${escaparHTML(estoqueVisual(p))}
+                        </div>
+                        <div style="color:var(--primary);font-size:.82rem;font-weight:700;margin-top:5px;">
+                            ${precoAdminTexto(p)}
+                        </div>
+                    </div>
+
+                    <div style="font-size:.78rem;color:var(--text-muted);line-height:1.6;">
+                        <div><strong style="color:var(--text);">C\u00F3digo unidade:</strong> ${codigoUnidade}</div>
+                        <div><strong style="color:var(--text);">C\u00F3digo embalagem:</strong> ${codigoEmb}</div>
+                    </div>
+
+                    <div class="acoes-produto-novo" style="justify-content:flex-end;">
+                        <button class="btn-mini-novo" onclick="abrirModalEditarProdutoExec('${escaparAtributo(p.id)}')">\u270F\uFE0F Editar</button>
+                        <button class="btn-mini-novo danger" onclick="deletarProdutoExec('${escaparAtributo(p.id)}')">\uD83D\uDDD1\uFE0F Excluir</button>
+                    </div>
+                `;
+
+                grid.appendChild(div);
+            });
+        }
+
+        function filtrarProdutosAdmin() {
+            const campo = document.getElementById('busca-produtos-admin');
+            const busca = normalizarTexto(campo ? campo.value : "");
+
+            const filtrados = produtos.filter(p => {
+                return normalizarTexto(p.nome).includes(busca) ||
+                    normalizarTexto(p.categoria).includes(busca) ||
+                    String(p.codigo || '').toLowerCase().includes(busca) ||
+                    String(p.codigoEmbalagem || '').toLowerCase().includes(busca);
+            });
+
+            renderizarProdutosAdmin(filtrados);
+        }
+
+        async function excluirProdutoDoModal() {
+            if(!ehAdmin()) return alert("Apenas Dona/Admin pode excluir produtos.");
+
+            const id = document.getElementById('edit-prod-id').value;
+            if(!id) return;
+
+            fecharModalEditarProduto();
+            await deletarProdutoExec(id);
         }
 
         /* BUSCA / BIPE */
@@ -2064,8 +2201,8 @@
             if(!codigo) return;
 
             /*
-              IMPORTANTE: código da embalagem (coluna N) tem prioridade.
-              Isso evita que um código antigo que ainda esteja na coluna G de
+              IMPORTANTE: c\u00F3digo da embalagem (coluna N) tem prioridade.
+              Isso evita que um c\u00F3digo antigo que ainda esteja na coluna G de
               outro cadastro seja tratado como unidade por engano.
             */
             const pEmbalagem = produtos.find(x =>
@@ -2079,7 +2216,7 @@
             );
 
             const p = pEmbalagem || pUnidade;
-            if(!p) return alert('Código não encontrado.');
+            if(!p) return alert('C\u00F3digo n\u00E3o encontrado.');
 
             e.target.value = '';
             renderizarGridVendas(produtos);
@@ -2088,7 +2225,7 @@
                 const fator = Math.floor(Number(p.unidadesPorEmbalagem || 1));
                 const tipo = String(p.tipoEmbalagem || '').trim();
                 if(!tipo || fator < 2) {
-                    return alert('Este código está cadastrado como embalagem, mas faltam o Tipo de Embalagem ou as Unidades por Embalagem no produto. Abra Editar Produto e complete esses dados.');
+                    return alert('Este c\u00F3digo est\u00E1 cadastrado como embalagem, mas faltam o Tipo de Embalagem ou as Unidades por Embalagem no produto. Abra Editar Produto e complete esses dados.');
                 }
                 adicionarProdutoDiretoPorBipe(p, tipo, codigo, true);
                 return;
@@ -2138,7 +2275,7 @@
             if(el) { el.focus(); el.select(); }
         }
 
-        /* SELEÇÃO DE VENDA */
+        /* SELE\u00C7\u00C3O DE VENDA */
         function selecionarProdutoVenda(p) {
             if(Number(p.estoque || 0) <= 0) return alert("Produto esgotado.");
 
@@ -2161,10 +2298,10 @@
             const fator = Math.max(1, Math.floor(Number(p.unidadesPorEmbalagem || 1)));
             const tipoEmb = p.tipoEmbalagem || '';
 
-            adicionarOpcaoSelect(sel, 'Unidade', 'Unidade / Solto — ' + formatarMoeda(precoVendaUnidade(p)));
+            adicionarOpcaoSelect(sel, 'Unidade', 'Unidade / Solto \u2014 ' + formatarMoeda(precoVendaUnidade(p)));
 
             if(tipoEmb && fator > 1) {
-                adicionarOpcaoSelect(sel, tipoEmb, tipoEmb + ' (' + fator + ' un.) — ' + formatarMoeda(precoVendaEmbalagem(p)));
+                adicionarOpcaoSelect(sel, tipoEmb, tipoEmb + ' (' + fator + ' un.) \u2014 ' + formatarMoeda(precoVendaEmbalagem(p)));
             }
 
             document.getElementById('modal-titulo').innerText = p.nome;
@@ -2191,7 +2328,7 @@
                 : 1;
 
             if(Number(p.estoque || 0) < qtd * fator) {
-                alert("Estoque insuficiente. Disponível: " + p.estoque + " unidade(s) base.");
+                alert("Estoque insuficiente. Dispon\u00EDvel: " + p.estoque + " unidade(s) base.");
                 return;
             }
 
@@ -2235,7 +2372,7 @@
             comboProdutoAtual = p;
             comboSelecaoEne = {};
             comboSelecaoGelo = {};
-            document.getElementById('combo-novo-titulo').innerText = "🍹 " + p.nome;
+            document.getElementById('combo-novo-titulo').innerText = "\uD83C\uDF79 " + p.nome;
             renderComboNovo();
             document.getElementById('modal-combo-novo').style.display = 'flex';
         }
@@ -2260,13 +2397,13 @@
                 const p = produtos.find(x => String(x.id) === String(id));
                 if(q > 0 && p) resumo.push(q + "x " + p.nome);
             });
-            document.getElementById('combo-resumo-itens').innerText = resumo.length ? resumo.join(" • ") : "Sem adicionais.";
+            document.getElementById('combo-resumo-itens').innerText = resumo.length ? resumo.join(" \u2022 ") : "Sem adicionais.";
         }
 
         function renderGrupoCombo(containerId, lista, objeto, tipo) {
             const c = document.getElementById(containerId);
             if(lista.length === 0) {
-                c.innerHTML = '<p style="color:var(--text-muted);font-size:.82rem;">Nenhum item disponível.</p>';
+                c.innerHTML = '<p style="color:var(--text-muted);font-size:.82rem;">Nenhum item dispon\u00EDvel.</p>';
                 return;
             }
             c.innerHTML = "";
@@ -2280,7 +2417,7 @@
                         <div style="font-size:.72rem;color:var(--text-muted);">Estoque: ${p.estoque}</div>
                     </div>
                     <div class="combo-stepper-novo">
-                        <button onclick="alterarComboNovo('${tipo}','${escaparAtributo(p.id)}',-1)">−</button>
+                        <button onclick="alterarComboNovo('${tipo}','${escaparAtributo(p.id)}',-1)">\u2212</button>
                         <span>${q}</span>
                         <button onclick="alterarComboNovo('${tipo}','${escaparAtributo(p.id)}',1)">+</button>
                     </div>
@@ -2298,7 +2435,7 @@
             const atual = Number(obj[id] || 0);
             const total = totalSelecionado(obj);
 
-            if(delta > 0 && total >= 4) return alert("Máximo de 4 itens nesta seção.");
+            if(delta > 0 && total >= 4) return alert("M\u00E1ximo de 4 itens nesta se\u00E7\u00E3o.");
 
             const p = produtos.find(x => String(x.id) === String(id));
             if(delta > 0 && p && atual >= Number(p.estoque || 0)) {
@@ -2352,15 +2489,15 @@
         /* DOSE */
         function abrirModalDoseNovo(p) {
             produtoSelecionadoAtual = p;
-            document.getElementById('dose-novo-titulo').innerText = "🥃 " + p.nome;
+            document.getElementById('dose-novo-titulo').innerText = "\uD83E\uDD43 " + p.nome;
 
             const ene = document.getElementById('dose-ene-sel');
             const gelo = document.getElementById('dose-gelo-sel');
             ene.innerHTML = '<option value="">Nenhum</option>';
             gelo.innerHTML = '<option value="">Nenhum</option>';
 
-            produtosEnergeticos().forEach(x => adicionarOpcaoSelect(ene, x.id, x.nome + " — estoque " + x.estoque));
-            produtosGelos().forEach(x => adicionarOpcaoSelect(gelo, x.id, x.nome + " — estoque " + x.estoque));
+            produtosEnergeticos().forEach(x => adicionarOpcaoSelect(ene, x.id, x.nome + " \u2014 estoque " + x.estoque));
+            produtosGelos().forEach(x => adicionarOpcaoSelect(gelo, x.id, x.nome + " \u2014 estoque " + x.estoque));
 
             document.getElementById('dose-qtd').value = 1;
             document.getElementById('modal-dose-novo').style.display = 'flex';
@@ -2441,8 +2578,8 @@
                         </div>
                         <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end;">
                             <span style="color:#4ade80;font-weight:bold;">${formatarMoeda(sub)}</span>
-                            ${ehAdmin() ? `<button class="btn-zerar-admin-final" onclick="zerarValorItemCarrinho(${index})" title="Somente Dona/Admin">♻️ Zerar</button>` : ""}
-                            <button onclick="removerItemCarrinho(${index})" style="background:none;border:none;color:var(--danger);cursor:pointer;font-size:1.1rem;">✕</button>
+                            ${ehAdmin() ? `<button class="btn-zerar-admin-final" onclick="zerarValorItemCarrinho(${index})" title="Somente Dona/Admin">\u267B\uFE0F Zerar</button>` : ""}
+                            <button onclick="removerItemCarrinho(${index})" style="background:none;border:none;color:var(--danger);cursor:pointer;font-size:1.1rem;">\u2715</button>
                         </div>
                     `;
                     listaDiv.appendChild(divItem);
@@ -2464,8 +2601,8 @@
             if(!ehAdmin()) return alert("Apenas Dona/Admin pode zerar o valor.");
             const item = carrinho[index];
             if(!item) return;
-            if(Number(item.preco || 0) === 0) return alert("Este item já está com valor zerado.");
-            if(!confirm("Zerar o valor de " + item.nome + "?\n\nO estoque continuará sendo descontado normalmente ao finalizar a venda.")) return;
+            if(Number(item.preco || 0) === 0) return alert("Este item j\u00E1 est\u00E1 com valor zerado.");
+            if(!confirm("Zerar o valor de " + item.nome + "?\n\nO estoque continuar\u00E1 sendo descontado normalmente ao finalizar a venda.")) return;
             item.precoOriginal = Number(item.preco || 0);
             item.preco = 0;
             item.permitirPrecoZero = true;
@@ -2486,8 +2623,8 @@
         }
 
         async function finalizarVenda() {
-            if(carrinho.length === 0) return alert("O carrinho está vazio!");
-            if(!usuarioAtual) return alert("Faça login novamente.");
+            if(carrinho.length === 0) return alert("O carrinho est\u00E1 vazio!");
+            if(!usuarioAtual) return alert("Fa\u00E7a login novamente.");
             if(!turnoAtual) {
                 abrirModalAberturaTurno();
                 return alert("Inicie um turno antes de finalizar.");
@@ -2498,7 +2635,7 @@
 
             if(formaPagamento === 'Dinheiro') {
                 const recebido = parseFloat(document.getElementById('valor-recebido').value) || 0;
-                if(recebido < totalVenda) return alert("O valor recebido é menor que o total da venda!");
+                if(recebido < totalVenda) return alert("O valor recebido \u00E9 menor que o total da venda!");
             }
 
             const itensParaEnviar = [];
@@ -2546,7 +2683,7 @@
                 alert(resposta.mensagem || "Venda finalizada com sucesso!");
                 focarBusca();
             } catch(err) {
-                alert("Não foi possível finalizar a venda:\n" + err.message);
+                alert("N\u00E3o foi poss\u00EDvel finalizar a venda:\n" + err.message);
             } finally {
                 mostrarLoading(false);
             }
@@ -2555,7 +2692,7 @@
 
         /* TROCA POR DINHEIRO */
         function abrirModalTrocaDinheiro() {
-            if(!usuarioAtual) return alert("Faça login novamente.");
+            if(!usuarioAtual) return alert("Fa\u00E7a login novamente.");
             if(!turnoAtual) {
                 abrirModalAberturaTurno();
                 return alert("Inicie um turno antes de registrar a troca.");
@@ -2591,7 +2728,7 @@
             const taxa = Math.max(0, Number(document.getElementById('troca-taxa').value || 0));
             const totalRecebido = valorEntregue + taxa;
 
-            if(valorEntregue <= 0) return alert("Informe quanto será entregue em dinheiro.");
+            if(valorEntregue <= 0) return alert("Informe quanto ser\u00E1 entregue em dinheiro.");
 
             const ok = confirm(
                 "Confirmar troca?\n\n" +
@@ -2620,7 +2757,7 @@
                 if(ehAdmin()) carregarDashboard();
                 focarBusca();
             } catch(err) {
-                alert("Não foi possível registrar a troca:\n" + err.message);
+                alert("N\u00E3o foi poss\u00EDvel registrar a troca:\n" + err.message);
             } finally {
                 mostrarLoading(false);
             }
@@ -2689,27 +2826,27 @@
         }
 
         function enviarRelatorioWhatsApp() {
-            const mensagem = `📊 *Fechamento de Caixa - Carbura Bar*\n\n` +
-                `👤 Operador: ${usuarioAtual ? usuarioAtual.nome : ''}\n` +
-                `🕒 Turno: ${turnoAtual}\n\n` +
-                `📱 PIX: ${document.getElementById('rel-pix').innerText}\n` +
-                `💵 Dinheiro: ${document.getElementById('rel-dinheiro').innerText}\n` +
-                `💳 Débito: ${document.getElementById('rel-debito').innerText}\n` +
-                `💳 Crédito: ${document.getElementById('rel-credito').innerText}\n` +
-                `➕ Diversos: ${document.getElementById('rel-diversos').innerText}\n\n` +
-                `💰 *Total vendas: ${document.getElementById('rel-total').innerText}*\n\n` +
-                `💱 *Trocas por Dinheiro*\n` +
-                `📱 Pix recebido: ${document.getElementById('rel-troca-pix').innerText}\n` +
-                `💳 Débito recebido: ${document.getElementById('rel-troca-debito').innerText}\n` +
-                `💳 Crédito recebido: ${document.getElementById('rel-troca-credito').innerText}\n` +
-                `💵 Dinheiro entregue: ${document.getElementById('rel-troca-dinheiro').innerText}\n` +
-                `➕ Taxas: ${document.getElementById('rel-troca-taxas').innerText}\n` +
-                `💰 Total recebido nas trocas: ${document.getElementById('rel-troca-total').innerText}`;
+            const mensagem = `\uD83D\uDCCA *Fechamento de Caixa - Carbura Bar*\n\n` +
+                `\uD83D\uDC64 Operador: ${usuarioAtual ? usuarioAtual.nome : ''}\n` +
+                `\uD83D\uDD52 Turno: ${turnoAtual}\n\n` +
+                `\uD83D\uDCF1 PIX: ${document.getElementById('rel-pix').innerText}\n` +
+                `\uD83D\uDCB5 Dinheiro: ${document.getElementById('rel-dinheiro').innerText}\n` +
+                `\uD83D\uDCB3 D\u00E9bito: ${document.getElementById('rel-debito').innerText}\n` +
+                `\uD83D\uDCB3 Cr\u00E9dito: ${document.getElementById('rel-credito').innerText}\n` +
+                `\u2795 Diversos: ${document.getElementById('rel-diversos').innerText}\n\n` +
+                `\uD83D\uDCB0 *Total vendas: ${document.getElementById('rel-total').innerText}*\n\n` +
+                `\uD83D\uDCB1 *Trocas por Dinheiro*\n` +
+                `\uD83D\uDCF1 Pix recebido: ${document.getElementById('rel-troca-pix').innerText}\n` +
+                `\uD83D\uDCB3 D\u00E9bito recebido: ${document.getElementById('rel-troca-debito').innerText}\n` +
+                `\uD83D\uDCB3 Cr\u00E9dito recebido: ${document.getElementById('rel-troca-credito').innerText}\n` +
+                `\uD83D\uDCB5 Dinheiro entregue: ${document.getElementById('rel-troca-dinheiro').innerText}\n` +
+                `\u2795 Taxas: ${document.getElementById('rel-troca-taxas').innerText}\n` +
+                `\uD83D\uDCB0 Total recebido nas trocas: ${document.getElementById('rel-troca-total').innerText}`;
 
             window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(mensagem), '_blank');
         }
 
-        /* REPOSIÇÃO */
+        /* REPOSI\u00C7\u00C3O */
         function atualizarSelectRepositorio() {
             const sel = document.getElementById('rep-produto');
             if(!sel) return;
@@ -2744,7 +2881,7 @@
             const pEmbalagem = produtos.find(x => normalizarCodigoBarras(x.codigoEmbalagem) === cod);
             const pUnidade = produtos.find(x => normalizarCodigoBarras(x.codigo) === cod);
             const p = pEmbalagem || pUnidade;
-            if(!p) return alert('Código não encontrado.');
+            if(!p) return alert('C\u00F3digo n\u00E3o encontrado.');
 
             const sel = document.getElementById('rep-produto');
             if(![...sel.options].some(o => o.value === p.id)) adicionarOpcaoSelect(sel, p.id, p.nome);
@@ -2755,7 +2892,7 @@
                 const fator = Math.floor(Number(p.unidadesPorEmbalagem || 1));
                 if(!p.tipoEmbalagem || fator < 2) {
                     e.target.value = '';
-                    return alert('Código de embalagem encontrado, mas faltam Tipo de Embalagem ou Unidades por Embalagem no cadastro.');
+                    return alert('C\u00F3digo de embalagem encontrado, mas faltam Tipo de Embalagem ou Unidades por Embalagem no cadastro.');
                 }
                 selecionarTipoReposicao(p.tipoEmbalagem);
             } else {
@@ -2789,11 +2926,11 @@
             if(p.tipoEmbalagem && fator > 1) {
                 const tipo = p.tipoEmbalagem;
                 opcoes.innerHTML = `
-                    <button type="button" id="rep-btn-embalagem" onclick="selecionarTipoReposicao('${escaparAtributo(tipo)}')">📦 ${escaparHTML(pluralEmbalagem(tipo,2))}</button>
-                    <button type="button" id="rep-btn-unidade" onclick="selecionarTipoReposicao('Unidade')">🧃 Unidades</button>`;
+                    <button type="button" id="rep-btn-embalagem" onclick="selecionarTipoReposicao('${escaparAtributo(tipo)}')">\uD83D\uDCE6 ${escaparHTML(pluralEmbalagem(tipo,2))}</button>
+                    <button type="button" id="rep-btn-unidade" onclick="selecionarTipoReposicao('Unidade')">\uD83E\uDDC3 Unidades</button>`;
                 selecionarTipoReposicao(tipo);
             } else {
-                opcoes.innerHTML = '<button type="button" id="rep-btn-unidade" class="ativo" onclick="selecionarTipoReposicao(\'Unidade\')">🧃 Unidades</button>';
+                opcoes.innerHTML = '<button type="button" id="rep-btn-unidade" class="ativo" onclick="selecionarTipoReposicao(\'Unidade\')">\uD83E\uDDC3 Unidades</button>';
                 document.getElementById('rep-tipo').value = 'Unidade';
                 atualizarPreviewReposicao();
             }
@@ -2844,7 +2981,7 @@
             const texto = embalagem
                 ? qtd + ' ' + pluralEmbalagem(p.tipoEmbalagem,qtd).toLowerCase()
                 : qtd + (qtd === 1 ? ' unidade' : ' unidades');
-            if(!confirm('Confirmar reposição?\n\n' + p.nome + '\n+ ' + texto + '\nNovo estoque: ' + criarEstoqueVisual(p, Number(p.estoque || 0) + qtd * (embalagem ? Number(p.unidadesPorEmbalagem || 1) : 1)))) return;
+            if(!confirm('Confirmar reposi\u00E7\u00E3o?\n\n' + p.nome + '\n+ ' + texto + '\nNovo estoque: ' + criarEstoqueVisual(p, Number(p.estoque || 0) + qtd * (embalagem ? Number(p.unidadesPorEmbalagem || 1) : 1)))) return;
 
             mostrarLoading(true);
             try {
@@ -2852,18 +2989,18 @@
                     acao:'registrarReposicao', id:p.id, quantidade:qtd,
                     tipoReposicao:tipo, responsavel:usuarioAtual.nome
                 });
-                alert(r.mensagem || 'Reposição registrada!');
+                alert(r.mensagem || 'Reposi\u00E7\u00E3o registrada!');
                 await carregarDadosSemAbrirTurno();
                 document.getElementById('rep-busca').value = '';
                 atualizarSelectRepositorio();
             } catch(err) {
-                alert('Erro ao registrar reposição:\n' + err.message);
+                alert('Erro ao registrar reposi\u00E7\u00E3o:\n' + err.message);
             } finally {
                 mostrarLoading(false);
             }
         }
 
-        /* EDIÇÃO PRODUTO */        /* EDIÇÃO PRODUTO */
+        /* EDI\u00C7\u00C3O PRODUTO */        /* EDI\u00C7\u00C3O PRODUTO */
         function fecharModalEditarProduto() {
             document.getElementById('modal-editar-produto').style.display = 'none';
         }
@@ -2884,11 +3021,11 @@
             const info = document.getElementById('edit-info-especial');
             if(cat === 'Doses') {
                 info.style.display = 'block';
-                info.innerText = 'Dose: pode ser vendida sozinha. Na venda, energético e gelo são opcionais (máximo 1 de cada).';
+                info.innerText = 'Dose: pode ser vendida sozinha. Na venda, energ\u00E9tico e gelo s\u00E3o opcionais (m\u00E1ximo 1 de cada).';
                 selecionarModoVendaEdicao('unidade');
             } else if(cat === 'Combos') {
                 info.style.display = 'block';
-                info.innerText = 'Combo: na venda, o sistema carrega automaticamente os energéticos cadastrados (inclusive 2L) e os gelos. Pode escolher até 4 + 4.';
+                info.innerText = 'Combo: na venda, o sistema carrega automaticamente os energ\u00E9ticos cadastrados (inclusive 2L) e os gelos. Pode escolher at\u00E9 4 + 4.';
                 selecionarModoVendaEdicao('unidade');
             } else {
                 info.style.display = 'none';
@@ -2943,12 +3080,12 @@
             const modo = document.getElementById('edit-modo-venda').value;
             const tipo = document.getElementById('edit-prod-tipo-embalagem').value || 'Caixa';
             const fator = Math.max(1, Math.floor(Number(document.getElementById('edit-prod-unidades-embalagem').value || 1)));
-            document.getElementById('edit-label-preco-embalagem').innerText = 'Preço da ' + tipo + ' (R$)';
-            document.getElementById('edit-label-preco-solto').innerText = normalizarTexto(tipo) === 'maco' ? 'Preço do Cigarro Solto (R$)' : 'Preço Unitário / Solto (R$)';
+            document.getElementById('edit-label-preco-embalagem').innerText = 'Pre\u00E7o da ' + tipo + ' (R$)';
+            document.getElementById('edit-label-preco-solto').innerText = normalizarTexto(tipo) === 'maco' ? 'Pre\u00E7o do Cigarro Solto (R$)' : 'Pre\u00E7o Unit\u00E1rio / Solto (R$)';
             document.getElementById('edit-label-qtd-embalagens').innerText = pluralEmbalagem(tipo,2) + ' completas';
             document.getElementById('edit-label-qtd-soltas').innerText = normalizarTexto(tipo) === 'maco' ? 'Cigarros soltos' : 'Unidades soltas';
             const lblCodEdit = document.getElementById('edit-label-codigo-embalagem');
-            if(lblCodEdit) lblCodEdit.innerText = 'Código da ' + tipo + ' (coluna N)';
+            if(lblCodEdit) lblCodEdit.innerText = 'C\u00F3digo da ' + tipo + ' (coluna N)';
 
             let estoque = 0;
             if(modo === 'embalagem') {
@@ -2956,10 +3093,10 @@
                 const soltas = Math.max(0, Math.floor(Number(document.getElementById('edit-estoque-soltas').value || 0)));
                 estoque = emb * fator + soltas;
                 const pFake = {estoque:estoque,tipoEmbalagem:tipo,unidadesPorEmbalagem:fator};
-                document.getElementById('edit-resumo-estoque').innerHTML = 'Estoque que será salvo: <strong>' + escaparHTML(estoqueVisual(pFake)) + '</strong>';
+                document.getElementById('edit-resumo-estoque').innerHTML = 'Estoque que ser\u00E1 salvo: <strong>' + escaparHTML(estoqueVisual(pFake)) + '</strong>';
             } else {
                 estoque = Math.max(0, Math.floor(Number(document.getElementById('edit-estoque-unidades').value || 0)));
-                document.getElementById('edit-resumo-estoque').innerHTML = 'Estoque que será salvo: <strong>' + estoque + (estoque === 1 ? ' unidade' : ' unidades') + '</strong>';
+                document.getElementById('edit-resumo-estoque').innerHTML = 'Estoque que ser\u00E1 salvo: <strong>' + estoque + (estoque === 1 ? ' unidade' : ' unidades') + '</strong>';
             }
         }
 
@@ -2994,18 +3131,18 @@
                 precoSolto:modo === 'embalagem' ? precoUnidade : 0
             };
             if(!dados.nome) return alert('Informe o nome do produto.');
-            if(modo === 'embalagem' && (!tipo || fator < 2)) return alert('Informe a embalagem e quantas unidades vêm dentro.');
+            if(modo === 'embalagem' && (!tipo || fator < 2)) return alert('Informe a embalagem e quantas unidades v\u00EAm dentro.');
 
             const visualNovo = estoqueVisual({estoque:dados.estoque,tipoEmbalagem:dados.tipoEmbalagem,unidadesPorEmbalagem:dados.unidadesPorEmbalagem});
             const linhas = [
-                'Salvar alterações em ' + antigo.nome + '?', '',
+                'Salvar altera\u00E7\u00F5es em ' + antigo.nome + '?', '',
                 'Produto: ' + dados.nome,
-                'Venda: ' + (modo === 'embalagem' ? 'Unidade + ' + tipo : 'Só unidade'),
-                'Preço unitário: ' + formatarMoeda(precoUnidade),
-                'Código unidade: ' + (dados.codigo || 'não informado')
+                'Venda: ' + (modo === 'embalagem' ? 'Unidade + ' + tipo : 'S\u00F3 unidade'),
+                'Pre\u00E7o unit\u00E1rio: ' + formatarMoeda(precoUnidade),
+                'C\u00F3digo unidade: ' + (dados.codigo || 'n\u00E3o informado')
             ];
-            if(modo === 'embalagem') linhas.push('Código ' + tipo.toLowerCase() + ': ' + (dados.codigoEmbalagem || 'não informado'));
-            if(modo === 'embalagem') linhas.push('Preço da ' + tipo.toLowerCase() + ': ' + formatarMoeda(precoEmbalagem));
+            if(modo === 'embalagem') linhas.push('C\u00F3digo ' + tipo.toLowerCase() + ': ' + (dados.codigoEmbalagem || 'n\u00E3o informado'));
+            if(modo === 'embalagem') linhas.push('Pre\u00E7o da ' + tipo.toLowerCase() + ': ' + formatarMoeda(precoEmbalagem));
             linhas.push('Estoque: ' + visualNovo);
             if(!confirm(linhas.join('\n'))) return;
 
@@ -3028,7 +3165,7 @@
             mostrarLoading(true);
             try {
                 const r = await apiPost({acao:'deletarProduto', id:id});
-                alert(r.mensagem || "Produto excluído.");
+                alert(r.mensagem || "Produto exclu\u00EDdo.");
                 await carregarDadosSemAbrirTurno();
             } catch(err) {
                 alert("Erro ao excluir produto:\n" + err.message);
@@ -3057,19 +3194,19 @@
 
             if(cat === 'Doses') {
                 info.style.display = 'block';
-                info.innerText = 'Dose: pode ser vendida sozinha. Na venda, energético e gelo são opcionais (máximo 1 de cada).';
+                info.innerText = 'Dose: pode ser vendida sozinha. Na venda, energ\u00E9tico e gelo s\u00E3o opcionais (m\u00E1ximo 1 de cada).';
                 selecionarModoVendaCadastro('unidade');
                 forma.style.display = 'none';
             } else if(cat === 'Combos') {
                 info.style.display = 'block';
-                info.innerText = 'Combo: os adicionais não são cadastrados aqui. Na venda, o sistema mostra automaticamente os energéticos cadastrados (inclusive 2L) e os gelos, permitindo até 4 de cada.';
+                info.innerText = 'Combo: os adicionais n\u00E3o s\u00E3o cadastrados aqui. Na venda, o sistema mostra automaticamente os energ\u00E9ticos cadastrados (inclusive 2L) e os gelos, permitindo at\u00E9 4 de cada.';
                 selecionarModoVendaCadastro('unidade');
                 forma.style.display = 'none';
             } else {
                 info.style.display = 'none';
                 if(cat === 'Tabaco') {
                     selecionarModoVendaCadastro('embalagem');
-                    selecionarValor('cad-tipo-embalagem','Maço');
+                    selecionarValor('cad-tipo-embalagem','Ma\u00E7o');
                 }
             }
             atualizarCadastroHumano();
@@ -3079,22 +3216,22 @@
             const modo = document.getElementById('cad-modo-venda').value;
             const tipo = document.getElementById('cad-tipo-embalagem').value || 'Caixa';
             const fator = Math.max(1, Math.floor(Number(document.getElementById('cad-unidades-embalagem').value || 1)));
-            document.getElementById('cad-label-preco-embalagem').innerText = 'Preço da ' + tipo + ' (R$)';
-            document.getElementById('cad-label-preco-solto').innerText = normalizarTexto(tipo) === 'maco' ? 'Preço do Cigarro Solto (R$)' : 'Preço Unitário / Solto (R$)';
+            document.getElementById('cad-label-preco-embalagem').innerText = 'Pre\u00E7o da ' + tipo + ' (R$)';
+            document.getElementById('cad-label-preco-solto').innerText = normalizarTexto(tipo) === 'maco' ? 'Pre\u00E7o do Cigarro Solto (R$)' : 'Pre\u00E7o Unit\u00E1rio / Solto (R$)';
             document.getElementById('cad-label-qtd-embalagens').innerText = pluralEmbalagem(tipo,2) + ' completas';
             document.getElementById('cad-label-qtd-soltas').innerText = normalizarTexto(tipo) === 'maco' ? 'Cigarros soltos' : 'Unidades soltas';
             const lblCodCad = document.getElementById('cad-label-codigo-embalagem');
-            if(lblCodCad) lblCodCad.innerText = 'Código da ' + tipo + ' (coluna N)';
+            if(lblCodCad) lblCodCad.innerText = 'C\u00F3digo da ' + tipo + ' (coluna N)';
 
             if(modo === 'embalagem') {
                 const emb = Math.max(0, Math.floor(Number(document.getElementById('cad-estoque-embalagens').value || 0)));
                 const soltas = Math.max(0, Math.floor(Number(document.getElementById('cad-estoque-soltas').value || 0)));
                 const estoque = emb * fator + soltas;
                 const pFake = {estoque:estoque,tipoEmbalagem:tipo,unidadesPorEmbalagem:fator};
-                document.getElementById('cad-resumo-estoque').innerHTML = 'Será cadastrado: <strong>' + escaparHTML(estoqueVisual(pFake)) + '</strong>';
+                document.getElementById('cad-resumo-estoque').innerHTML = 'Ser\u00E1 cadastrado: <strong>' + escaparHTML(estoqueVisual(pFake)) + '</strong>';
             } else {
                 const estoque = Math.max(0, Math.floor(Number(document.getElementById('cad-estoque-unidades').value || 0)));
-                document.getElementById('cad-resumo-estoque').innerHTML = 'Será cadastrado: <strong>' + estoque + (estoque === 1 ? ' unidade' : ' unidades') + '</strong>';
+                document.getElementById('cad-resumo-estoque').innerHTML = 'Ser\u00E1 cadastrado: <strong>' + estoque + (estoque === 1 ? ' unidade' : ' unidades') + '</strong>';
             }
         }
 
@@ -3130,21 +3267,21 @@
             if(!ehAdmin()) return alert('Apenas Dona/Admin pode cadastrar produtos.');
             const d = dadosCadastroAtual();
             if(!d.nome) return alert('Informe o nome do produto.');
-            if(d._modo === 'embalagem' && (!d.tipoEmbalagem || d.unidadesPorEmbalagem < 2)) return alert('Informe a embalagem e quantas unidades vêm dentro.');
-            if(d._modo === 'embalagem' && d.precoSolto <= 0 && d.precoMaco <= 0) return alert('Informe os preços de venda.');
+            if(d._modo === 'embalagem' && (!d.tipoEmbalagem || d.unidadesPorEmbalagem < 2)) return alert('Informe a embalagem e quantas unidades v\u00EAm dentro.');
+            if(d._modo === 'embalagem' && d.precoSolto <= 0 && d.precoMaco <= 0) return alert('Informe os pre\u00E7os de venda.');
 
             const linhas = [
                 'Confirmar cadastro?', '',
                 d.nome,
                 'Categoria: ' + d.categoria,
-                'Venda: ' + (d._modo === 'embalagem' ? 'Unidade + ' + d.tipoEmbalagem : 'Só unidade'),
-                'Preço unitário: ' + formatarMoeda(d.preco),
-                'Código unidade: ' + (d.codigo || 'não informado')
+                'Venda: ' + (d._modo === 'embalagem' ? 'Unidade + ' + d.tipoEmbalagem : 'S\u00F3 unidade'),
+                'Pre\u00E7o unit\u00E1rio: ' + formatarMoeda(d.preco),
+                'C\u00F3digo unidade: ' + (d.codigo || 'n\u00E3o informado')
             ];
             if(d._modo === 'embalagem') {
                 linhas.push(d.tipoEmbalagem + ': ' + d.unidadesPorEmbalagem + ' unidades');
-                linhas.push('Preço da ' + d.tipoEmbalagem.toLowerCase() + ': ' + formatarMoeda(d.precoMaco));
-                linhas.push('Código ' + d.tipoEmbalagem.toLowerCase() + ': ' + (d.codigoEmbalagem || 'não informado'));
+                linhas.push('Pre\u00E7o da ' + d.tipoEmbalagem.toLowerCase() + ': ' + formatarMoeda(d.precoMaco));
+                linhas.push('C\u00F3digo ' + d.tipoEmbalagem.toLowerCase() + ': ' + (d.codigoEmbalagem || 'n\u00E3o informado'));
             }
             linhas.push('Estoque inicial: ' + estoqueVisual({estoque:d.estoque,tipoEmbalagem:d.tipoEmbalagem,unidadesPorEmbalagem:d.unidadesPorEmbalagem}));
             if(confirm(linhas.join('\n'))) salvarProdutoExec(d);
@@ -3195,12 +3332,12 @@
                     pin:pin,
                     status:'Ativo'
                 });
-                alert(r.mensagem || "Funcionário cadastrado.");
+                alert(r.mensagem || "Funcion\u00E1rio cadastrado.");
                 document.getElementById('func-nome').value = "";
                 document.getElementById('func-pin').value = "";
                 await carregarDadosSemAbrirTurno();
             } catch(err) {
-                alert("Erro ao salvar funcionário:\n" + err.message);
+                alert("Erro ao salvar funcion\u00E1rio:\n" + err.message);
             } finally {
                 mostrarLoading(false);
             }
@@ -3213,18 +3350,18 @@
             mostrarLoading(true);
             try {
                 const r = await apiPost({acao:'deletarFuncionario', nome:nome});
-                alert(r.mensagem || "Funcionário removido.");
+                alert(r.mensagem || "Funcion\u00E1rio removido.");
                 await carregarDadosSemAbrirTurno();
             } catch(err) {
-                alert("Erro ao remover funcionário:\n" + err.message);
+                alert("Erro ao remover funcion\u00E1rio:\n" + err.message);
             } finally {
                 mostrarLoading(false);
             }
         }
 
-        /* COMPATIBILIDADE DOS BOTÕES ANTIGOS */
+        /* COMPATIBILIDADE DOS BOT\u00D5ES ANTIGOS */
         function pedirSenhaParaAcao(acao, parametro=null) {
-            if(!ehAdmin()) return alert("Apenas Dona/Admin pode realizar esta ação.");
+            if(!ehAdmin()) return alert("Apenas Dona/Admin pode realizar esta a\u00E7\u00E3o.");
             if(acao === 'reposicao') return salvarReposicaoEstoqueExec();
             if(acao === 'salvarProduto') return salvarProdutoExec();
             if(acao === 'editarProduto') return abrirModalEditarProdutoExec(parametro);
@@ -3248,7 +3385,7 @@
             document.body.classList.remove('carrinho-aberto');
         }
 
-        /* SEGURANÇA DE HTML */
+        /* SEGURAN\u00C7A DE HTML */
         function escaparHTML(v) {
             return String(v ?? '').replace(/[&<>"']/g, c => ({
                 '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
