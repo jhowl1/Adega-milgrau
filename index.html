@@ -1778,7 +1778,7 @@
                 const r = await apiPost({acao:'autenticarUsuario', nome:nome, pin:pin});
                 usuarioAtual = r.usuario;
                 funcionarioAtualTurno = usuarioAtual.nome;
-                turnoAtual = "Sem turno";
+                turnoAtual = "";
                 salvarSessao();
                 document.getElementById('login-pin').value = "";
                 entrarNoSistema();
@@ -1797,19 +1797,16 @@
         function entrarNoSistema() {
             if(!usuarioAtual) return mostrarLogin();
             funcionarioAtualTurno = usuarioAtual.nome;
+            turnoAtual = "";
             document.getElementById('login-novo').style.display = 'none';
             document.getElementById('nome-operador-topo').innerText = usuarioAtual.nome;
             aplicarPermissoes();
             atualizarTurnoTopo();
             atualizarInterfaceCompleta();
-
-            if(!turnoAtual) abrirModalAberturaTurno();
-            else {
-                const btn = ehAdmin()
-                    ? document.querySelector('nav button.admin-only-nav')
-                    : document.querySelector('nav button[onclick*="vendas"]');
-                mudarAba(ehAdmin() ? 'inicio' : 'vendas', btn);
-            }
+            const btn = ehAdmin()
+                ? document.querySelector('nav button.admin-only-nav')
+                : document.querySelector('nav button[onclick*="vendas"]');
+            mudarAba(ehAdmin() ? 'inicio' : 'vendas', btn);
         }
 
         function sairSistema() {
@@ -1823,10 +1820,7 @@
         }
 
         function salvarSessao() {
-            localStorage.setItem('carbura_sessao', JSON.stringify({
-                usuario: usuarioAtual,
-                turno: turnoAtual
-            }));
+            localStorage.setItem('carbura_sessao', JSON.stringify({usuario: usuarioAtual}));
         }
 
         function recuperarSessao() {
@@ -1835,7 +1829,7 @@
                 if(s && s.usuario) {
                     usuarioAtual = s.usuario;
                     funcionarioAtualTurno = s.usuario.nome;
-                    turnoAtual = s.turno || "";
+                    turnoAtual = "";
                 }
             } catch(e) {}
         }
@@ -1854,44 +1848,31 @@
 
         /* TURNO */
         function abrirModalAberturaTurno() {
-            if(!usuarioAtual) return;
-            document.getElementById('modal-abertura-turno').style.display = 'flex';
-            if(turnoAtual) document.getElementById('select-turno-atual').value = turnoAtual;
+            if (document.getElementById('modal-abertura-turno')) document.getElementById('modal-abertura-turno').style.display = 'none';
         }
 
         function confirmarAberturaTurno() {
-            turnoAtual = document.getElementById('select-turno-atual').value;
-            funcionarioAtualTurno = usuarioAtual.nome;
-            salvarSessao();
-            atualizarTurnoTopo();
-            document.getElementById('modal-abertura-turno').style.display = 'none';
-
-            const btn = ehAdmin()
-                ? document.querySelector('nav button.admin-only-nav')
-                : document.querySelector('nav button[onclick*="vendas"]');
-            mudarAba(ehAdmin() ? 'inicio' : 'vendas', btn);
-            focarBusca();
-        }
-
-        function abrirModalTrocaOperador() {
-            abrirModalAberturaTurno();
-        }
-
-        function encerrarTurno() {
-            if(!turnoAtual) return alert("Nenhum turno aberto.");
-            if(!confirm("Encerrar o turno " + turnoAtual + "?")) return;
             turnoAtual = "";
             salvarSessao();
             atualizarTurnoTopo();
-            abrirModalAberturaTurno();
+            if (document.getElementById('modal-abertura-turno')) document.getElementById('modal-abertura-turno').style.display = 'none';
+        }
+
+        function abrirModalTrocaOperador() {
+            if (usuarioAtual) alert("Para trocar de operador, saia do sistema e faça login com outro funcionário.");
+        }
+
+        function encerrarTurno() {
+            turnoAtual = "";
+            salvarSessao();
+            atualizarTurnoTopo();
         }
 
         function atualizarTurnoTopo() {
-            document.getElementById('turno-topo').innerText = turnoAtual ? "Turno: " + turnoAtual : "Sem turno";
+            const topo = document.getElementById('turno-topo');
+            if (topo) topo.innerText = "Sem turno";
             const legenda = document.getElementById('fechamento-turno-legenda');
-            if(legenda) legenda.innerText = turnoAtual
-                ? usuarioAtual.nome + " \u2022 " + turnoAtual
-                : "Sem turno aberto.";
+            if (legenda) legenda.innerText = usuarioAtual ? usuarioAtual.nome : "Sem operador.";
         }
 
         /* NAVEGA\u00C7\u00C3O */
@@ -2666,7 +2647,6 @@
                 const resposta = await apiPost({
                     acao:'registrarVenda',
                     operador:usuarioAtual.nome,
-                    turno:turnoAtual,
                     pagamento:formaPagamento,
                     itens:itensParaEnviar
                 });
@@ -2689,11 +2669,6 @@
         /* TROCA POR DINHEIRO */
         function abrirModalTrocaDinheiro() {
             if(!usuarioAtual) return alert("Fa\u00E7a login novamente.");
-            if(!turnoAtual) {
-                abrirModalAberturaTurno();
-                return alert("Inicie um turno antes de registrar a troca.");
-            }
-
             document.getElementById('troca-forma').value = 'Pix';
             document.getElementById('troca-valor').value = '';
             document.getElementById('troca-taxa').value = '';
@@ -2717,7 +2692,7 @@
         }
 
         async function confirmarTrocaDinheiro() {
-            if(!usuarioAtual || !turnoAtual) return alert("Inicie um turno antes de registrar a troca.");
+            if(!usuarioAtual) return alert("Faça login novamente.");
 
             const forma = document.getElementById('troca-forma').value;
             const valorEntregue = Math.max(0, Number(document.getElementById('troca-valor').value || 0));
@@ -2741,7 +2716,6 @@
                 const r = await apiPost({
                     acao:'registrarTroca',
                     operador:usuarioAtual.nome,
-                    turno:turnoAtual,
                     formaPagamento:forma,
                     valorEntregue:valorEntregue,
                     taxa:taxa
@@ -2794,12 +2768,9 @@
         }
 
         async function atualizarRelatorioCaixa() {
-            if(!usuarioAtual || !turnoAtual) return;
+            if(!usuarioAtual) return;
             try {
-                const d = await apiGet('resumoTurno', {
-                    operador:usuarioAtual.nome,
-                    turno:turnoAtual
-                });
+                const d = await apiGet('resumoHoje', {operador:usuarioAtual.nome});
                 const r = d.resumo || {};
                 document.getElementById('rel-pix').innerText = formatarMoeda(r.pix);
                 document.getElementById('rel-dinheiro').innerText = formatarMoeda(r.dinheiro);
