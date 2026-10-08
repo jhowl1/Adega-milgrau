@@ -1653,7 +1653,7 @@
 
     <!-- SCRIPT DE FUNCIONAMENTO - VERS&#xC3;O NOVA SOBRE O ORIGINAL RECUPERADO -->
     <script>
-        const URL_API = "https://script.google.com/macros/s/AKfycbxvTtkwklpeZXt9ZRjEzmNH0Y9Zi5R3WOknh0Fx0ovuZEHZ1iCFQBXdi8teaTHlsJ2KGgSg9iVo7Ts_afPaADDPoEBbmx2j9aSjoPD0emMPC1vbiH6bD-ThNw8W1MCVLF1/exec";
+        const URL_API = "https://script.google.com/macros/s/AKfycbxvTtkwklpeZXt9ZRjEzmNH0Y9Zi5R3WOknh0Fx0ovuZEHZ1iCFQBXdi8teaTHlsJ2K/exec";
 
         let produtos = [];
         let carrinho = [];
@@ -1778,11 +1778,11 @@
                 const r = await apiPost({acao:'autenticarUsuario', nome:nome, pin:pin});
                 usuarioAtual = r.usuario;
                 funcionarioAtualTurno = usuarioAtual.nome;
-                turnoAtual = "";
+                turnoAtual = "Sem turno";
                 salvarSessao();
                 document.getElementById('login-pin').value = "";
                 entrarNoSistema();
-                abrirModalAberturaTurno();
+                // Turno não é obrigatório para entrar.
             } catch(err) {
                 alert(err.message);
             } finally {
@@ -2625,11 +2625,6 @@
         async function finalizarVenda() {
             if(carrinho.length === 0) return alert("O carrinho est\u00E1 vazio!");
             if(!usuarioAtual) return alert("Fa\u00E7a login novamente.");
-            if(!turnoAtual) {
-                abrirModalAberturaTurno();
-                return alert("Inicie um turno antes de finalizar.");
-            }
-
             const formaPagamento = document.getElementById('pagamento').value;
             const totalVenda = carrinho.reduce((acc,item) => acc + Number(item.preco || 0) * Number(item.qtd || 0),0);
 
@@ -2660,7 +2655,8 @@
                         preco:0,
                         qtd:Number(extra.qtd || 0),
                         tipoVenda:extra.tipoVenda || "Unidade",
-                        permitirPrecoZero:true
+                        permitirPrecoZero:true,
+                        naoDescontarEstoque:false
                     });
                 });
             });
